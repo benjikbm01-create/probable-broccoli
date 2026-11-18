@@ -1,0 +1,9 @@
+pluginManagement {
+    repositories {
+        maven { name = 'Fabric'; url = 'https://maven.fabricmc.net/' }
+        // Local retrying mirror (tools/maven-mirror.py) when FI_MIRROR=1, else Maven Central
+        if (System.getenv('FI_MIRROR') == '1') { maven { url = 'http://127.0.0.1:8765/central/'; allowInsecureProtocol = true } } else { mavenCentral() }
+        gradlePluginPortal()
+    }
+}
+rootProject.name = 'forgotten-island'

@@ -1,0 +1,16 @@
+{
+  "parent": "block/block",
+  "ambientocclusion": false,
+  "textures": { "particle": "forgotten_island:block/sun_mirror", "mirror": "forgotten_island:block/sun_mirror", "frame": "minecraft:block/polished_andesite", "brass": "minecraft:block/gold_block" },
+  "elements": [
+    { "from": [3, 0, 3], "to": [13, 2, 13],
+      "faces": { "up": {"texture": "#frame"}, "down": {"texture": "#frame"}, "north": {"texture": "#frame"}, "south": {"texture": "#frame"}, "east": {"texture": "#frame"}, "west": {"texture": "#frame"} } },
+    { "from": [7, 2, 7], "to": [9, 4, 9],
+      "faces": { "north": {"texture": "#brass"}, "south": {"texture": "#brass"}, "east": {"texture": "#brass"}, "west": {"texture": "#brass"}, "up": {"texture": "#brass"} } },
+    { "from": [0, 4, 7.5], "to": [16, 15, 8.5],
+      "rotation": { "origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true },
+      "faces": { "north": {"uv": [0, 1, 16, 12], "texture": "#mirror"}, "south": {"uv": [0, 1, 16, 12], "texture": "#mirror"},
+                 "east": {"uv": [0, 0, 1, 11], "texture": "#brass"}, "west": {"uv": [0, 0, 1, 11], "texture": "#brass"},
+                 "up": {"uv": [0, 0, 16, 1], "texture": "#brass"}, "down": {"uv": [0, 0, 16, 1], "texture": "#brass"} } }
+  ]
+}

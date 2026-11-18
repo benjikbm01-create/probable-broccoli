@@ -1,0 +1,4 @@
+{ "variants": {
+  "flip=false": { "model": "forgotten_island:block/sun_mirror" },
+  "flip=true":  { "model": "forgotten_island:block/sun_mirror", "y": 90 }
+} }

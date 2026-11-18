@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "forgotten_island",
+  "version": "${version}",
+  "name": "The Forgotten Island",
+  "description": "A handcrafted single-player adventure for Minecraft 1.21.1.",
+  "authors": ["The Forgotten Island team"],
+  "license": "All-Rights-Reserved (see ATTRIBUTION.md)",
+  "icon": "assets/forgotten_island/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.forgottenisland.ForgottenIsland"],
+    "client": ["dev.forgottenisland.client.ForgottenIslandClient"]
+  },
+  "mixins": ["forgotten_island.mixins.json", {"config": "forgotten_island.client.mixins.json", "environment": "client"}],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

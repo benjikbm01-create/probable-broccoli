@@ -1,0 +1,13 @@
+{
+  "item.forgotten_island.journal": "Traveller's Journal",
+  "item.forgotten_island.lantern_ember": "The Lantern Ember",
+  "block.forgotten_island.sun_mirror": "Sun Mirror",
+  "block.forgotten_island.rune_stone": "Rune Stone",
+  "block.forgotten_island.singing_stone": "Singing Stone",
+  "entity.forgotten_island.resident": "Islander",
+  "entity.forgotten_island.drowned_warden": "The Drowned Warden",
+  "key.categories.forgotten_island": "The Forgotten Island",
+  "key.forgotten_island.journal": "Open journal",
+  "key.forgotten_island.hint": "Show a hint",
+  "key.forgotten_island.hud": "Toggle objective tracker"
+}
