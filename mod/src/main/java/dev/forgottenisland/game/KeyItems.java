@@ -77,6 +77,7 @@ public final class KeyItems {
         def("logbook", Items.WRITTEN_BOOK, 1, "Logbook of the Meridian", Formatting.AQUA, true, book("logbook"), "Waterlogged, but legible.");
         def("maud_diary", Items.WRITTEN_BOOK, 1, "Maud Pike's Diary", Formatting.AQUA, false, book("maud_diary"));
         def("warden_journal", Items.WRITTEN_BOOK, 1, "The Warden's Log", Formatting.AQUA, false, book("warden_log"));
+        def("warden_last", Items.WRITTEN_BOOK, 1, "The Last Entry", Formatting.AQUA, false, book("warden_last"));
         def("page_1", Items.PAPER, 1, "Chronicle Page (I)", Formatting.YELLOW, true, null, "A torn page in faded ink.");
         def("page_2", Items.PAPER, 1, "Chronicle Page (II)", Formatting.YELLOW, true, null, "A torn page in faded ink.");
         def("page_3", Items.PAPER, 1, "Chronicle Page (III)", Formatting.YELLOW, true, null, "A torn page in faded ink.");

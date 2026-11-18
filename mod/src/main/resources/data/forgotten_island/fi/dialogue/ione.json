@@ -1,0 +1,766 @@
+{
+ "npc": "ione",
+ "start": [
+  {
+   "if": "festival && !ione_epi && ione_dating && dating >= 3",
+   "node": "epi_all"
+  },
+  {
+   "if": "festival && !ione_epi",
+   "node": "epi"
+  },
+  {
+   "if": "ione_dating && poly_open && !ione_poly_ack",
+   "node": "poly_ack"
+  },
+  {
+   "if": "ione_date_set && !ione_date_done && at:archive_roof && time:night",
+   "node": "date"
+  },
+  {
+   "if": "has:page_1 && has:page_2 && has:page_3 && ione_quest && !ione_quest_done",
+   "node": "pages_back"
+  },
+  {
+   "if": "!met.ione",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "(A woman with ink on her fingers and a pencil through her bun looks up from a towering stack of books.) Oh! You're — you're the person from the boat. You're real. Sorry. That's a strange thing to say. I'm Ione. Ione Calder. I keep the Archive. I keep everything, really, it's a sort of condition.",
+   "options": [
+    {
+     "text": "Hester said you might be able to read a seal.",
+     "to": "seal",
+     "if": "!letter_identified"
+    },
+    {
+     "text": "Nice to meet you, Ione.",
+     "to": "first2"
+    }
+   ]
+  },
+  "first2": {
+   "text": "Nice to meet you too. I'm writing that down. (She actually writes it down.) I write everything down. It's the only way anything stays, on Ysmere. Was there something you needed?",
+   "options": [
+    {
+     "text": "I have a letter with a strange seal.",
+     "to": "seal",
+     "if": "!letter_identified"
+    },
+    {
+     "text": "Just saying hello.",
+     "to": "hub",
+     "do": [
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "seal": {
+   "text": "A seal? Let me — oh. (She goes very pale.) That's a kestrel. That's the seal of the Wardens of Kestrel Keep. It can't be. Nothing has come out of the Keep in thirty years. Nobody even remembers who the last Warden was.",
+   "options": [
+    {
+     "text": "Why doesn't anyone remember?",
+     "to": "seal2"
+    }
+   ]
+  },
+  "seal2": {
+   "text": "Come and look. (She pulls down a huge ledger and opens it. Half of every page is blank, as if the ink simply let go.) Every record about the Keep fades. I copy them out; the copies fade too. Everything near the Keep goes first — names, dates, faces. Whatever is happening to Ysmere, it started up there.",
+   "options": [
+    {
+     "text": "Then I need to go to the Keep.",
+     "to": "seal3"
+    }
+   ]
+  },
+  "seal3": {
+   "text": "(She flips frantically through another book.) Here — one line that stayed. 'The road to the Keep runs where the stones sing, and the stones sing only to the old song.' The old road through the Mosswood. It's been choked with thorns for decades.",
+   "options": [
+    {
+     "text": "What old song?",
+     "to": "seal4"
+    }
+   ]
+  },
+  "seal4": {
+   "text": "I don't know! Which is maddening. But if anyone on this island knows an old song, it's Hester — she hums things nobody else has ever heard. And Wren, the ranger, knows every stone in that forest. Ask them both. And — please come back and tell me everything. I'll write it down.",
+   "options": [
+    {
+     "text": "I'll come back. I promise.",
+     "to": "end",
+     "do": [
+      "set:letter_identified",
+      "set:seek_song",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "text": "(Ione looks up from her writing and smiles, distractedly, then properly.) Hello again. What have you found? Tell me everything. Slowly. My hand cramps.",
+   "options": [
+    {
+     "text": "I read the Warden's log in the Keep.",
+     "to": "log",
+     "if": "found_log && !ione_log"
+    },
+    {
+     "text": "The great lantern is empty.",
+     "to": "lantern",
+     "if": "saw_empty_lantern && !ione_lantern"
+    },
+    {
+     "text": "I saw the murals beneath the Keep.",
+     "to": "murals",
+     "if": "echo_1 && !ione_murals"
+    },
+    {
+     "text": "You look worried.",
+     "to": "quest",
+     "if": "rel.ione >= 2 && !ione_quest && !ione_quest_done"
+    },
+    {
+     "text": "About the missing pages...",
+     "to": "quest_remind",
+     "if": "ione_quest && !ione_quest_done"
+    },
+    {
+     "text": "Read with me a while?",
+     "to": "time",
+     "if": "rel.ione >= 1 && !ione_time"
+    },
+    {
+     "text": "I brought you something.",
+     "to": "gift",
+     "if": "has:sea_lily && !ione_gift"
+    },
+    {
+     "text": "You're adorable when you're flustered.",
+     "to": "spark",
+     "if": "rel.ione >= 1 && !ione_spark && !ione_bestfriend"
+    },
+    {
+     "text": "About tonight, on the roof...",
+     "to": "date_remind",
+     "if": "ione_date_set && !ione_date_done"
+    },
+    {
+     "text": "Hello, you.",
+     "to": "gf",
+     "if": "ione_dating"
+    },
+    {
+     "text": "What's your Book of Days?",
+     "to": "book"
+    },
+    {
+     "text": "What do you think of Wren and Sol?",
+     "to": "friends",
+     "if": "met.wren || met.sol"
+    },
+    {
+     "text": "The fog has lifted.",
+     "to": "after",
+     "if": "lantern_lit && !ione_after"
+    },
+    {
+     "text": "Where should I go next?",
+     "to": "next",
+     "if": "letter_identified && !lantern_lit"
+    },
+    {
+     "text": "I'll let you work.",
+     "to": "end"
+    }
+   ]
+  },
+  "book": {
+   "text": "(She holds up a battered notebook, thick as a brick.) My Book of Days. Every night I write down what happened, and every morning I read it, before anything else. People here forget. Their own birthdays. Their friends. I decided, when I was nineteen, that I wasn't going to let it take me.",
+   "options": [
+    {
+     "text": "Does it work?",
+     "to": "book2"
+    }
+   ]
+  },
+  "book2": {
+   "text": "Mostly. (She hesitates.) Sometimes I read things I wrote and they feel like someone else's life. But I'd rather have someone else's life than none. Is that strange?",
+   "options": [
+    {
+     "text": "It's brave.",
+     "to": "hub",
+     "do": [
+      "rel:ione:1"
+     ]
+    },
+    {
+     "text": "Not strange at all.",
+     "to": "hub"
+    }
+   ]
+  },
+  "friends": {
+   "text": "Wren thinks I talk too much. She's correct, but she doesn't have to say it with her eyebrows. She's kind, underneath. Sol is... (She sighs.) Sol borrowed the harbour records to 'check a tide' four years ago and returned them with a drawing of a whale on the cover. A good whale. Still.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "next": {
+   "text": "(She consults three different notebooks.) If you're lost, Wendel Pike is surprisingly wise and very unsurprisingly slow. Or look in your journal; you'll have written more than you think. And if all else fails, come back here and I'll make you a list. I love making lists.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "log": {
+   "text": "(She listens, her pencil frozen.) He took the Ember. Below. To bring his family back from the — from the sea. (She sits down.) Grief made him break the one rule the Lanternwrights wrote on every wall. That's the most human thing I've ever heard, and the most terrible.",
+   "options": [
+    {
+     "text": "Do you know his name now?",
+     "to": "log2"
+    }
+   ]
+  },
+  "log2": {
+   "text": "No. It's on the page and it slides off my eyes. Edwin? Edgar? (She writes, and the ink seems to pale as she watches.) Find out what happened to him. Please. Someone should remember him properly.",
+   "options": [
+    {
+     "text": "I will.",
+     "to": "hub",
+     "do": [
+      "set:ione_log",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "lantern": {
+   "text": "Empty. Then the Ember is down there — wherever 'below' is. (She tears through a book of old plans.) There! The Keep was built over older halls. The Lanternwrights' halls. The way down would be the cistern, in the courtyard. It'll be locked. Wardens kept keys for everything.",
+   "options": [
+    {
+     "text": "I found the Warden's Key.",
+     "to": "hub",
+     "if": "has:warden_key",
+     "do": [
+      "set:ione_lantern",
+      "rel:ione:1"
+     ]
+    },
+    {
+     "text": "Then I'll find a key.",
+     "to": "hub",
+     "do": [
+      "set:ione_lantern",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "murals": {
+   "text": "You saw them. Real Lanternwright murals. (She grabs your hands, then lets go, embarrassed.) Sorry. Tell me exactly what they said. (You tell her. She writes furiously.) 'What the sea takes, the Wellspring keeps.' And 'Never carry the flame below.' Oh, the poor man.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub",
+     "do": [
+      "set:ione_murals",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "time": {
+   "text": "(Her face lights up.) Really? Most people's eyes glaze over by the second footnote. (You sit together by the window while she reads aloud from the Chronicle — sea monsters, a goat that became mayor, a feud over a lighthouse. She does all the voices.)",
+   "options": [
+    {
+     "text": "You're a wonderful storyteller.",
+     "to": "time2"
+    }
+   ]
+  },
+  "time2": {
+   "text": "(She blinks, and goes pink.) I am? Nobody's ever... I usually just read to the cat. The Archive cat. She's very critical. Thank you. That was the nicest afternoon I've had in — I'll check, but probably ever.",
+   "options": [
+    {
+     "text": "We should do it again.",
+     "to": "hub",
+     "do": [
+      "set:ione_time",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "spark": {
+   "text": "I'm not — I'm not flustered, I'm — (She drops her pencil. Picks it up. Drops it again.) This is a measured scholarly response to an unexpected stimulus.",
+   "options": [
+    {
+     "text": "Of course it is.",
+     "to": "spark2"
+    }
+   ]
+  },
+  "spark2": {
+   "text": "(She covers her face with a ledger. From behind it, muffled:) I'm writing this down later. In detail. Go away before I say something I'll have to cross out.",
+   "options": [
+    {
+     "text": "(Leave her blushing behind the ledger.)",
+     "to": "end",
+     "do": [
+      "set:ione_spark",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "gift": {
+   "text": "Is that a sea-lily? From Gull Rock? (She takes it as if it were spun glass.) They only grow on the very top of the stack. I've read about them since I was a girl. Nobody climbs up there. You climbed up there? For me?",
+   "options": [
+    {
+     "text": "For you.",
+     "to": "gift2"
+    }
+   ]
+  },
+  "gift2": {
+   "text": "(She opens her Book of Days and presses the flower carefully between the pages of today.) There. Now this day can't fade. Even if the ink does, the flower won't. Thank you. Truly.",
+   "options": [
+    {
+     "text": "You're welcome.",
+     "to": "hub",
+     "do": [
+      "take:sea_lily",
+      "set:ione_gift",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "quest": {
+   "text": "(She closes a book very gently.) Three pages are missing from the Chronicle. The oldest part — the founding of the village. I've searched for years. And the strangest thing: in my Book of Days, eleven years ago, I wrote 'Found the third page. Must not lose it.' And then nothing.",
+   "options": [
+    {
+     "text": "Where should I look?",
+     "to": "quest2"
+    }
+   ]
+  },
+  "quest2": {
+   "text": "Anywhere and everywhere, which is useless, I know. But — Wendel's wife borrowed half this library once. The Keep had its own copy of everything. And Pell's shop kept ledgers wrapped in old paper. If you happen to see a page in faded brown ink, with a lantern drawn in the corner...",
+   "options": [
+    {
+     "text": "I'll find all three.",
+     "to": "end",
+     "do": [
+      "set:ione_quest"
+     ]
+    },
+    {
+     "text": "I'll keep an eye out.",
+     "to": "end",
+     "do": [
+      "set:ione_quest"
+     ]
+    }
+   ]
+  },
+  "quest_remind": {
+   "text": "Three pages, faded brown ink, a little lantern drawn in each corner. Wendel's cottage, the Keep, and Pell's shop are my best guesses. (She ticks them off on inky fingers.)",
+   "options": [
+    {
+     "text": "Got it.",
+     "to": "hub"
+    }
+   ]
+  },
+  "pages_back": {
+   "text": "(You lay the three pages on her desk. She doesn't breathe.) The founding pages. All three. (She reads the first two quickly, hungrily. Then she reads the third, and her hand starts to shake.)",
+   "options": [
+    {
+     "text": "What is it?",
+     "to": "pages2"
+    }
+   ]
+  },
+  "pages2": {
+   "text": "This is my handwriting. Eleven years ago. I copied the third page because the original was crumbling, and I wrote a note in the margin: 'If you are reading this, Ione, you forgot. That's all right. Keep going.' (Her voice cracks.) I don't remember writing this. I don't remember any of it.",
+   "options": [
+    {
+     "text": "You kept going. That's what matters.",
+     "to": "pages3"
+    },
+    {
+     "text": "Hey. You're still here. You're still you.",
+     "to": "pages3"
+    }
+   ]
+  },
+  "pages3": {
+   "text": "(She laughs wetly.) I was so scared of forgetting myself that I never noticed I'd already left myself a note. (She looks at you for a long moment.) You found my lost pages. And you found that. Thank you. I don't know how to thank you.",
+   "options": [
+    {
+     "text": "I'm glad I could.",
+     "to": "pages_choice",
+     "do": [
+      "take:page_1",
+      "take:page_2",
+      "take:page_3",
+      "set:ione_quest_done",
+      "rel:ione:2"
+     ]
+    }
+   ]
+  },
+  "pages_choice": {
+   "text": "(She stands up very straight and folds her hands, like she's about to give a lecture, and then doesn't.) Can I ask you something unscholarly? What... are we? You and me?",
+   "options": [
+    {
+     "text": "I'd like us to be more than friends. If you want that too.",
+     "to": "romance",
+     "if": "ione_spark"
+    },
+    {
+     "text": "You're a dear friend, Ione. One of my best.",
+     "to": "friend"
+    }
+   ]
+  },
+  "romance": {
+   "text": "(She makes a small sound and sits down again.) Yes. I mean — yes, I'd like that. I've drafted this conversation eleven times in my head and none of the drafts were this good. Will you come up to the Archive roof tonight? I want to show you the stars properly. I've a telescope.",
+   "options": [
+    {
+     "text": "I'll be there.",
+     "to": "end",
+     "do": [
+      "set:ione_romance",
+      "set:ione_date_set"
+     ]
+    },
+    {
+     "text": "I'll be there. (Wait for nightfall.)",
+     "to": "end",
+     "do": [
+      "set:ione_romance",
+      "set:ione_date_set",
+      "event:wait_night:The lamps of Gullhaven come on one by one..."
+     ]
+    }
+   ]
+  },
+  "friend": {
+   "text": "(She smiles, and it's only a little bit sad, and then it's not sad at all.) Best friends. I'll write it down. In ink. The permanent kind. Wren will be furious that I've got a best friend before her.",
+   "options": [
+    {
+     "text": "I'm pretty sure Wren has Sol.",
+     "to": "end",
+     "do": [
+      "set:ione_bestfriend",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "date_remind": {
+   "text": "Tonight, on the roof. There's a ladder up through the top floor of the Archive. Bring nothing; I've brought everything. Including snacks. I made a list of snacks.",
+   "options": [
+    {
+     "text": "I'll go once it's dark.",
+     "to": "hub"
+    },
+    {
+     "text": "Let's not wait. (Pass the time until night.)",
+     "to": "end",
+     "do": [
+      "event:wait_night:The lamps of Gullhaven come on one by one..."
+     ]
+    }
+   ]
+  },
+  "date": {
+   "text": "(Ione is on the Archive roof with a brass telescope, a blanket, and an alarming quantity of biscuits.) You came. Sit — careful, that's the good blanket. Look up. The fog is thinnest straight above; you can see the stars from here, if you're patient.",
+   "options": [
+    {
+     "text": "(Sit beside her and look up.)",
+     "to": "date2"
+    }
+   ]
+  },
+  "date2": {
+   "text": "That one is the Heron. And there, the Stag, with the bright star in its antler. The Lanternwrights named them. (She traces them for you with an inky finger.) Every star chart on the mainland calls them something else. Here, we kept the old names. Even forgetting everything else, we kept those.",
+   "options": [
+    {
+     "text": "Like the lullaby.",
+     "to": "date3"
+    }
+   ]
+  },
+  "date3": {
+   "text": "Exactly like the lullaby. (She's quiet a while.) Can I confess something? Since you came, I've written about you every night in my Book of Days. Pages and pages. I told myself it was for the record. It isn't. I just couldn't bear the idea of forgetting you.",
+   "options": [
+    {
+     "text": "You won't forget me.",
+     "to": "date4"
+    }
+   ]
+  },
+  "date4": {
+   "text": "(She turns to you, starlight on her glasses.) I like you. I like you so much it's become a research topic. So I'm going to be very brave, for one sentence, and ask: would you like to be with me?",
+   "options": [
+    {
+     "text": "Yes, Ione. I'd love to be with you.",
+     "to": "yes",
+     "if": "dating == 0"
+    },
+    {
+     "text": "Before I answer — I'm already with someone. You should know that.",
+     "to": "poly",
+     "if": "dating >= 1"
+    },
+    {
+     "text": "I think we're better as friends.",
+     "to": "date_friend"
+    }
+   ]
+  },
+  "yes": {
+   "text": "(She kisses you, and it's careful and certain at the same time, and her glasses go crooked.) Good. That's — very good. That's going in the Book of Days in capital letters. (She settles against your shoulder with a biscuit.) Stay till the Heron sets?",
+   "options": [
+    {
+     "text": "(Stay with her.)",
+     "to": "end",
+     "do": [
+      "set:ione_dating",
+      "set:ione_date_done",
+      "rel:ione:2"
+     ]
+    }
+   ]
+  },
+  "poly": {
+   "text": "(She takes off her glasses and polishes them, which you've learned means she's thinking very hard.) I know. I keep records. You've been seen at the glade, and at the pier at sunset, and frankly the whole village has opinions. (She puts the glasses back on.) Thank you for telling me yourself.",
+   "options": [
+    {
+     "text": "I'd never want you to hear it from anyone else.",
+     "to": "poly2"
+    }
+   ]
+  },
+  "poly2": {
+   "text": "I've thought about this. Systematically. I don't need to be the only one. I need to be honest with you, and you with me, and all of us with each other. I'll talk to them. We'll have a proper conversation, with an agenda. (A small smile.) I'm going to make an agenda.",
+   "options": [
+    {
+     "text": "Then, knowing all of it — will you be with me?",
+     "to": "yes_poly"
+    }
+   ]
+  },
+  "yes_poly": {
+   "text": "Knowing all of it. Yes. (She kisses you, then laughs, flustered.) I'm going to need a bigger Book of Days. Stay till the Heron sets?",
+   "options": [
+    {
+     "text": "(Stay with her.)",
+     "to": "end",
+     "do": [
+      "set:ione_dating",
+      "set:ione_date_done",
+      "set:ione_poly_ack",
+      "set:poly_open",
+      "rel:ione:2"
+     ]
+    }
+   ]
+  },
+  "date_friend": {
+   "text": "(She nods, and pushes the biscuits toward you.) Then we'll be friends who look at stars. That's a very good kind of friend. The best kind, possibly. I'll check the literature.",
+   "options": [
+    {
+     "text": "(Stay and watch the stars with her.)",
+     "to": "end",
+     "do": [
+      "set:ione_bestfriend",
+      "set:ione_date_done",
+      "clear:ione_romance"
+     ]
+    }
+   ]
+  },
+  "poly_ack": {
+   "text": "(Ione hands you a sheet of paper titled AGENDA, with four items crossed out.) We talked. All of us. It went better than my contingency plans. Wren said 'fine' eleven times, which I've learned means she's happy. Sol cried, then denied it. So did I.",
+   "options": [
+    {
+     "text": "And you're all right?",
+     "to": "poly_ack2"
+    }
+   ]
+  },
+  "poly_ack2": {
+   "text": "I'm more than all right. I'm loved, and I know exactly where I stand, and nobody's hiding anything. That's all I ever wanted from anyone. (She tucks the agenda into her Book of Days.) For the record.",
+   "options": [
+    {
+     "text": "For the record.",
+     "to": "hub",
+     "do": [
+      "set:ione_poly_ack"
+     ]
+    }
+   ]
+  },
+  "gf": {
+   "text": "(She glows, then remembers she's at work and tries to look professional, which lasts about a second.) Hello. I was just writing about you. Not in a strange way. In a normal, devoted, slightly strange way.",
+   "options": [
+    {
+     "text": "What did you write?",
+     "to": "gf2"
+    },
+    {
+     "text": "I'll let you get back to it.",
+     "to": "end"
+    }
+   ]
+  },
+  "gf2": {
+   "text": "(She hides the page against her chest.) Classified. You can read it in fifty years, when we're old and I've forgotten everything except you. (She kisses your cheek.) Now go and do something heroic so I've got more to write.",
+   "options": [
+    {
+     "text": "Yes, ma'am.",
+     "to": "end"
+    }
+   ]
+  },
+  "after": {
+   "text": "(Ione is sitting on the Archive steps, her Book of Days unopened on her knees.) I didn't read it this morning. I woke up and I just... remembered yesterday. All on my own. (She laughs, astonished.) Do you know how long it's been since I trusted my own head?",
+   "options": [
+    {
+     "text": "You can trust it now.",
+     "to": "hub",
+     "do": [
+      "set:ione_after",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "epi": {
+   "text": "(Ione has a lantern in one hand and her Book of Days in the other, and for once she isn't writing.)",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_dating",
+     "if": "ione_dating"
+    },
+    {
+     "text": "...",
+     "to": "epi_friend",
+     "if": "!ione_dating && (ione_bestfriend || rel.ione >= 4)"
+    },
+    {
+     "text": "...",
+     "to": "epi_other",
+     "if": "!ione_dating && !ione_bestfriend && rel.ione < 4"
+    }
+   ]
+  },
+  "epi_dating": {
+   "text": "There you are. I've decided to start a new Chronicle. Volume one: 'The year the island was remembered.' You're on every page. (She stands on tiptoe and kisses you.) Dance with me? I'm terrible at it. I've read about it extensively.",
+   "options": [
+    {
+     "text": "(Dance with Ione.)",
+     "to": "end",
+     "do": [
+      "set:ione_epi",
+      "rel:ione:1"
+     ]
+    }
+   ]
+  },
+  "epi_friend": {
+   "text": "My best friend! Come here. I've written you into the Chronicle as 'the friend who stayed'. It's a very good entry. Footnotes and everything.",
+   "options": [
+    {
+     "text": "I'm honoured.",
+     "to": "end",
+     "do": [
+      "set:ione_epi"
+     ]
+    }
+   ]
+  },
+  "epi_other": {
+   "text": "Thank you. For everything. I'm going to write it all down — properly, so no one ever forgets again. Come by the Archive some time. I'll read you the good parts.",
+   "options": [
+    {
+     "text": "I will.",
+     "to": "end",
+     "do": [
+      "set:ione_epi"
+     ]
+    }
+   ]
+  },
+  "epi_all": {
+   "text": "(Wren, Ione and Sol are standing together by the well, and all three of them turn as you arrive. Sol is grinning, Ione is blushing, and Wren is trying very hard to look unimpressed.) Ione: 'Oh good. You're here. We've prepared remarks.'",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_all2"
+    }
+   ]
+  },
+  "epi_all2": {
+   "text": "Sol: 'We've decided you're not allowed to save any more islands without us.' Ione: 'It's in writing. I wrote it.' Wren: 'Shut up and come here.' (They pull you into the middle of them, and the lantern beam sweeps over all four of you.)",
+   "options": [
+    {
+     "text": "I love you. All of you.",
+     "to": "epi_all3"
+    }
+   ]
+  },
+  "epi_all3": {
+   "text": "(Ione's voice is very small and very sure.) We love you too. We discussed it. At length. There was an agenda. Now dance with us, before the music stops.",
+   "options": [
+    {
+     "text": "(Dance with them under the lantern.)",
+     "to": "end",
+     "do": [
+      "set:wren_epi",
+      "set:ione_epi",
+      "set:sol_epi",
+      "set:all_three_scene"
+     ]
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "text": "(scritch scritch scritch)"
+  },
+  {
+   "if": "met.ione",
+   "text": "Hm. Footnote four is wrong."
+  },
+  {
+   "if": "!lantern_lit",
+   "text": "Write it down or lose it."
+  },
+  {
+   "if": "ione_dating",
+   "text": "(Ione waves, then pretends she didn't.)"
+  },
+  {
+   "if": "lantern_lit",
+   "text": "I remembered breakfast. On my own!"
+  }
+ ]
+}

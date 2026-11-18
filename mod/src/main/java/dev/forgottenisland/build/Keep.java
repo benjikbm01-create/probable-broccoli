@@ -255,6 +255,7 @@ public final class Keep implements Layout.Part {
         r.sign(-8, G + 1, -199, "dark_oak_wall_sign[facing=south]", "E's drawing:", "Papa, Mama", "and me, and", "all the gulls");
         r.frame(-9, G + 2, -199, SOUTH, "minecraft:paper");
         b.wset(-6, G, -192, B.s("cobweb")); b.wset(-26, G + 4, -184, B.s("cobweb"));
+        r.container(-6, G, -186, "chest[facing=west]", "fi:page_2", "minecraft:paper*2", "minecraft:ink_sac");
         // stair to the upper floor (empty, dusty)
         for (int i = 0; i < 5; i++) b.wset(-26, G + i, -186 - i, B.s("dark_oak_stairs[facing=north]"));
         for (int i = 0; i < 4; i++) b.wset(-26, G + 5, -186 - i, B.s("air"));

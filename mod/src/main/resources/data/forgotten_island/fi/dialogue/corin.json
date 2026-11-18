@@ -1,0 +1,199 @@
+{
+ "npc": "corin",
+ "start": [
+  {
+   "if": "festival && !corin_epi",
+   "node": "fest"
+  },
+  {
+   "if": "has:keep_steel && corin_asked && !side_corin_done",
+   "node": "steel_back"
+  },
+  {
+   "if": "!met.corin",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "(A broad man with a soot-black beard looks up from the anvil, hammer still raised.) Hah! The famous stranger. Corin Ashby, smith, farrier, and the only man on Ysmere who can fix a kettle. Mind the sparks, they've no manners.",
+   "options": [
+    {
+     "text": "Nice to meet you, Corin.",
+     "to": "first2"
+    }
+   ]
+  },
+  "first2": {
+   "text": "You came in through the fog, they say. Shame you didn't bring any iron with you. Or coal. Or news. Ah, I'm only teasing. Welcome to Gullhaven. If anything of yours breaks, it's mine to mend.",
+   "options": [
+    {
+     "text": "I'll keep it in mind.",
+     "to": "hub",
+     "do": [
+      "rel:corin:1"
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "text": "What can I do for you?",
+   "options": [
+    {
+     "text": "I'm heading out of the village.",
+     "to": "sword",
+     "if": "letter_identified && !corin_sword"
+    },
+    {
+     "text": "Your forge seems cold.",
+     "to": "quest",
+     "if": "met.corin && letter_identified && !corin_asked"
+    },
+    {
+     "text": "About that Kestrel steel...",
+     "to": "quest_remind",
+     "if": "corin_asked && !side_corin_done && !has:keep_steel"
+    },
+    {
+     "text": "I saw a cat called Biscuit by the inn.",
+     "to": "biscuit",
+     "if": "!corin_biscuit"
+    },
+    {
+     "text": "What do you make of Wren?",
+     "to": "wren",
+     "if": "met.wren"
+    },
+    {
+     "text": "See you, Corin.",
+     "to": "end"
+    }
+   ]
+  },
+  "sword": {
+   "text": "Out where? (He follows your gaze toward the Mosswood, then north.) The Keep. I knew it. Nobody asks about roads unless they mean to walk them. Here. It's plain, but it's honest, and it'll hold an edge.",
+   "options": [
+    {
+     "text": "Thank you!",
+     "to": "hub",
+     "do": [
+      "give:smith_sword",
+      "set:corin_sword"
+     ]
+    }
+   ]
+  },
+  "quest": {
+   "text": "Cold? Friend, this forge hasn't been properly hot in thirty years. The good steel all came from the Keep. Kestrel steel, stamped with the bird. Stockpiles of it in the armoury up there, my old master said.",
+   "options": [
+    {
+     "text": "And if I brought you some?",
+     "to": "quest2"
+    }
+   ]
+  },
+  "quest2": {
+   "text": "(His eyes light up like coals catching.) Three ingots. Just three, and I could make you something worth carrying. Something with a story in it. Will you?",
+   "options": [
+    {
+     "text": "I'll look for it in the Keep's armoury.",
+     "to": "end",
+     "do": [
+      "set:corin_asked"
+     ]
+    },
+    {
+     "text": "Not right now.",
+     "to": "hub"
+    }
+   ]
+  },
+  "quest_remind": {
+   "text": "The armoury, up in the Keep. East side, if my master's stories were true. Three ingots stamped with a kestrel. Mind yourself — old places don't like visitors.",
+   "options": [
+    {
+     "text": "Right.",
+     "to": "hub"
+    }
+   ]
+  },
+  "steel_back": {
+   "text": "Is that — (He takes the ingots as if they were eggs.) Kestrel steel. Look at the grain on it. They don't make it like this any more. They don't make it at all. Give me the night.",
+   "options": [
+    {
+     "text": "Take your time.",
+     "to": "steel_back2"
+    }
+   ]
+  },
+  "steel_back2": {
+   "text": "(The forge roars properly for the first time in years. Hours pass, and the whole village comes to watch the sparks. At last he lays a blade across your hands.) The Kestrel Blade. It'll cut true and it won't dull. Carry it somewhere worth going.",
+   "options": [
+    {
+     "text": "It's magnificent. Thank you.",
+     "to": "end",
+     "do": [
+      "take:keep_steel:3",
+      "give:kestrel_blade",
+      "set:side_corin_done",
+      "rel:corin:2"
+     ]
+    }
+   ]
+  },
+  "biscuit": {
+   "text": "Biscuit! (He drops the hammer.) Grey, fat, judgemental? That's my cat! Been gone a week — trust her to move into the inn where the cooking's better. Ha! Thank you. I'll go and fail to bring her home.",
+   "options": [
+    {
+     "text": "Good luck.",
+     "to": "hub",
+     "do": [
+      "set:corin_biscuit",
+      "rel:corin:1"
+     ]
+    }
+   ]
+  },
+  "wren": {
+   "text": "Wren? Comes in every other day for arrowheads and tells me they're too heavy, too light, too pointy. I've known her since she was a sprout. She's lonelier than she lets on. Her mother was the ranger before her. Fine woman. Gone five years.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "fest": {
+   "text": "There you are! Grab a cup. No — two cups. You've earned the both of them. Clear skies over Ysmere and the forge burning hot. Life's good, friend. Life's good.",
+   "options": [
+    {
+     "text": "It really is.",
+     "to": "end",
+     "do": [
+      "set:corin_epi"
+     ]
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "text": "(clang) (clang) (clang)"
+  },
+  {
+   "if": "!side_corin_done",
+   "text": "Cold forge, cold heart..."
+  },
+  {
+   "if": "side_corin_done",
+   "text": "Kestrel steel! Ha!"
+  },
+  {
+   "if": "corin_biscuit",
+   "text": "Biscuit, come home, you traitor."
+  }
+ ]
+}

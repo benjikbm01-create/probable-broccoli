@@ -1,0 +1,428 @@
+{
+ "npc": "hester",
+ "start": [
+  {
+   "if": "festival && !hester_epi",
+   "node": "epi"
+  },
+  {
+   "if": "festival",
+   "node": "epi_after"
+  },
+  {
+   "if": "lantern_lit",
+   "node": "lantern"
+  },
+  {
+   "if": "!met.hester",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "Mind the step, it bites — oh! You're not from here. Nobody's not from here. Sit, sit before you fall down. You look like the sea chewed you and spat you out.",
+   "options": [
+    {
+     "text": "Tobias said you might have a room.",
+     "to": "first2"
+    },
+    {
+     "text": "Is it that obvious?",
+     "to": "first2"
+    }
+   ]
+  },
+  "first2": {
+   "text": "Hester Moss. This is the Gull & Lantern, and you're the first new face through that door in my whole life. Of course you'll have a room. The one at the top of the stairs, on the left, with the blue quilt. It's yours as long as you like.",
+   "options": [
+    {
+     "text": "I can't pay you much.",
+     "to": "first3"
+    },
+    {
+     "text": "Thank you. Really.",
+     "to": "first3"
+    }
+   ]
+  },
+  "first3": {
+   "text": "Pay me in news of the world, then. Here — bread, and take more whenever you need it. Now. Tobias doesn't send people to me for the bread. What's troubling you?",
+   "options": [
+    {
+     "text": "I received a letter. It brought me here.",
+     "to": "letter",
+     "do": [
+      "checkpoint:cp_inn",
+      "give:bread",
+      "set:room_given"
+     ]
+    }
+   ]
+  },
+  "letter": {
+   "text": "(She reads it twice, and goes very still.) 'Ysmere is fading from the world, and it is my fault.' Who on earth would write that? 'E.V.'... (A small, puzzled laugh.) My own initials are wrong by both letters. No, I don't know anyone it could be.",
+   "options": [
+    {
+     "text": "And the seal?",
+     "to": "letter2"
+    }
+   ]
+  },
+  "letter2": {
+   "text": "A kestrel. Pretty thing. Ione at the Archive would know it — she has a whole drawer of old seals and she labels the labels. She takes her tea here every afternoon, but you'll find her at the Archive most of the day.",
+   "options": [
+    {
+     "text": "I'll go and see her.",
+     "to": "hub"
+    }
+   ]
+  },
+  "hub": {
+   "text": "What can I get you, love?",
+   "options": [
+    {
+     "text": "Could I have something to eat?",
+     "to": "food"
+    },
+    {
+     "text": "I'd like to rest a while.",
+     "to": "rest"
+    },
+    {
+     "text": "Could you patch me up?",
+     "to": "heal"
+    },
+    {
+     "text": "Ione says you might know an old song.",
+     "to": "song",
+     "if": "seek_song && !knows_song"
+    },
+    {
+     "text": "Would you sing the old song again?",
+     "to": "song_again",
+     "if": "knows_song"
+    },
+    {
+     "text": "Tobias says you brew a Diver's Draught.",
+     "to": "draught",
+     "if": "tobias_asked && !side_tobias_done && !has:diver_draught"
+    },
+    {
+     "text": "Tell me about yourself.",
+     "to": "self"
+    },
+    {
+     "text": "Hester... do you own a silver locket?",
+     "to": "locket",
+     "if": "echo_3 && !hester_locket_talk"
+    },
+    {
+     "text": "How are you holding up?",
+     "to": "worry",
+     "if": "saw_empty_lantern"
+    },
+    {
+     "text": "I'll be off.",
+     "to": "end"
+    }
+   ]
+  },
+  "food": {
+   "text": "Here — still warm. No arguments.",
+   "options": [
+    {
+     "text": "Thank you!",
+     "to": "hub",
+     "do": [
+      "event:food"
+     ]
+    }
+   ]
+  },
+  "heal": {
+   "text": "Sit. Let me see. (She dabs something stinging on your scrapes and presses a cup into your hands.) There. You'll live, more's the pity for the gulls.",
+   "options": [
+    {
+     "text": "Thanks, Hester.",
+     "to": "hub",
+     "do": [
+      "event:heal"
+     ]
+    }
+   ]
+  },
+  "rest": {
+   "text": "Your room's up the stairs. Or I can just let you doze by the fire. How long?",
+   "options": [
+    {
+     "text": "Until evening.",
+     "to": "end",
+     "do": [
+      "event:wait_evening:You doze by the fire while the inn murmurs around you..."
+     ]
+    },
+    {
+     "text": "Until nightfall.",
+     "to": "end",
+     "do": [
+      "event:wait_night:The fire burns low. Outside, night settles over Gullhaven..."
+     ]
+    },
+    {
+     "text": "Until morning.",
+     "to": "end",
+     "do": [
+      "event:rest:You sleep soundly under the blue quilt."
+     ]
+    },
+    {
+     "text": "Never mind.",
+     "to": "hub"
+    }
+   ]
+  },
+  "song": {
+   "text": "The old song? You mean the lullaby. (She laughs, embarrassed.) It's silly. I hum it when I'm kneading. Mother Moss used to say I came to her already humming it, before I could even say my name.",
+   "options": [
+    {
+     "text": "Would you sing it for me?",
+     "to": "song2"
+    }
+   ]
+  },
+  "song2": {
+   "text": "(She closes her eyes and sings, softly, and the whole tavern seems to lean in to listen.)\n'Heron wakes the silver tide, / Stag walks where the shadows hide, / Owl keeps watch from the starlit tree, / Hare runs home, home to me.'",
+   "options": [
+    {
+     "text": "That's beautiful. Where does it come from?",
+     "to": "song3"
+    }
+   ]
+  },
+  "song3": {
+   "text": "I've no idea. No one else on the island knows it. I wrote it out once, for the children — the book's on the lectern by the door, if you want it. Why does Ione care about a lullaby?",
+   "options": [
+    {
+     "text": "She thinks it might open the old road.",
+     "to": "song4"
+    }
+   ]
+  },
+  "song4": {
+   "text": "A lullaby, opening roads? (She smiles, uncertain.) Well. Stranger things have washed in from the fog today. Take care in the Mosswood, love. Find Wren if you get lost — she'll pretend she's not glad to help.",
+   "options": [
+    {
+     "text": "I will.",
+     "to": "hub",
+     "do": [
+      "set:knows_song",
+      "set:stones_awake",
+      "give:lullaby",
+      "toast:The lullaby|Heron, stag, owl, hare."
+     ]
+    }
+   ]
+  },
+  "song_again": {
+   "text": "'Heron wakes the silver tide, / Stag walks where the shadows hide, / Owl keeps watch from the starlit tree, / Hare runs home, home to me.' (She hums the last line again, half to herself.)",
+   "options": [
+    {
+     "text": "Thank you.",
+     "to": "hub"
+    }
+   ]
+  },
+  "draught": {
+   "text": "For the Meridian? (She raises an eyebrow.) Tobias never asks anyone for anything. Here. Drink it just before you dive — you'll breathe like a seal for a good while. Bring the old grump something good back.",
+   "options": [
+    {
+     "text": "I'll do my best.",
+     "to": "hub",
+     "do": [
+      "give:diver_draught"
+     ]
+    }
+   ]
+  },
+  "self": {
+   "text": "Me? I was raised here by the Mosses, who had the inn before me. They took me in when I was small. Lost at sea, my real people, or so I was told. I don't remember them at all. I used to mind. Now I've got a whole village to look after instead.",
+   "options": [
+    {
+     "text": "You've never wanted to leave?",
+     "to": "self2"
+    },
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "self2": {
+   "text": "Leave? Where would I go, the fog? (She looks out of the window.) Sometimes I dream of a tall tower with a light at the top, and a man singing. Then I wake up and the bread's burning. Life on Ysmere.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "worry": {
+   "text": "Better for seeing you walk in on two feet. The whole village is whispering about you going up to that Keep. I keep setting an extra place at supper without meaning to. Silly.",
+   "options": [
+    {
+     "text": "Not silly at all.",
+     "to": "hub",
+     "do": [
+      "rel:hester:1"
+     ]
+    }
+   ]
+  },
+  "locket": {
+   "text": "(Her hand goes to her collar, where a chain glints.) How did you know? I've had it as long as I can remember. There's a gull on the front. It's never opened; the clasp is rusted. Why do you ask?",
+   "options": [
+    {
+     "text": "I think I know where you came from.",
+     "to": "locket2"
+    },
+    {
+     "text": "Just a feeling. Never mind.",
+     "to": "hub",
+     "do": [
+      "set:hester_locket_talk"
+     ]
+    }
+   ]
+  },
+  "locket2": {
+   "text": "(For a moment her face is a child's face, frightened and hopeful.) Don't. Please. Not until you're sure. I've wondered my whole life, and I couldn't bear it to be wrong.",
+   "options": [
+    {
+     "text": "When I'm sure, I'll tell you.",
+     "to": "hub",
+     "do": [
+      "set:hester_locket_talk",
+      "set:hester_hinted",
+      "rel:hester:1"
+     ]
+    }
+   ]
+  },
+  "lantern": {
+   "text": "(Hester is sitting on the inn steps, the light of the great lantern on her face. She's been crying.) Something's happening to me. Pieces. A wave. A hand slipping out of mine. A song. I don't understand.",
+   "options": [
+    {
+     "text": "I'll explain everything. Tonight.",
+     "to": "end"
+    }
+   ]
+  },
+  "epi": {
+   "text": "(Hester stands apart from the crowd, holding her locket — open now, a tiny painted face inside.) I remember. All of it. The storm, and the harbour wall, and my mother's hand. And my father, on the tower stairs, singing me that song.",
+   "options": [
+    {
+     "text": "Your father was the Warden.",
+     "to": "epi2"
+    }
+   ]
+  },
+  "epi2": {
+   "text": "Edric Vael. And I was Elspeth. Elsie. E.V. (She laughs and it breaks in the middle.) The letter. He wrote it, didn't he. Down there in the dark, all those years.",
+   "options": [
+    {
+     "text": "He did. I told him you'd lived.",
+     "to": "epi3_told",
+     "if": "told_warden"
+    },
+    {
+     "text": "He did. He's at peace now.",
+     "to": "epi3"
+    }
+   ]
+  },
+  "epi3_told": {
+   "text": "You told him. (She presses the locket to her lips.) Then the last thing he knew was that I was alive. Thank you. Thank you for giving him that.",
+   "options": [
+    {
+     "text": "He was so proud of you.",
+     "to": "epi4"
+    }
+   ]
+  },
+  "epi3": {
+   "text": "At peace. (She nods slowly.) I'll go up to the Keep when I'm ready, and sing for him. It's his song. He should have it back.",
+   "options": [
+    {
+     "text": "I'll go with you, if you like.",
+     "to": "epi4"
+    }
+   ]
+  },
+  "epi4": {
+   "text": "I'll still be Hester, you know. Hester Moss of the Gull & Lantern. I just get to be Elsie too, now. Go on — Tobias is lighting the harbour lamps at the end of the pier. Find anyone you want beside you, and come and watch.",
+   "options": [
+    {
+     "text": "Walk with me to the pier now.",
+     "to": "end",
+     "do": [
+      "set:hester_epi",
+      "event:credits"
+     ]
+    },
+    {
+     "text": "I'll see a few people first.",
+     "to": "end",
+     "do": [
+      "set:hester_epi"
+     ]
+    }
+   ]
+  },
+  "epi_after": {
+   "text": "The pier's waiting whenever you are, love. The lamps won't light themselves. Well — Tobias will light them. Grumbling.",
+   "options": [
+    {
+     "text": "Let's go to the pier.",
+     "to": "end",
+     "if": "!credits_seen",
+     "do": [
+      "event:credits"
+     ]
+    },
+    {
+     "text": "Something to eat first?",
+     "to": "food"
+    },
+    {
+     "text": "In a while.",
+     "to": "end"
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "if": "!lantern_lit",
+   "text": "Bread's in, kettle's on."
+  },
+  {
+   "if": "!lantern_lit",
+   "text": "Heron wakes the silver tide..."
+  },
+  {
+   "if": "knows_song",
+   "text": "Hare runs home, home to me..."
+  },
+  {
+   "if": "met.hester",
+   "text": "Mind you eat something!"
+  },
+  {
+   "if": "lantern_lit",
+   "text": "Papa... no. Hester, the soup."
+  }
+ ]
+}

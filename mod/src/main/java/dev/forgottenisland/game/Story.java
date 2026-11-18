@@ -84,6 +84,7 @@ public final class Story {
         ev("credits", (p, a) -> credits(p));
         ev("clear_weather", (p, a) -> p.getServerWorld().setWeather(24000, 0, false, false));
         ev("journal", (p, a) -> Journal.open(p));
+        ev("hint", (p, a) -> { DialogueManager.close(p); Journal.hint(p); });
     }
     private static void ev(String n, BiConsumer<ServerPlayerEntity, String> f) { EVENTS.put(n, f); }
     public static Set<String> eventNames() { return EVENTS.keySet(); }

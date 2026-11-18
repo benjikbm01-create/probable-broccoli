@@ -310,7 +310,17 @@ def corin():
     clothes(sk, "rleg", lambda f, x, y, w, h_: (apronc if f == "front" and y < 5 else (tr if R(f, x, y) % 11 else shade(tr, 0.85))))
     clothes(sk, "lleg", lambda f, x, y, w, h_: (apronc if f == "front" and y < 5 else (tr if R(f, x, y) % 11 else shade(tr, 0.85))))
     boots(sk, "#2a1d12", 4, "#140d08", "#3d2b1c")
-    sk.paint("jacket", "front", lambda f, x, y, w, h_: ("#7a7a7a" if (x, y) in ((2, 6), (5, 9)) else None))  # rivets / tools
+    # leather apron stands proud of the shirt (overlay), with rivets, a pocket and a hammer loop
+    def apron_o(f, x, y, w, h_):
+        if f == "front" and y >= 2: return "#7a7a7a" if (x, y) in ((1, 2), (6, 2), (3, 8), (4, 8)) else ("#4a2f1b" if (y == 7 and 2 <= x <= 5) else (apronc if (x + y) % 9 else apronD))
+        if f in ("left", "right") and y == 7: return "#3a2614"
+        if f == "back" and y == 7: return "#3a2614"
+        return None
+    sk.paint("jacket", "all", apron_o, noise=0.05)
+    sk.paint("rpants", "front", lambda f, x, y, w, h_: apronc if y < 5 else None, noise=0.05)
+    sk.paint("lpants", "front", lambda f, x, y, w, h_: apronc if y < 5 else None, noise=0.05)
+    for sl in ("rsleeve", "lsleeve"):
+        sk.paint(sl, ("front", "back", "left", "right"), lambda f, x, y, w, h_: "#c7bba2" if y == 3 else ("#3f2c1e" if y >= 9 else None), noise=0.04)
     return sk
 
 # ================================================================ WREN (ranger)  -- romance, most detail

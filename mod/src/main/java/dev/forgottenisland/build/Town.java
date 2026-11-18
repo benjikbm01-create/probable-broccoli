@@ -69,7 +69,7 @@ public final class Town implements Layout.Part {
         // store
         STORE.place("store_front", 5, 0, 13, 0);
         // chapel
-        CHAPEL.place("chapel_pew", 5, 0.5, 9, 180);
+        CHAPEL.place("chapel_pew", 5, 0.5, 10, 180);
         CHAPEL.place("chapel_altar", 7, 0, 4, 180);
         CHAPEL.place("graveyard", 19, 0, 12, 90);
         CHAPEL.place("maud_grave", 21, 0, 8, 180);
@@ -374,6 +374,7 @@ public final class Town implements Layout.Part {
         b.set(8, 0, 4, "birch_planks");
         b.set(1, 3, 10, "cobweb"); b.set(9, 3, 2, "cobweb"); b.set(1, 0, 10, "barrel[facing=up]");
         b.set(8, 0, 4, "barrel[facing=up]");
+        b.container(9, 0, 3, "chest[facing=west]", "fi:page_3", "minecraft:paper*3", "minecraft:string*2");
     }
 
     // ------------------------------------------------------------ chapel with bell tower and graveyard

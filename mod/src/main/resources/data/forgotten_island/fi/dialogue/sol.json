@@ -1,0 +1,696 @@
+{
+ "npc": "sol",
+ "start": [
+  {
+   "if": "festival && !sol_epi && sol_dating && dating >= 3",
+   "node": "epi_all"
+  },
+  {
+   "if": "festival && !sol_epi",
+   "node": "epi"
+  },
+  {
+   "if": "sol_sailing",
+   "node": "rock"
+  },
+  {
+   "if": "sol_dating && poly_open && !sol_poly_ack",
+   "node": "poly_ack"
+  },
+  {
+   "if": "sol_date_set && !sol_date_done && at:arrival && time:evening",
+   "node": "date"
+  },
+  {
+   "if": "has:brass_compass && has:sailcloth && has:mast_timber && sol_quest && !sol_quest_done",
+   "node": "parts_back"
+  },
+  {
+   "if": "!met.sol",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "(A woman with a red bandana and sawdust in her curls vaults over the hull she's working on and lands right in front of you.) A real boat! From OUT THERE? No — don't tell me — let me guess — the world's still round? There are still oranges? Please say there are still oranges.",
+   "options": [
+    {
+     "text": "There are still oranges.",
+     "to": "first2"
+    },
+    {
+     "text": "Hello to you too.",
+     "to": "first2"
+    }
+   ]
+  },
+  "first2": {
+   "text": "(She punches the air.) I KNEW it. Marisol Reyes. Sol. Boatwright, rigger, and the finest sailor on an island nobody can sail away from. Which is hilarious, if you think about it. I try not to think about it.",
+   "options": [
+    {
+     "text": "What are you building?",
+     "to": "first3"
+    }
+   ]
+  },
+  "first3": {
+   "text": "The Gull's Wing. (She slaps the hull fondly.) Every boat that sails into that fog comes back round to the pier. So I'm building one that won't. Don't ask me how. I'm still working out the how.",
+   "options": [
+    {
+     "text": "I hope you make it.",
+     "to": "hub",
+     "do": [
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "text": "(Sol wipes her hands on a rag that makes them dirtier.) Hey, stranger. Need something rigged, mended, or flirted with?",
+   "options": [
+    {
+     "text": "Why do you want to leave so badly?",
+     "to": "boat",
+     "if": "!sol_boat_talk"
+    },
+    {
+     "text": "You keep looking at the horizon.",
+     "to": "quest",
+     "if": "rel.sol >= 2 && !sol_quest && !sol_quest_done"
+    },
+    {
+     "text": "About the parts for the Gull's Wing...",
+     "to": "quest_remind",
+     "if": "sol_quest && !sol_quest_done"
+    },
+    {
+     "text": "Can I help with the hull?",
+     "to": "time",
+     "if": "rel.sol >= 1 && !sol_time"
+    },
+    {
+     "text": "I found an old star chart.",
+     "to": "gift",
+     "if": "has:star_chart && !sol_gift"
+    },
+    {
+     "text": "I'd let you rig me any day.",
+     "to": "spark",
+     "if": "rel.sol >= 1 && !sol_spark && !sol_bestfriend"
+    },
+    {
+     "text": "About our sail...",
+     "to": "date_remind",
+     "if": "sol_date_set && !sol_date_done"
+    },
+    {
+     "text": "Hey, gorgeous.",
+     "to": "gf",
+     "if": "sol_dating"
+    },
+    {
+     "text": "What do you think of Wren and Ione?",
+     "to": "friends",
+     "if": "met.wren || met.ione"
+    },
+    {
+     "text": "The fog's gone, Sol.",
+     "to": "after",
+     "if": "lantern_lit && !sol_after"
+    },
+    {
+     "text": "See you, Sol.",
+     "to": "end"
+    }
+   ]
+  },
+  "boat": {
+   "text": "(For once she stops moving.) Because I was born on a rock with sixty people, and every single one of them has stopped wondering what's out there. I haven't. I can't. Some nights I stand at the end of the pier and I can feel the whole world on the other side of that grey, waiting.",
+   "options": [
+    {
+     "text": "And if there's nothing out there?",
+     "to": "boat2"
+    },
+    {
+     "text": "Now you know there is. I came from it.",
+     "to": "boat3"
+    }
+   ]
+  },
+  "boat2": {
+   "text": "(A beat.) Then I'll have looked. That's the whole point. You don't get to know unless you look. (She grins, and it's a little crooked.) Besides — you came from somewhere. So there's at least one thing out there, and it's cute.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub",
+     "do": [
+      "set:sol_boat_talk",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "boat3": {
+   "text": "(She looks at you like you just handed her the moon.) You did. You actually did. Do you know how long I've waited for someone to prove me right? (She laughs.) Don't answer that. Tobias says I'm insufferable when I'm right.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub",
+     "do": [
+      "set:sol_boat_talk",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "friends": {
+   "text": "Wren's my best friend. We've been getting into trouble together since we could walk. She pretends she hates people, but she cried at a goat's birthday once. Ione? Ione and I fight about tide tables. She's always right. It's infuriating. I'd die for her.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "time": {
+   "text": "Ha! Grab that mallet. No, the other one. NO, the — perfect. (You spend the afternoon fitting planks while she sings filthy sea shanties and corrects your grip every five minutes. By sunset, a whole new strake is curved along the hull.)",
+   "options": [
+    {
+     "text": "We make a good team.",
+     "to": "time2"
+    }
+   ]
+  },
+  "time2": {
+   "text": "(She leans on the hull next to you, shoulder to shoulder, sweaty and pleased.) We do, don't we? You've got good hands. Slow, but good. (She bumps your hip.) Come back any time. I'll teach you the rest of the shanties. The really bad ones.",
+   "options": [
+    {
+     "text": "I'll hold you to that.",
+     "to": "hub",
+     "do": [
+      "set:sol_time",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "spark": {
+   "text": "(She stares at you, then bursts out laughing so hard she has to hold onto the hull.) Oh, you did NOT. That was terrible. That was magnificent. (She points a chisel at you, grinning.) Careful, stranger. Keep that up and I'll start flirting back properly.",
+   "options": [
+    {
+     "text": "I'm counting on it.",
+     "to": "spark2"
+    }
+   ]
+  },
+  "spark2": {
+   "text": "(She steps very close, smelling of salt and pine resin, and tucks a curl of wood shaving behind your ear.) Then consider yourself warned. (She winks and goes back to work, humming.)",
+   "options": [
+    {
+     "text": "(Walk away slightly dazed.)",
+     "to": "end",
+     "do": [
+      "set:sol_spark",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "gift": {
+   "text": "A star chart? A REAL one — with the sea lanes drawn in? (She unrolls it on the hull with shaking hands.) Look at this. Look! Routes to places I've never even heard of. Somebody sailed all of this. Where did you find it?",
+   "options": [
+    {
+     "text": "In a cave in the Keep's cliffs.",
+     "to": "gift2"
+    }
+   ]
+  },
+  "gift2": {
+   "text": "(She rolls it up, very carefully, and holds it against her chest like a cat.) This is going in the Gull's Wing's chart table. And when I sail her out of here, it'll be your chart that shows me the way. Thank you. Really. Really really.",
+   "options": [
+    {
+     "text": "It's yours.",
+     "to": "hub",
+     "do": [
+      "take:star_chart",
+      "set:sol_gift",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "quest": {
+   "text": "(She sighs.) She's not finished. The Gull's Wing. I need three things I can't make on this rock, and I can't leave to get them, because — well. Fog. Ha.",
+   "options": [
+    {
+     "text": "Tell me what you need.",
+     "to": "quest2"
+    }
+   ]
+  },
+  "quest2": {
+   "text": "A brass ship's compass — a proper one; mine's a toy. Sailcloth — real canvas, not stitched-together blankets. And a mast spar of straight heartwood pine. There's no tree in the village straight enough.",
+   "options": [
+    {
+     "text": "Any idea where to look?",
+     "to": "quest3"
+    }
+   ]
+  },
+  "quest3": {
+   "text": "Old Tobias's boat, the Meridian, sank in the bay with a fine compass aboard. The Keep had stores of everything, sailcloth included, if anyone could get up there. And Wren swore she'd cut me a spar from the great fallen pine in the north-west wood. She probably did and forgot to tell me. She does that.",
+   "options": [
+    {
+     "text": "I'll get you all three.",
+     "to": "end",
+     "do": [
+      "set:sol_quest"
+     ]
+    },
+    {
+     "text": "I'll keep an eye out.",
+     "to": "end",
+     "do": [
+      "set:sol_quest"
+     ]
+    }
+   ]
+  },
+  "quest_remind": {
+   "text": "Brass compass — the Meridian, in the bay. Sailcloth — the Keep's stores. Heartwood spar — the fallen pine, north-west Mosswood. Wren might have left it waiting. (She ticks them off on tarry fingers.)",
+   "options": [
+    {
+     "text": "Got it.",
+     "to": "hub"
+    }
+   ]
+  },
+  "parts_back": {
+   "text": "(You set the compass, the canvas and the spar down on the boathouse floor. Sol stares at them, then at you, then at them.) You got them. All of them. (She picks up the compass and the needle swings, steady and true.) She's going to fly.",
+   "options": [
+    {
+     "text": "Let's finish her.",
+     "to": "parts2"
+    }
+   ]
+  },
+  "parts2": {
+   "text": "(Three days later, the Gull's Wing sits on the slipway with her mast stepped and her sail bent on. Sol walks around her twice without speaking.) She's done. She's actually done. And the fog's still out there. (She laughs, and it wobbles.) I don't even know if she'll beat it. But she's done.",
+   "options": [
+    {
+     "text": "She will. And so will you.",
+     "to": "parts3"
+    }
+   ]
+  },
+  "parts3": {
+   "text": "(She turns to you, eyes bright.) I couldn't have finished her without you. Nobody's ever believed in the stupid boat except me. (She wipes her eyes, leaving a tar smudge.) So. Stranger. What are we, you and me?",
+   "options": [
+    {
+     "text": "I want to be more than friends, Sol.",
+     "to": "romance",
+     "if": "sol_spark",
+     "do": [
+      "take:brass_compass",
+      "take:sailcloth",
+      "take:mast_timber",
+      "set:sol_quest_done",
+      "rel:sol:2"
+     ]
+    },
+    {
+     "text": "You're one of my best friends, Sol.",
+     "to": "friend",
+     "do": [
+      "take:brass_compass",
+      "take:sailcloth",
+      "take:mast_timber",
+      "set:sol_quest_done",
+      "rel:sol:2"
+     ]
+    }
+   ]
+  },
+  "romance": {
+   "text": "(She grins so wide it must hurt.) I knew it. I KNEW it. (She grabs your face and kisses your forehead, smack.) No. Not like this, covered in tar. Meet me at the end of the long pier at sunset. I'm taking you out on the water. Properly.",
+   "options": [
+    {
+     "text": "It's a date.",
+     "to": "end",
+     "do": [
+      "set:sol_romance",
+      "set:sol_date_set"
+     ]
+    },
+    {
+     "text": "It's a date. (Wait until evening.)",
+     "to": "end",
+     "do": [
+      "set:sol_romance",
+      "set:sol_date_set",
+      "event:wait_evening:The afternoon slides toward a golden evening..."
+     ]
+    }
+   ]
+  },
+  "friend": {
+   "text": "(She whoops and hugs you so hard your feet leave the floor.) Best friends! Wren's going to be SO jealous. Actually she won't, she'll just make a face. I love her face. I love your face. I love everyone today!",
+   "options": [
+    {
+     "text": "(Laugh and hug her back.)",
+     "to": "end",
+     "do": [
+      "set:sol_bestfriend",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "date_remind": {
+   "text": "End of the long pier, at sunset. Wear something you don't mind getting splashed. Bring nothing. I've packed everything. Including the good cider.",
+   "options": [
+    {
+     "text": "I'll meet you there this evening.",
+     "to": "hub"
+    },
+    {
+     "text": "Let's not wait. (Pass the time until evening.)",
+     "to": "end",
+     "do": [
+      "event:wait_evening:The afternoon slides toward a golden evening..."
+     ]
+    }
+   ]
+  },
+  "date": {
+   "text": "(Sol is sitting on the end of the long pier with her feet dangling over the water, a little rowboat tied below.) There you are. Get in. I'm stealing you.",
+   "options": [
+    {
+     "text": "(Climb into the boat.)",
+     "to": "end",
+     "do": [
+      "event:sail_out"
+     ]
+    },
+    {
+     "text": "Give me a minute.",
+     "to": "end"
+    }
+   ]
+  },
+  "rock": {
+   "text": "(Gull Rock. The sea is gold and the sky is going pink, and the fog sits on the horizon like a sleeping animal. Sol has a blanket spread on the warm stone and two bottles of cider.) Isn't it stupid? The most beautiful place in the world and I can see the edge of it from here.",
+   "options": [
+    {
+     "text": "It's not stupid.",
+     "to": "rock2"
+    }
+   ]
+  },
+  "rock2": {
+   "text": "I come out here when I can't stand it. Just to look. (She passes you a bottle.) You know what I figured out? I've spent my whole life wanting to be somewhere else. And today I don't. Today I want to be exactly here. (She glances at you.) Guess why.",
+   "options": [
+    {
+     "text": "The cider?",
+     "to": "rock3"
+    },
+    {
+     "text": "Tell me.",
+     "to": "rock3"
+    }
+   ]
+  },
+  "rock3": {
+   "text": "(She laughs, then stops laughing.) You. Obviously you, you absolute barnacle. You came in out of the fog and made me want to stay put. That's the most terrifying thing anyone's ever done to me. (She takes your hand.) So — will you be mine?",
+   "options": [
+    {
+     "text": "Yes, Sol. I'm yours.",
+     "to": "yes",
+     "if": "dating == 0"
+    },
+    {
+     "text": "Before I answer — I'm already with someone. You deserve to know.",
+     "to": "poly",
+     "if": "dating >= 1"
+    },
+    {
+     "text": "I think we're better as friends.",
+     "to": "rock_friend"
+    }
+   ]
+  },
+  "yes": {
+   "text": "(She kisses you as the sun touches the water, salty and laughing and sure.) Good. GOOD. I'm going to tell absolutely everyone. I'm going to tell the gulls. (She lies back on the blanket and pulls you down beside her.) Let's watch the sun go. Then I'll row us home.",
+   "options": [
+    {
+     "text": "(Watch the sunset with her.)",
+     "to": "rock_end",
+     "do": [
+      "set:sol_dating",
+      "set:sol_date_done",
+      "rel:sol:2"
+     ]
+    }
+   ]
+  },
+  "poly": {
+   "text": "(She raises her eyebrows, then grins.) I know, you lovely idiot. The whole village knows. Tobias knows, and he doesn't know anything. (She squeezes your hand.) And you told me yourself, out here, instead of letting me find out. That's what matters.",
+   "options": [
+    {
+     "text": "You're really all right with it?",
+     "to": "poly2"
+    }
+   ]
+  },
+  "poly2": {
+   "text": "I grew up on a rock with sixty people. I've got enough love in me to sink a ship. Why would I want you to have less of it? (She grins.) As long as everybody's honest and nobody's hurt, I'm in. I'll talk to them myself. Probably loudly. Now ask me again.",
+   "options": [
+    {
+     "text": "Sol — knowing all of it — will you be mine?",
+     "to": "yes_poly"
+    }
+   ]
+  },
+  "yes_poly": {
+   "text": "(She kisses you as the sun touches the water.) Knowing all of it. Yes, yes, a hundred times. Now shut up and watch the sunset with me, then I'll row us home.",
+   "options": [
+    {
+     "text": "(Watch the sunset with her.)",
+     "to": "rock_end",
+     "do": [
+      "set:sol_dating",
+      "set:sol_date_done",
+      "set:sol_poly_ack",
+      "set:poly_open",
+      "rel:sol:2"
+     ]
+    }
+   ]
+  },
+  "rock_friend": {
+   "text": "(She's quiet for a moment, then clinks her bottle against yours.) Then you're my best friend, and you're stuck with me forever, and you have to come sailing with me when the fog lifts. That's the deal. No take-backs.",
+   "options": [
+    {
+     "text": "No take-backs.",
+     "to": "rock_end",
+     "do": [
+      "set:sol_bestfriend",
+      "set:sol_date_done",
+      "clear:sol_romance"
+     ]
+    }
+   ]
+  },
+  "rock_end": {
+   "text": "(The sun goes down in a blaze. The first stars come out. Sol rows you home through the dark, singing softly, while the harbour lamps of Gullhaven draw closer.)",
+   "options": [
+    {
+     "text": "(Return to the harbour.)",
+     "to": "end",
+     "do": [
+      "event:sail_back"
+     ]
+    }
+   ]
+  },
+  "poly_ack": {
+   "text": "(Sol throws an arm around your neck.) So! We had The Talk. Capital T. Ione made an agenda. AN AGENDA. Wren said 'fine' about fifty times. I cried, and I'll deny it. (Softer.) It was good. Really good. Nobody's hiding anything, and nobody's losing anything.",
+   "options": [
+    {
+     "text": "Thank you, Sol.",
+     "to": "poly_ack2"
+    }
+   ]
+  },
+  "poly_ack2": {
+   "text": "Don't thank me, just keep being honest with all of us. (She kisses your cheek, loudly.) And bring cider next time.",
+   "options": [
+    {
+     "text": "Deal.",
+     "to": "hub",
+     "do": [
+      "set:sol_poly_ack"
+     ]
+    }
+   ]
+  },
+  "gf": {
+   "text": "(She vaults the hull, kisses you, and vaults back before you can react.) Hello, handsome-beautiful-whatever-you-like. I'm working. Distract me for exactly one minute.",
+   "options": [
+    {
+     "text": "(Distract her for exactly one minute.)",
+     "to": "gf2"
+    },
+    {
+     "text": "I'll let you work.",
+     "to": "end"
+    }
+   ]
+  },
+  "gf2": {
+   "text": "(One minute becomes ten. Tobias walks past the boathouse door, sees you both, turns round and walks away again, muttering about kids these days.) ...Right. Back to work. (She doesn't move.)",
+   "options": [
+    {
+     "text": "(Back to the hub.)",
+     "to": "hub"
+    }
+   ]
+  },
+  "after": {
+   "text": "(Sol is on the end of the pier, staring at the empty, endless, sparkling sea.) It's gone. The fog. There's just — sea. All the way. I can see the mainland, I think. That smudge. Is that the mainland?",
+   "options": [
+    {
+     "text": "That's the mainland.",
+     "to": "after2"
+    }
+   ]
+  },
+  "after2": {
+   "text": "(She whoops so loudly the gulls scatter.) The Gull's Wing sails at the next fair wind. And you're coming. That's not a question. Oh — I'm so happy I could punch someone.",
+   "options": [
+    {
+     "text": "Please don't punch me.",
+     "to": "hub",
+     "do": [
+      "set:sol_after",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "epi": {
+   "text": "(Sol has a garland of sea-pinks in her curls and a cup in each hand.)",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_dating",
+     "if": "sol_dating"
+    },
+    {
+     "text": "...",
+     "to": "epi_friend",
+     "if": "!sol_dating && (sol_bestfriend || rel.sol >= 4)"
+    },
+    {
+     "text": "...",
+     "to": "epi_other",
+     "if": "!sol_dating && !sol_bestfriend && rel.sol < 4"
+    }
+   ]
+  },
+  "epi_dating": {
+   "text": "THERE you are. Here, drink this, then dance with me, then come sailing with me tomorrow and the day after and every day after that. (She kisses you, laughing.) The whole world's out there now. I want to see it with you.",
+   "options": [
+    {
+     "text": "(Dance with Sol.)",
+     "to": "end",
+     "do": [
+      "set:sol_epi",
+      "rel:sol:1"
+     ]
+    }
+   ]
+  },
+  "epi_friend": {
+   "text": "Best friend! Here, take a cup. The Gull's Wing sails at dawn, and you're crew. Don't argue. I've already written your name on a hammock.",
+   "options": [
+    {
+     "text": "Aye aye, captain.",
+     "to": "end",
+     "do": [
+      "set:sol_epi"
+     ]
+    }
+   ]
+  },
+  "epi_other": {
+   "text": "Hey, stranger who isn't a stranger any more. You did it. You actually did it. When the Gull's Wing sails, come and wave us off, yeah?",
+   "options": [
+    {
+     "text": "I wouldn't miss it.",
+     "to": "end",
+     "do": [
+      "set:sol_epi"
+     ]
+    }
+   ]
+  },
+  "epi_all": {
+   "text": "(Wren, Ione and Sol are standing together by the well, and all three of them turn as you arrive. Sol is grinning, Ione is blushing, and Wren is trying very hard to look unimpressed.) Sol: 'There's our hero! We've had a meeting.'",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_all2"
+    }
+   ]
+  },
+  "epi_all2": {
+   "text": "Sol: 'We've decided you're not allowed to save any more islands without us.' Ione: 'It's in writing. I wrote it.' Wren: 'Shut up and come here.' (They pull you into the middle of them, and the lantern beam sweeps over all four of you.)",
+   "options": [
+    {
+     "text": "I love you. All of you.",
+     "to": "epi_all3"
+    }
+   ]
+  },
+  "epi_all3": {
+   "text": "(Sol throws her arms around all three of you at once.) Good, because you're stuck with us. Crew of four on the Gull's Wing. Now DANCE.",
+   "options": [
+    {
+     "text": "(Dance with them under the lantern.)",
+     "to": "end",
+     "do": [
+      "set:wren_epi",
+      "set:ione_epi",
+      "set:sol_epi",
+      "set:all_three_scene"
+     ]
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "text": "Haul away, haul away..."
+  },
+  {
+   "if": "!lantern_lit",
+   "text": "One day, fog. One day."
+  },
+  {
+   "if": "sol_quest_done",
+   "text": "She's done. She's really done!"
+  },
+  {
+   "if": "sol_dating",
+   "text": "(Sol blows you a kiss.)"
+  },
+  {
+   "if": "lantern_lit",
+   "text": "Fair winds tomorrow!"
+  }
+ ]
+}

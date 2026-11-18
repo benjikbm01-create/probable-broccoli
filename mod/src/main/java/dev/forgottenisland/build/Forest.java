@@ -50,7 +50,7 @@ public final class Forest implements Layout.Part {
         W.place("forest_cross", 2, Terrain.stand(2, 94), 94, 0);
         // glade
         W.place("glade_center", GLADE[0], GLADE_Y, GLADE[1], 0);
-        W.place("glade_date", GLADE[0] + 4, GLADE_Y + 0.5, GLADE[1] - 4, 225);
+        W.place("glade_date", GLADE[0] + 4, GLADE_Y + 1.0, GLADE[1] - 4, 225);
         W.place("glade_player", GLADE[0] + 2, GLADE_Y, GLADE[1] - 2, 45);
         W.zone("glade", GLADE[0] - 10, GLADE_Y - 3, GLADE[1] - 9, GLADE[0] + 10, GLADE_Y + 8, GLADE[1] + 9, null);
         // stones

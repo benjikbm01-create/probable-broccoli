@@ -1,0 +1,750 @@
+{
+ "npc": "wren",
+ "start": [
+  {
+   "if": "festival && !wren_epi && wren_dating && dating >= 3",
+   "node": "epi_all"
+  },
+  {
+   "if": "festival && !wren_epi",
+   "node": "epi"
+  },
+  {
+   "if": "wren_dating && poly_open && !wren_poly_ack",
+   "node": "poly_ack"
+  },
+  {
+   "if": "wren_date_set && !wren_date_done && at:glade && time:night",
+   "node": "date"
+  },
+  {
+   "if": "!met.wren",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "(A young woman in a green cloak drops out of nowhere onto the path, bow half-drawn, then lowers it.) You're the boat. The whole village is talking about you. Well — Tobias is talking about you, which is the same thing.",
+   "options": [
+    {
+     "text": "And you are?",
+     "to": "first2"
+    },
+    {
+     "text": "Do you always ambush strangers?",
+     "to": "first2b"
+    }
+   ]
+  },
+  "first2b": {
+   "text": "Only the interesting ones. You're the first stranger I've ever met, so the bar was low. (A crooked smile.) Wren Ashdown. I keep the Mosswood.",
+   "options": [
+    {
+     "text": "Keep it from what?",
+     "to": "first3"
+    }
+   ]
+  },
+  "first2": {
+   "text": "Wren Ashdown. Ranger. I keep the Mosswood.",
+   "options": [
+    {
+     "text": "Keep it from what?",
+     "to": "first3"
+    }
+   ]
+  },
+  "first3": {
+   "text": "Fire. Rot. Fools. Spiders. Mostly from forgetting itself — paths grow over if nobody walks them. My mum walked them every day of her life. Now I do. (She shrugs, a little too quickly.) What brings you under my trees?",
+   "options": [
+    {
+     "text": "I'm trying to reach Kestrel Keep.",
+     "to": "first_keep",
+     "if": "letter_identified"
+    },
+    {
+     "text": "Just exploring.",
+     "to": "first4"
+    }
+   ]
+  },
+  "first_keep": {
+   "text": "The Keep. (She whistles.) Nobody's walked that road in thirty years. The thorns ate it. Talk to me when you know what you're doing, and I'll tell you what I know.",
+   "options": [
+    {
+     "text": "Thanks, Wren.",
+     "to": "end",
+     "do": [
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "first4": {
+   "text": "Then explore. Stay on the paths, don't eat the red mushrooms, and if you hear clicking in the deep wood, walk the other way. Fast. (She melts back between the trunks, then leans out again.) Nice to meet you, boat.",
+   "options": [
+    {
+     "text": "Nice to meet you too.",
+     "to": "end",
+     "do": [
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "text": "(Wren leans against a tree, picking a burr out of her braid.) Boat. What's on your mind?",
+   "options": [
+    {
+     "text": "Where are the Singing Stones?",
+     "to": "stones",
+     "if": "seek_song && !wren_guided"
+    },
+    {
+     "text": "I opened the old road.",
+     "to": "road",
+     "if": "puzzle1_solved && !wren_road"
+    },
+    {
+     "text": "You seem far away today.",
+     "to": "quest",
+     "if": "rel.wren >= 2 && !wren_quest && !wren_quest_done"
+    },
+    {
+     "text": "About your mother's bow...",
+     "to": "quest_remind",
+     "if": "wren_quest && !wren_quest_done && !has:mother_bow"
+    },
+    {
+     "text": "I found this in the Hollow Oak.",
+     "to": "bow_back",
+     "if": "has:mother_bow && !wren_quest_done"
+    },
+    {
+     "text": "Want to shoot a few arrows with me?",
+     "to": "time",
+     "if": "rel.wren >= 1 && !wren_time"
+    },
+    {
+     "text": "I found something you might like.",
+     "to": "gift",
+     "if": "has:owl_whistle && !wren_gift"
+    },
+    {
+     "text": "You're a lot nicer than you pretend to be.",
+     "to": "spark",
+     "if": "rel.wren >= 1 && !wren_spark && !wren_bestfriend"
+    },
+    {
+     "text": "Tonight, at the glade...",
+     "to": "date_remind",
+     "if": "wren_date_set && !wren_date_done"
+    },
+    {
+     "text": "Hey, you.",
+     "to": "gf",
+     "if": "wren_dating"
+    },
+    {
+     "text": "Tell me about the Mosswood.",
+     "to": "lore"
+    },
+    {
+     "text": "What do you think of Sol and Ione?",
+     "to": "friends",
+     "if": "met.sol || met.ione"
+    },
+    {
+     "text": "The fog's gone.",
+     "to": "after",
+     "if": "lantern_lit && !wren_after"
+    },
+    {
+     "text": "See you around, Wren.",
+     "to": "end"
+    }
+   ]
+  },
+  "stones": {
+   "text": "The Singing Stones? North on the old road, past the turning for the cairn. A ring of four, with the thorn wall behind them where the road climbs into the gorge. They're supposed to sing, if you know the song. They've never sung for me.",
+   "options": [
+    {
+     "text": "Hester taught me a lullaby.",
+     "to": "stones2",
+     "if": "knows_song"
+    },
+    {
+     "text": "I'll find the song.",
+     "to": "stones2b",
+     "if": "!knows_song"
+    }
+   ]
+  },
+  "stones2": {
+   "text": "Hester's lullaby? (She goes quiet.) Mum used to say the stones were carved by people who sang to the trees. Maybe they'll listen to you. Go and see. I'll be — around. Not following you. Obviously.",
+   "options": [
+    {
+     "text": "Obviously.",
+     "to": "end",
+     "do": [
+      "set:wren_guided",
+      "rel:wren:1",
+      "checkpoint:cp_forest"
+     ]
+    }
+   ]
+  },
+  "stones2b": {
+   "text": "Ione thinks it's a song? Then ask Hester. She knows every song on the island, and a few nobody else does. The stones are north, on the old road. You can't miss them, they're the big rocks looking smug.",
+   "options": [
+    {
+     "text": "Thanks, Wren.",
+     "to": "end",
+     "do": [
+      "set:wren_guided",
+      "rel:wren:1",
+      "checkpoint:cp_forest"
+     ]
+    }
+   ]
+  },
+  "road": {
+   "text": "I heard it from the lodge. The whole forest went quiet, and then the stones — sang. I didn't know they really could. (She looks at you sideways.) Mum would have liked you. Here. Arrows. You're walking into the Keep; don't walk in empty-handed.",
+   "options": [
+    {
+     "text": "Thank you, Wren.",
+     "to": "hub",
+     "do": [
+      "give:arrows",
+      "set:wren_road",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "lore": {
+   "text": "The Mosswood's older than the village. Older than the Keep. The deep wood to the south-west is all dark oaks and spiders; the north-west is spruce and stone. There's a hollow oak in the deep part bigger than the inn. And the falls — go and look at the falls. Look behind them, if you're brave.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "friends": {
+   "text": "Sol's my best friend. She's a menace. We've been drinking each other under the table at the Gull & Lantern since we were old enough to lift a cup. Ione... (She considers.) Ione uses eleven words where one would do. But she remembers things for people. That's kind, in a way. Don't tell her I said that.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "time": {
+   "text": "(She raises an eyebrow, then grins.) You're on. To the range. (Half an hour later, your arms ache and your arrows are everywhere except the target. Wren has split one of her own arrows with another.) Not bad. For a boat.",
+   "options": [
+    {
+     "text": "You're showing off.",
+     "to": "time2"
+    },
+    {
+     "text": "Teach me how you do that.",
+     "to": "time2"
+    }
+   ]
+  },
+  "time2": {
+   "text": "Breathe out, not in. Mum taught me that. (She adjusts your elbow, then steps back a little quickly.) There. Now you'll hit the hay, at least. That was — fun. Don't make it weird.",
+   "options": [
+    {
+     "text": "Wouldn't dream of it.",
+     "to": "hub",
+     "do": [
+      "set:wren_time",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "spark": {
+   "text": "(She stares at you, and for a moment the ranger vanishes and there's just a startled woman with leaves in her hair.) ...Don't say things like that. I'll start believing them.",
+   "options": [
+    {
+     "text": "Maybe you should.",
+     "to": "spark2"
+    },
+    {
+     "text": "Sorry. Too much?",
+     "to": "spark3"
+    }
+   ]
+  },
+  "spark2": {
+   "text": "(She looks away, but she's smiling, and the tips of her ears are pink.) Go on, get out of my forest. Before I do something stupid like agree with you.",
+   "options": [
+    {
+     "text": "(Leave her smiling.)",
+     "to": "end",
+     "do": [
+      "set:wren_spark",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "spark3": {
+   "text": "No. (A pause.) No, it was fine. It was nice, actually. People don't say nice things to me much. I'm prickly. Like a holly bush with opinions.",
+   "options": [
+    {
+     "text": "I like holly.",
+     "to": "end",
+     "do": [
+      "set:wren_spark",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "gift": {
+   "text": "Is that — an owl whistle? (She turns it over in her hands.) Mum had one just like it. She used to call the owls down out of the trees with it. I lost hers when I was little. (She blows a soft note, and somewhere far off, an owl answers.)",
+   "options": [
+    {
+     "text": "It's yours.",
+     "to": "gift2"
+    }
+   ]
+  },
+  "gift2": {
+   "text": "(She doesn't say anything for a while. Then she hugs you, hard and quick, like an ambush.) Thank you. Don't tell Sol I hugged someone. She'll never let me live it down.",
+   "options": [
+    {
+     "text": "Your secret's safe.",
+     "to": "hub",
+     "do": [
+      "take:owl_whistle",
+      "set:wren_gift",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "quest": {
+   "text": "(She's quiet for a long moment.) Mum's face is going. I can't hold it any more. I know she had freckles, and her hair was red like mine, but when I try to see her... it's like the fog got in. Everything near the Keep goes first, they say. She walked that road every day.",
+   "options": [
+    {
+     "text": "Is there anything that might help?",
+     "to": "quest2"
+    }
+   ]
+  },
+  "quest2": {
+   "text": "Her bow. She carved owls into it. If I could hold it, I think I'd see her again. It's in the Hollow Oak, in the deep wood. She hid it there the last winter, for me to find when I was ready. But the spiders moved in. And when I go near it, I'm fourteen again and she's...",
+   "options": [
+    {
+     "text": "I'll get it for you.",
+     "to": "quest3"
+    },
+    {
+     "text": "We'll figure something out.",
+     "to": "hub"
+    }
+   ]
+  },
+  "quest3": {
+   "text": "(She grips your arm.) Be careful. The deep wood is south-west, past the falls. Follow the trail until the trees go dark and the webs start. The bow's in a chest inside the trunk. Thank you, boat. I mean it.",
+   "options": [
+    {
+     "text": "I'll be back.",
+     "to": "end",
+     "do": [
+      "set:wren_quest"
+     ]
+    }
+   ]
+  },
+  "quest_remind": {
+   "text": "The Hollow Oak's south-west, past the falls, where the trail runs into the dark oaks. Spiders — big ones. Bring something sharp and a lot of nerve.",
+   "options": [
+    {
+     "text": "On my way.",
+     "to": "hub"
+    }
+   ]
+  },
+  "bow_back": {
+   "text": "(She sees it in your hands and all the colour leaves her face.) That's... (She takes it as if it might break. She runs her thumb over the carved owls, and suddenly she's laughing and crying at once.) I see her. Freckles and a crooked tooth and her stupid laugh. I can see her.",
+   "options": [
+    {
+     "text": "She sounds wonderful.",
+     "to": "bow_back2"
+    }
+   ]
+  },
+  "bow_back2": {
+   "text": "She was. (She wipes her face on her sleeve, furious about it.) You went into that nest of nightmares for me. Nobody's ever... Here. Take my bow. I've got hers now, and you'll need yours.",
+   "options": [
+    {
+     "text": "Thank you, Wren.",
+     "to": "bow_choice",
+     "do": [
+      "take:mother_bow",
+      "give:wren_bow",
+      "set:wren_quest_done",
+      "set:wren_quest",
+      "rel:wren:2"
+     ]
+    }
+   ]
+  },
+  "bow_choice": {
+   "text": "(She stands closer than she needs to, holding her mother's bow.) So. Boat. What are we, you and me?",
+   "options": [
+    {
+     "text": "I'd like to be more than friends, if you'd like that too.",
+     "to": "romance",
+     "if": "wren_spark"
+    },
+    {
+     "text": "You're one of the best friends I've got on this island.",
+     "to": "friend"
+    }
+   ]
+  },
+  "romance": {
+   "text": "(A slow, crooked smile.) I'd like that. I'd like that a lot. But I'm not doing this in a hurry, standing in the mud. Meet me in the firefly glade after dark. East of the lodge, with the pond. I'll show you something.",
+   "options": [
+    {
+     "text": "I'll be there.",
+     "to": "end",
+     "do": [
+      "set:wren_romance",
+      "set:wren_date_set"
+     ]
+    },
+    {
+     "text": "I'll be there. (Wait for nightfall.)",
+     "to": "end",
+     "do": [
+      "set:wren_romance",
+      "set:wren_date_set",
+      "event:wait_night:Dusk creeps through the Mosswood..."
+     ]
+    }
+   ]
+  },
+  "friend": {
+   "text": "(She punches your shoulder, lightly.) Best friends, then. Good. I've only got one other, and she's a menace. You'll balance her out.",
+   "options": [
+    {
+     "text": "Deal.",
+     "to": "end",
+     "do": [
+      "set:wren_bestfriend",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "date_remind": {
+   "text": "The firefly glade, after dark. East of the lodge, by the pond. Don't make me wait — I'll start talking to the owls, and they're terrible listeners.",
+   "options": [
+    {
+     "text": "I'll go once it's night.",
+     "to": "hub"
+    },
+    {
+     "text": "Let's not wait. (Pass the time until night.)",
+     "to": "end",
+     "do": [
+      "event:wait_night:Dusk creeps through the Mosswood..."
+     ]
+    }
+   ]
+  },
+  "date": {
+   "text": "(Wren is sitting on the fallen log by the pond. All around her the dark is full of tiny drifting lights.) You came. Good. Sit. Watch.",
+   "options": [
+    {
+     "text": "(Sit beside her.)",
+     "to": "date2"
+    }
+   ]
+  },
+  "date2": {
+   "text": "(For a while neither of you says anything. The fireflies rise out of the grass in slow gold spirals.) Mum brought me here the night before she died. She said the fireflies are the forest remembering the sun. I didn't understand what she meant till now.",
+   "options": [
+    {
+     "text": "What did she mean?",
+     "to": "date3"
+    }
+   ]
+  },
+  "date3": {
+   "text": "That things don't really go, as long as something keeps a little bit of their light. (She bumps your shoulder with hers.) I've spent five years being angry at everyone. And then a boat washes up and goes and finds my mother's face for me. That's not fair, you know. I had a whole plan to be alone forever.",
+   "options": [
+    {
+     "text": "I'm sorry I ruined your plan.",
+     "to": "date4"
+    },
+    {
+     "text": "Plans change.",
+     "to": "date4"
+    }
+   ]
+  },
+  "date4": {
+   "text": "(She laughs, soft.) No you're not. (She turns to face you, and the fireflies light her freckles.) I like you. More than like. So. Ask me, before I lose my nerve and shoot something.",
+   "options": [
+    {
+     "text": "Wren Ashdown, will you be mine?",
+     "to": "yes",
+     "if": "dating == 0"
+    },
+    {
+     "text": "Before I ask — I'm already seeing someone. I want you to know that.",
+     "to": "poly",
+     "if": "dating >= 1"
+    },
+    {
+     "text": "I think we're better as friends.",
+     "to": "date_friend"
+    }
+   ]
+  },
+  "yes": {
+   "text": "(She kisses you, quick and fierce, then sits back looking astonished at herself.) Yes. Obviously yes. You're mine and I'm yours, and if anyone in the village says anything, I'll shoot their hat off. (She leans her head on your shoulder.) Stay a while. The fireflies aren't done.",
+   "options": [
+    {
+     "text": "(Stay with her.)",
+     "to": "end",
+     "do": [
+      "set:wren_dating",
+      "set:wren_date_done",
+      "rel:wren:2"
+     ]
+    }
+   ]
+  },
+  "poly": {
+   "text": "(She doesn't look away.) I know. It's a small island, and you're not exactly subtle. (A crooked smile.) I don't need to own anybody. I watched my mum love this whole forest and every person in it, and none of it made her love me less.",
+   "options": [
+    {
+     "text": "I don't want to hide anything from you.",
+     "to": "poly2"
+    }
+   ]
+  },
+  "poly2": {
+   "text": "Then don't. That's the only rule. Be honest with me, and with them, and I'll be honest with you. I'll talk to them myself — properly, like adults, over too much cider. (She takes your hand.) Now ask me again.",
+   "options": [
+    {
+     "text": "Wren Ashdown, will you be mine — knowing all of it?",
+     "to": "yes_poly"
+    }
+   ]
+  },
+  "yes_poly": {
+   "text": "Yes. Knowing all of it. (She kisses you, and laughs against your mouth.) The others had better be good to you, or they answer to me. Stay. The fireflies aren't done.",
+   "options": [
+    {
+     "text": "(Stay with her.)",
+     "to": "end",
+     "do": [
+      "set:wren_dating",
+      "set:wren_date_done",
+      "set:wren_poly_ack",
+      "set:poly_open",
+      "rel:wren:2"
+     ]
+    }
+   ]
+  },
+  "date_friend": {
+   "text": "(A long breath.) Okay. (She bumps your shoulder again.) Then you're my best friend, and you're stuck with me. That's not nothing, boat. That's not nothing at all.",
+   "options": [
+    {
+     "text": "It's a lot.",
+     "to": "end",
+     "do": [
+      "set:wren_bestfriend",
+      "set:wren_date_done",
+      "clear:wren_romance"
+     ]
+    }
+   ]
+  },
+  "poly_ack": {
+   "text": "(Wren catches your sleeve.) Hey. I talked to them. All of us, round a table at the Gull & Lantern, Hester pretending not to listen. It was awkward for about four minutes, and then Sol made a terrible joke, and it was fine.",
+   "options": [
+    {
+     "text": "And you're really all right with it?",
+     "to": "poly_ack2"
+    }
+   ]
+  },
+  "poly_ack2": {
+   "text": "I'm really all right with it. I don't have to be everything to you. I just have to be me, and honest. So do you. (She grins.) Besides, now I've got people to complain about you to.",
+   "options": [
+    {
+     "text": "Thank you, Wren.",
+     "to": "hub",
+     "do": [
+      "set:wren_poly_ack"
+     ]
+    }
+   ]
+  },
+  "gf": {
+   "text": "(She steals a kiss, glances around to make sure no one saw, and fails to look stern.) You're distracting me from very important ranger business. Like staring at moss.",
+   "options": [
+    {
+     "text": "I'll let you get back to the moss.",
+     "to": "end"
+    },
+    {
+     "text": "Walk with me a while?",
+     "to": "gf2"
+    }
+   ]
+  },
+  "gf2": {
+   "text": "(You walk the trails together until the light changes. She points out a badger sett, a woodpecker's hole, the tree where she broke her arm at nine. She holds your hand the whole way and pretends it's to stop you tripping.)",
+   "options": [
+    {
+     "text": "(Back to the path.)",
+     "to": "hub"
+    }
+   ]
+  },
+  "after": {
+   "text": "(Wren is looking up at the beam of light over the cliffs.) It's gone. The fog. I can see the whole sky. And I remember her — I don't even need the bow. I just remember.",
+   "options": [
+    {
+     "text": "I'm so glad.",
+     "to": "hub",
+     "do": [
+      "set:wren_after"
+     ]
+    }
+   ]
+  },
+  "epi": {
+   "text": "(Wren has her mother's bow slung on her back, and the lanterns make her hair look like fire.)",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_dating",
+     "if": "wren_dating"
+    },
+    {
+     "text": "...",
+     "to": "epi_friend",
+     "if": "!wren_dating && (wren_bestfriend || rel.wren >= 4)"
+    },
+    {
+     "text": "...",
+     "to": "epi_other",
+     "if": "!wren_dating && !wren_bestfriend && rel.wren < 4"
+    }
+   ]
+  },
+  "epi_dating": {
+   "text": "There you are. (She threads her fingers through yours.) The first clear night in thirty years, and I'm spending it in a crowd. Look what you've done to me. (Softer.) I'm happy. That's what you've done. Dance with me before Sol steals you.",
+   "options": [
+    {
+     "text": "(Dance with Wren.)",
+     "to": "end",
+     "do": [
+      "set:wren_epi",
+      "rel:wren:1"
+     ]
+    }
+   ]
+  },
+  "epi_friend": {
+   "text": "Boat! Over here. (She drags you into the circle by the well.) Best friends get first dance, it's a rule. I just made it up. Come on, before Corin falls over again.",
+   "options": [
+    {
+     "text": "(Dance with Wren.)",
+     "to": "end",
+     "do": [
+      "set:wren_epi"
+     ]
+    }
+   ]
+  },
+  "epi_other": {
+   "text": "Hey, boat. You did a good thing. The forest feels... lighter. Come walk the trails some time. I'll show you the good mushrooms.",
+   "options": [
+    {
+     "text": "I'd like that.",
+     "to": "end",
+     "do": [
+      "set:wren_epi"
+     ]
+    }
+   ]
+  },
+  "epi_all": {
+   "text": "(Wren, Ione and Sol are standing together by the well, and all three of them turn as you arrive. Sol is grinning, Ione is blushing, and Wren is trying very hard to look unimpressed.) Well. Look who finally showed up.",
+   "options": [
+    {
+     "text": "...",
+     "to": "epi_all2"
+    }
+   ]
+  },
+  "epi_all2": {
+   "text": "Sol: 'We've decided you're not allowed to save any more islands without us.' Ione: 'It's in writing. I wrote it.' Wren: 'Shut up and come here.' (They pull you into the middle of them, and the lantern beam sweeps over all four of you.)",
+   "options": [
+    {
+     "text": "I love you. All of you.",
+     "to": "epi_all3"
+    }
+   ]
+  },
+  "epi_all3": {
+   "text": "(Wren presses her forehead to yours.) We know, boat. We talked about it. A lot. Turns out we love you too. Now dance with us, before the music stops.",
+   "options": [
+    {
+     "text": "(Dance with them under the lantern.)",
+     "to": "end",
+     "do": [
+      "set:wren_epi",
+      "set:ione_epi",
+      "set:sol_epi",
+      "set:all_three_scene"
+     ]
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "if": "!met.wren",
+   "text": "Hm."
+  },
+  {
+   "if": "met.wren && !wren_dating",
+   "text": "Stay on the paths, boat."
+  },
+  {
+   "text": "Woodpecker. Left. No — your other left."
+  },
+  {
+   "if": "wren_dating",
+   "text": "(Wren winks at you.)"
+  },
+  {
+   "if": "wren_quest_done",
+   "text": "I can see her face again."
+  },
+  {
+   "if": "lantern_lit",
+   "text": "Look at all those stars."
+  }
+ ]
+}

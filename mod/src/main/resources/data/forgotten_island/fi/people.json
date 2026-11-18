@@ -1,0 +1,192 @@
+{
+ "people": [
+  {
+   "npc": "hester",
+   "name": "Hester Moss",
+   "role": "Keeper of the Gull & Lantern inn.",
+   "lines": [
+    {
+     "if": "festival",
+     "text": "She remembers something important about herself."
+    },
+    {
+     "if": "knows_song",
+     "text": "She taught you an old lullaby she has hummed all her life."
+    },
+    {
+     "text": "Warm, busy, and kind to strangers."
+    }
+   ]
+  },
+  {
+   "npc": "tobias",
+   "name": "Tobias Wake",
+   "role": "Harbourmaster of Gullhaven.",
+   "lines": [
+    {
+     "if": "side_tobias_done",
+     "text": "You returned his lost logbook."
+    },
+    {
+     "text": "Gruff, weathered, and quietly watchful of the fog."
+    }
+   ]
+  },
+  {
+   "npc": "ione",
+   "name": "Ione Calder",
+   "role": "Keeper of the Archive.",
+   "lines": [
+    {
+     "if": "ione_dating",
+     "text": "You're together. She writes about you every night."
+    },
+    {
+     "if": "ione_bestfriend",
+     "text": "One of your closest friends."
+    },
+    {
+     "if": "ione_quest_done",
+     "text": "You found her missing pages."
+    },
+    {
+     "text": "She writes everything down so nothing is lost."
+    }
+   ]
+  },
+  {
+   "npc": "wren",
+   "name": "Wren Ashdown",
+   "role": "Ranger of the Mosswood.",
+   "lines": [
+    {
+     "if": "wren_dating",
+     "text": "You're together. She pretends not to blush."
+    },
+    {
+     "if": "wren_bestfriend",
+     "text": "One of your closest friends."
+    },
+    {
+     "if": "wren_quest_done",
+     "text": "You brought back her mother's bow."
+    },
+    {
+     "text": "Blunt, sharp-eyed, and more caring than she lets on."
+    }
+   ]
+  },
+  {
+   "npc": "sol",
+   "name": "Sol Reyes",
+   "role": "Boatwright at the harbour.",
+   "lines": [
+    {
+     "if": "sol_dating",
+     "text": "You're together. She tells the gulls about you."
+    },
+    {
+     "if": "sol_bestfriend",
+     "text": "One of your closest friends."
+    },
+    {
+     "if": "sol_quest_done",
+     "text": "You helped finish the Gull's Wing."
+    },
+    {
+     "text": "Loud, bold, and desperate to see what lies past the fog."
+    }
+   ]
+  },
+  {
+   "npc": "corin",
+   "name": "Corin Ashby",
+   "role": "Smith and farrier.",
+   "lines": [
+    {
+     "if": "side_corin_done",
+     "text": "He forged you the Kestrel Blade."
+    },
+    {
+     "text": "Cheerful, soot-covered, and missing his cat."
+    }
+   ]
+  },
+  {
+   "npc": "wendel",
+   "name": "Wendel Pike",
+   "role": "Retired fisherman on the western shore.",
+   "lines": [
+    {
+     "if": "side_wendel_done",
+     "text": "You relit his late wife's waystone lamps."
+    },
+    {
+     "text": "Forgetful, wry, and wiser than he looks. Ask him if you're stuck."
+    }
+   ]
+  }
+ ],
+ "secrets": [
+  {
+   "id": "smugglers_cache",
+   "name": "Smugglers' Cache",
+   "hint": "Something hangs beneath the fishing pier."
+  },
+  {
+   "id": "inn_cellar",
+   "name": "The Mosses' Hidden Room",
+   "hint": "Even an inn cellar can keep a secret."
+  },
+  {
+   "id": "belltower",
+   "name": "The Bell Tower",
+   "hint": "High above the chapel."
+  },
+  {
+   "id": "windmill",
+   "name": "The Miller's Loft",
+   "hint": "Where the sails turn."
+  },
+  {
+   "id": "falls_cave",
+   "name": "Behind the Falls",
+   "hint": "Water can hide a door."
+  },
+  {
+   "id": "watcher_nest",
+   "name": "The Watcher's Nest",
+   "hint": "A tree taller than the rest."
+  },
+  {
+   "id": "gull_rock",
+   "name": "Top of Gull Rock",
+   "hint": "The sea stack off the harbour."
+  },
+  {
+   "id": "cliff_cave",
+   "name": "The Cliff Cave",
+   "hint": "Below the Keep's western wall."
+  },
+  {
+   "id": "keep_vault",
+   "name": "The Armoury Vault",
+   "hint": "A cask with a button on it."
+  },
+  {
+   "id": "flooded_chamber",
+   "name": "The Flooded Chamber",
+   "hint": "Hold your breath in the Hall of Echoes."
+  },
+  {
+   "id": "kings_mural",
+   "name": "The King's Mural",
+   "hint": "A crack in an old wall."
+  },
+  {
+   "id": "cairn",
+   "name": "The Summit Cairn",
+   "hint": "The highest point of the forest."
+  }
+ ]
+}

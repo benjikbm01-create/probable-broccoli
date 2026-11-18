@@ -1,0 +1,228 @@
+{
+ "objectives": [
+  {
+   "id": "m1",
+   "kind": "main",
+   "order": 1,
+   "title": "A Letter from Nowhere",
+   "text": "Someone on this island wrote to you. Find out who sealed the letter, and why.",
+   "active": "intro_done",
+   "done": "letter_identified",
+   "hints": [
+    "Talk to the harbourmaster on the pier, then follow his directions into the village.",
+    "Hester at the Gull & Lantern inn (north side of the market square) can give you a room and a lead.",
+    "Show the letter to Ione Calder at the Archive, the tall stone building west of the square."
+   ]
+  },
+  {
+   "id": "m2",
+   "kind": "main",
+   "order": 2,
+   "title": "The Old Road",
+   "text": "The way to Kestrel Keep runs through the Mosswood, sealed by thorns where 'the stones sing'. Find the old song and wake the stones.",
+   "active": "letter_identified",
+   "done": "puzzle1_solved",
+   "hints": [
+    "Hester knows songs nobody else on the island remembers. Wren, the ranger, knows the forest.",
+    "The Singing Stones stand in a ring north of the forest crossroads, on the old road where it climbs toward the cliffs.",
+    "Strike the stones in the order the lullaby names the animals. Read it again from the book Hester gave you."
+   ]
+  },
+  {
+   "id": "m3",
+   "kind": "main",
+   "order": 3,
+   "title": "The Silent Keep",
+   "text": "The road is open. Explore Kestrel Keep and learn why its great lantern went dark.",
+   "active": "puzzle1_solved",
+   "done": "saw_empty_lantern",
+   "hints": [
+    "Follow the old road up the gorge to the gatehouse. Old places have old guards: be ready to fight.",
+    "Look for the Warden's study in the north-west of the Keep, and for a hall full of mirrors near the Lantern Tower.",
+    "In the Sun Court, turn the mirrors so the beam of light travels to the crystal in the north wall. Then climb the tower."
+   ]
+  },
+  {
+   "id": "m4",
+   "kind": "main",
+   "order": 4,
+   "title": "Beneath the Keep",
+   "text": "The lantern is empty. Something was carried below. Find the way down and follow it.",
+   "active": "saw_empty_lantern",
+   "done": "puzzle3_solved",
+   "hints": [
+    "There was a key at the top of the tower. Ione thinks the old halls are reached through the courtyard cistern.",
+    "In the Hall of Echoes, stand at each of the three glowing pools to see what they remember.",
+    "Rune stones glide until they hit something. Plan each push so the stones stop on the three seals; the button by the door resets them."
+   ]
+  },
+  {
+   "id": "m5",
+   "kind": "main",
+   "order": 5,
+   "title": "The Wellspring",
+   "text": "At the bottom of everything, something is waiting. Go down and face it.",
+   "active": "puzzle3_solved",
+   "done": "warden_rest",
+   "hints": [
+    "Take the long stair beyond the vault. Bring food, armour and potions; the Keep's armoury and the vault chests can help.",
+    "Your foe throws a spear when you're far away and sends a surge of water when you're close. Keep moving; use your shield.",
+    "If you fall, you return just outside and can try again. When the fight is over, step into the centre of the Wellspring."
+   ]
+  },
+  {
+   "id": "m6",
+   "kind": "main",
+   "order": 6,
+   "title": "The Last Light",
+   "text": "You carry the Ember. Bring it back to the Lantern Tower and relight the great lantern.",
+   "active": "warden_rest",
+   "done": "lantern_lit",
+   "hints": [
+    "A stair from the Wellspring climbs to the surface near the Singing Stones. From there, the Keep is close.",
+    "Climb the Lantern Tower to the very top.",
+    "Use the dark lens at the centre of the lantern room while holding the Ember."
+   ]
+  },
+  {
+   "id": "m7",
+   "kind": "main",
+   "order": 7,
+   "title": "Homecoming",
+   "text": "The island remembers. Go back to Gullhaven and see the people you've come to know.",
+   "active": "lantern_lit",
+   "done": "credits_seen",
+   "hints": [
+    "The village has gathered in the market square for a festival.",
+    "Talk to everyone who matters to you. Hester especially has something to say.",
+    "When you're ready, tell Hester you'd like to walk down to the pier."
+   ]
+  },
+  {
+   "id": "s_corin",
+   "kind": "side",
+   "order": 10,
+   "title": "Cold Forge",
+   "text": "Corin's forge has been cold for want of good steel. Bring him three ingots of Kestrel steel from the Keep's armoury.",
+   "active": "corin_asked",
+   "done": "side_corin_done",
+   "hints": [
+    "The Keep must be reachable first.",
+    "The armoury is on the east side of the Keep's bailey. Check its chests.",
+    "Bring the steel back to Corin's smithy, east of the square."
+   ]
+  },
+  {
+   "id": "s_tobias",
+   "kind": "side",
+   "order": 11,
+   "title": "The Captain's Log",
+   "text": "Tobias lost his logbook when his boat, the Meridian, sank in the bay. He can't remember the night it happened.",
+   "active": "tobias_asked",
+   "done": "side_tobias_done",
+   "hints": [
+    "Ask Hester for her Diver's Draught before diving.",
+    "The wreck lies west of the long pier in deep water. Look for a broken mast.",
+    "The log is in the sea-chest in the captain's cabin at the stern."
+   ]
+  },
+  {
+   "id": "s_wendel",
+   "kind": "side",
+   "order": 12,
+   "title": "The Waystone Lamps",
+   "text": "Light the four waystone lamps Maud Pike once kept, using her tinderbox.",
+   "active": "wendel_asked",
+   "done": "side_wendel_done",
+   "hints": [
+    "One lamp is on the harbour headland east of the village, another beside the waterfall in the Mosswood.",
+    "A third is on the path up Cairn Hill; the last is at the top of the old road, by the Keep.",
+    "Hold the tinderbox and use each lamp. Then return to Wendel's cottage on the western shore."
+   ]
+  },
+  {
+   "id": "p_wren",
+   "kind": "personal",
+   "order": 20,
+   "title": "Her Mother's Bow",
+   "text": "Wren's mother hid her bow in the Hollow Oak, deep in the Mosswood. Spiders have claimed it since.",
+   "active": "wren_quest",
+   "done": "wren_quest_done",
+   "hints": [
+    "The Hollow Oak is in the dark south-west of the forest, past the waterfall.",
+    "The bow is in a chest inside the great trunk. Expect company.",
+    "Bring the bow back to Wren."
+   ]
+  },
+  {
+   "id": "p_wren_date",
+   "kind": "personal",
+   "order": 21,
+   "title": "Fireflies",
+   "text": "Wren asked you to meet her at the firefly glade after dark.",
+   "active": "wren_date_set",
+   "done": "wren_date_done",
+   "hints": [
+    "The glade is east of Wren's lodge, around a small pond.",
+    "Go after nightfall. You can rest at the inn, or ask Wren to wait with you.",
+    "Talk to Wren at the glade."
+   ]
+  },
+  {
+   "id": "p_ione",
+   "kind": "personal",
+   "order": 22,
+   "title": "The Missing Pages",
+   "text": "Three pages are missing from Gullhaven's Chronicle. Ione has a few guesses where they went.",
+   "active": "ione_quest",
+   "done": "ione_quest_done",
+   "hints": [
+    "Wendel Pike's late wife borrowed books from the Archive.",
+    "The Keep kept copies of everything; look in the Warden's rooms.",
+    "Pell's shop by the square wrapped its ledgers in old paper."
+   ]
+  },
+  {
+   "id": "p_ione_date",
+   "kind": "personal",
+   "order": 23,
+   "title": "Stargazing",
+   "text": "Ione asked you to meet her on the Archive roof tonight.",
+   "active": "ione_date_set",
+   "done": "ione_date_done",
+   "hints": [
+    "Climb the ladder on the Archive's top floor.",
+    "Go after nightfall.",
+    "Talk to Ione on the roof."
+   ]
+  },
+  {
+   "id": "p_sol",
+   "kind": "personal",
+   "order": 24,
+   "title": "The Gull's Wing",
+   "text": "Sol needs a brass ship's compass, real sailcloth and a heartwood spar to finish her boat.",
+   "active": "sol_quest",
+   "done": "sol_quest_done",
+   "hints": [
+    "The compass went down with the Meridian in the bay.",
+    "The Keep's stores might still hold sailcloth. Try the barracks.",
+    "Wren left a cut spar near the great fallen pine in the north-west Mosswood."
+   ]
+  },
+  {
+   "id": "p_sol_date",
+   "kind": "personal",
+   "order": 25,
+   "title": "Sunset",
+   "text": "Sol wants to take you out on the water at sunset.",
+   "active": "sol_date_set",
+   "done": "sol_date_done",
+   "hints": [
+    "Meet her at the end of the long pier.",
+    "Go in the evening, as the sun sets.",
+    "Talk to Sol on the pier."
+   ]
+  }
+ ]
+}

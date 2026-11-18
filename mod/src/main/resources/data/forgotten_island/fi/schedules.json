@@ -1,0 +1,617 @@
+{
+ "npcs": {
+  "hester": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 3000,
+     "at": "hester_kitchen",
+     "act": "work"
+    },
+    {
+     "from": 3000,
+     "to": 7000,
+     "at": "hester_bar",
+     "act": "work"
+    },
+    {
+     "from": 7000,
+     "to": 9000,
+     "at": "hester_tea",
+     "act": "sit"
+    },
+    {
+     "from": 9000,
+     "to": 10500,
+     "at": "inn_garden",
+     "act": "wander",
+     "r": 4
+    },
+    {
+     "from": 10500,
+     "to": 16500,
+     "at": "hester_bar",
+     "act": "work"
+    },
+    {
+     "from": 16500,
+     "to": 23500,
+     "at": "hester_bed",
+     "act": "sleep"
+    },
+    {
+     "from": 23500,
+     "to": 24000,
+     "at": "hester_kitchen",
+     "act": "work"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_hester",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "lantern_lit && !festival",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "inn_door",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "tobias": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 2000,
+     "at": "tobias_office",
+     "act": "work"
+    },
+    {
+     "from": 2000,
+     "to": 6000,
+     "at": "tobias_pier",
+     "act": "stand"
+    },
+    {
+     "from": 6000,
+     "to": 8000,
+     "at": "harbor_front",
+     "act": "wander",
+     "r": 5
+    },
+    {
+     "from": 8000,
+     "to": 11000,
+     "at": "tobias_tower",
+     "act": "stand"
+    },
+    {
+     "from": 11000,
+     "to": 14000,
+     "at": "tobias_inn",
+     "act": "sit"
+    },
+    {
+     "from": 14000,
+     "to": 24000,
+     "at": "tobias_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "intro_done && !met.tobias",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "tobias_greet",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_tobias",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "lantern_lit && !festival",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "pier_end",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "wendel": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 4000,
+     "at": "wendel_shore",
+     "act": "wander",
+     "r": 4
+    },
+    {
+     "from": 4000,
+     "to": 7000,
+     "at": "wendel_bench",
+     "act": "sit"
+    },
+    {
+     "from": 7000,
+     "to": 9000,
+     "at": "maud_grave",
+     "act": "stand"
+    },
+    {
+     "from": 9000,
+     "to": 12000,
+     "at": "wendel_pier",
+     "act": "stand"
+    },
+    {
+     "from": 12000,
+     "to": 14000,
+     "at": "wendel_home",
+     "act": "stand"
+    },
+    {
+     "from": 14000,
+     "to": 24000,
+     "at": "wendel_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_wendel",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "corin": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 1000,
+     "at": "corin_home",
+     "act": "stand"
+    },
+    {
+     "from": 1000,
+     "to": 6000,
+     "at": "corin_anvil",
+     "act": "work"
+    },
+    {
+     "from": 6000,
+     "to": 7000,
+     "at": "corin_garden",
+     "act": "wander",
+     "r": 3
+    },
+    {
+     "from": 7000,
+     "to": 11000,
+     "at": "corin_anvil",
+     "act": "work"
+    },
+    {
+     "from": 11000,
+     "to": 14500,
+     "at": "corin_inn",
+     "act": "sit"
+    },
+    {
+     "from": 14500,
+     "to": 24000,
+     "at": "corin_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_corin",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "wren": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 3000,
+     "at": "wren_patrol_s",
+     "act": "wander",
+     "r": 6
+    },
+    {
+     "from": 3000,
+     "to": 6000,
+     "at": "wren_lodge",
+     "act": "work"
+    },
+    {
+     "from": 6000,
+     "to": 8000,
+     "at": "wren_range",
+     "act": "work"
+    },
+    {
+     "from": 8000,
+     "to": 9500,
+     "at": "smithy_front",
+     "act": "talk"
+    },
+    {
+     "from": 9500,
+     "to": 11000,
+     "at": "wren_patrol_n",
+     "act": "wander",
+     "r": 8
+    },
+    {
+     "from": 11000,
+     "to": 14000,
+     "at": "wren_inn",
+     "act": "sit"
+    },
+    {
+     "from": 14000,
+     "to": 24000,
+     "at": "wren_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_wren",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "wren_date_set && !wren_date_done",
+     "entries": [
+      {
+       "from": 13000,
+       "to": 23000,
+       "at": "glade_date",
+       "act": "sit"
+      }
+     ]
+    },
+    {
+     "if": "wren_quest && !wren_quest_done",
+     "entries": [
+      {
+       "from": 3000,
+       "to": 8000,
+       "at": "hollow_oak",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "ione": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 4000,
+     "at": "ione_desk",
+     "act": "work"
+    },
+    {
+     "from": 4000,
+     "to": 6000,
+     "at": "ione_shelves",
+     "act": "wander",
+     "r": 3
+    },
+    {
+     "from": 6000,
+     "to": 7000,
+     "at": "stall_odds",
+     "act": "stand"
+    },
+    {
+     "from": 7000,
+     "to": 9000,
+     "at": "ione_tea",
+     "act": "sit"
+    },
+    {
+     "from": 9000,
+     "to": 12000,
+     "at": "ione_desk",
+     "act": "work"
+    },
+    {
+     "from": 12000,
+     "to": 16000,
+     "at": "archive_roof",
+     "act": "stand"
+    },
+    {
+     "from": 16000,
+     "to": 24000,
+     "at": "ione_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_ione",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "ione_date_set && !ione_date_done",
+     "entries": [
+      {
+       "from": 12000,
+       "to": 23000,
+       "at": "archive_roof",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  },
+  "sol": {
+   "entries": [
+    {
+     "from": 0,
+     "to": 5000,
+     "at": "sol_hull",
+     "act": "work"
+    },
+    {
+     "from": 5000,
+     "to": 6500,
+     "at": "sol_pier",
+     "act": "stand"
+    },
+    {
+     "from": 6500,
+     "to": 8000,
+     "at": "stall_cloth",
+     "act": "stand"
+    },
+    {
+     "from": 8000,
+     "to": 11000,
+     "at": "sol_hull",
+     "act": "work"
+    },
+    {
+     "from": 11000,
+     "to": 14000,
+     "at": "sol_inn",
+     "act": "sit"
+    },
+    {
+     "from": 14000,
+     "to": 24000,
+     "at": "sol_bed",
+     "act": "sleep"
+    }
+   ],
+   "overrides": [
+    {
+     "if": "sol_sailing",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "date_gullrock_sol",
+       "act": "sit"
+      }
+     ]
+    },
+    {
+     "if": "festival && !credits_seen",
+     "entries": [
+      {
+       "from": 0,
+       "to": 24000,
+       "at": "festival_sol",
+       "act": "stand"
+      }
+     ]
+    },
+    {
+     "if": "sol_date_set && !sol_date_done",
+     "entries": [
+      {
+       "from": 11000,
+       "to": 14500,
+       "at": "sol_pier",
+       "act": "stand"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "chats": [
+  {
+   "a": "wren",
+   "b": "sol",
+   "lines": [
+    "sol: Another round?",
+    "wren: You said that two rounds ago.",
+    "sol: And I was right then too.",
+    "wren: ...Fine. One more."
+   ],
+   "if": "!lantern_lit"
+  },
+  {
+   "a": "wren",
+   "b": "sol",
+   "lines": [
+    "wren: The stranger asked about the stones.",
+    "sol: Ooh. Are you going to be nice to them?",
+    "wren: I'm always nice.",
+    "sol: You shot Tobias's hat."
+   ],
+   "if": "met.wren && met.sol && !lantern_lit"
+  },
+  {
+   "a": "sol",
+   "b": "wren",
+   "lines": [
+    "sol: Did you cut me that spar or not?",
+    "wren: I cut it. I left it by the fallen pine.",
+    "sol: Two years ago?",
+    "wren: ...Possibly."
+   ],
+   "if": "sol_quest && !sol_quest_done"
+  },
+  {
+   "a": "hester",
+   "b": "ione",
+   "lines": [
+    "ione: I found another blank page today.",
+    "hester: More tea, love. You can't fight the fog on an empty cup.",
+    "ione: That's not how it works.",
+    "hester: Drink it anyway."
+   ],
+   "if": "!lantern_lit"
+  },
+  {
+   "a": "ione",
+   "b": "hester",
+   "lines": [
+    "ione: A letter, Hester. From the Keep.",
+    "hester: E.V. I keep turning it over in my head.",
+    "ione: Me too. Like a word on the tip of my tongue."
+   ],
+   "if": "letter_identified"
+  },
+  {
+   "a": "tobias",
+   "b": "sol",
+   "lines": [
+    "tobias: Wind's backing.",
+    "sol: Good. I'm taking her out tomorrow.",
+    "tobias: You'll come round the pier by noon, same as always.",
+    "sol: Then I'll try again by one."
+   ],
+   "if": "!lantern_lit"
+  },
+  {
+   "a": "corin",
+   "b": "wren",
+   "lines": [
+    "wren: These arrowheads are too heavy.",
+    "corin: Last week they were too light.",
+    "wren: They were too light last week.",
+    "corin: Give me patience."
+   ]
+  },
+  {
+   "a": "tobias",
+   "b": "corin",
+   "lines": [
+    "corin: Evening, Tobias.",
+    "tobias: Is it? Fog's so thick I can't tell.",
+    "corin: That's what the cider's for."
+   ]
+  },
+  {
+   "a": "wren",
+   "b": "ione",
+   "lines": [
+    "wren: You made an agenda.",
+    "ione: Agendas are how civilised people have feelings.",
+    "wren: ...It was a good agenda.",
+    "ione: Thank you."
+   ],
+   "if": "poly_open && wren_dating && ione_dating"
+  },
+  {
+   "a": "sol",
+   "b": "ione",
+   "lines": [
+    "sol: You're blushing.",
+    "ione: I'm not. It's the fire.",
+    "sol: We're outside.",
+    "ione: It's a very large fire."
+   ],
+   "if": "poly_open && sol_dating && ione_dating"
+  },
+  {
+   "a": "hester",
+   "b": "tobias",
+   "lines": [
+    "tobias: Elsie. You used to sit on my knee and steal my pipe.",
+    "hester: I remember. You let me.",
+    "tobias: I let you do everything. Your father despaired."
+   ],
+   "if": "lantern_lit"
+  },
+  {
+   "a": "wren",
+   "b": "sol",
+   "lines": [
+    "sol: When the Gull's Wing sails, you're coming.",
+    "wren: Who'll keep the forest?",
+    "sol: The trees can wait a week. Come on, Wren.",
+    "wren: ...A week."
+   ],
+   "if": "lantern_lit"
+  }
+ ]
+}

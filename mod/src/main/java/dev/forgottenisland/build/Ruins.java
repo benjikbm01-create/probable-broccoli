@@ -249,7 +249,7 @@ public final class Ruins implements Layout.Part {
         // vault antechamber south of the puzzle, with the warden's last words
         room(b, SX, HY, SZ + 10, SX + 8, HY + 5, SZ + 17, OLD, Pal.of("polished_deepslate"));
         for (int x = SX + 3; x <= SX + 5; x++) for (int y = HY; y <= HY + 2; y++) b.wset(x, y, SZ + 9, B.s("air"));
-        new B(b.w, 0, 0, 0, 0).lectern(SX + 4, HY, SZ + 13, net.minecraft.util.math.Direction.NORTH, "warden_journal");
+        new B(b.w, 0, 0, 0, 0).lectern(SX + 4, HY, SZ + 13, net.minecraft.util.math.Direction.NORTH, "warden_last");
         b.wset(SX + 1, HY, SZ + 11, B.s("candle[candles=4,lit=true]")); b.wset(SX + 7, HY, SZ + 11, B.s("candle[candles=4,lit=true]"));
         new B(b.w, 0, 0, 0, 0).container(SX + 7, HY, SZ + 16, "chest[facing=west]", "fi:healing", "fi:healing", "fi:golden_apple", "minecraft:cooked_beef*8");
         b.wset(SX + 1, HY, SZ + 16, B.s("water_cauldron[level=3]"));

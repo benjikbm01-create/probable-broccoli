@@ -44,6 +44,7 @@ public final class Harbor implements Layout.Part {
         W.place("date_gullrock_player", 184, 85, 215, 200);
         W.place("date_gullrock_sol", 186, 85, 216, 160);
         W.zone("secret_smugglers_cache", 81, 54, 156, 85, 60, 161, p -> Secrets.discover(p, "smugglers_cache"));
+        W.zone("wreck", 80, 45, 172, 96, 62, 194, null);
         W.zone("secret_gull_rock", 181, 84, 213, 191, 92, 223, p -> Secrets.discover(p, "gull_rock"));
     }
 
@@ -59,6 +60,38 @@ public final class Harbor implements Layout.Part {
         harborLight(b);
         gullRock(b);
         smugglersCache(b);
+        wreck(b);
+    }
+
+    /** The Meridian: a fishing ketch lying on the bay floor west of the long pier, listing to port. */
+    static void wreck(B b) {
+        int cx = 88, cz = 182;
+        int floor = 50;
+        for (int z = -7; z <= 7; z++) {
+            int half = Math.abs(z) > 5 ? 1 : Math.abs(z) > 3 ? 2 : 3;
+            for (int dx = -half; dx <= half; dx++) {
+                int x = cx + dx;
+                int f = Kit.topSolid(b, x, cz + z);
+                int base = Math.max(floor, f) + 1;
+                boolean side = Math.abs(dx) == half;
+                int list = dx < 0 ? 0 : 1;                       // listing: starboard side sits higher
+                b.wset(x, base, cz + z, B.s(Noise.hash(x, z, 1) < 0.2 ? "stripped_dark_oak_wood" : "dark_oak_planks"));
+                if (side) for (int y = 1; y <= 2 + list; y++) if (Noise.hash(x, y, z) > 0.18) b.wset(x, base + y, cz + z, B.s(y == 2 + list ? "dark_oak_slab[type=bottom,waterlogged=true]" : "dark_oak_planks"));
+                if (Math.abs(z) == 7 && !side) b.wset(x, base + 1, cz + z, B.s("dark_oak_planks"));
+            }
+        }
+        // cabin at the stern (south end) with the sea-chest
+        int sb = Math.max(floor, Kit.topSolid(b, cx, cz + 5)) + 1;
+        for (int dx = -2; dx <= 2; dx++) for (int z = 3; z <= 6; z++) b.wset(cx + dx, sb + 3, cz + z, B.s((dx + z) % 3 == 0 ? "water" : "dark_oak_slab[type=bottom,waterlogged=true]"));
+        for (int z = 3; z <= 6; z++) { b.wset(cx - 2, sb + 1, cz + z, B.s("dark_oak_planks")); b.wset(cx + 2, sb + 1, cz + z, B.s("dark_oak_planks")); b.wset(cx - 2, sb + 2, cz + z, B.s("dark_oak_planks")); }
+        new B(b.w, 0, 0, 0, 0).container(cx, sb + 1, cz + 5, "chest[facing=north,waterlogged=true]", "fi:logbook", "fi:brass_compass", "minecraft:nautilus_shell");
+        b.wset(cx + 1, sb + 1, cz + 6, B.s("barrel[facing=up]"));
+        b.wset(cx - 1, sb + 1, cz + 3, B.s("sea_pickle[pickles=3,waterlogged=true]"));
+        // broken mast lying across the floor, and a mast stump
+        int mb = Math.max(floor, Kit.topSolid(b, cx, cz - 1)) + 2;
+        for (int y = 0; y <= 4; y++) b.wset(cx, mb + y, cz - 1, B.s("stripped_spruce_log"));
+        for (int i = 2; i <= 12; i++) { int x = cx - i, z = cz - 1 + i / 4; b.wset(x, Kit.topSolid(b, x, z) + 1, z, B.s("stripped_spruce_log[axis=x]")); }
+        for (int i = 0; i < 12; i++) { int x = cx - 4 + (int) (Noise.hash(i, 1, 9) * 9), z = cz - 8 + (int) (Noise.hash(i, 2, 9) * 16); int y = Kit.topSolid(b, x, z) + 1; if (b.wget(x, y, z).getFluidState().isStill()) b.wset(x, y, z, B.s(i % 3 == 0 ? "seagrass" : "seagrass")); }
     }
 
     static boolean water(B b, int x, int z) { return b.wget(x, 62, z).getFluidState().isStill() && !b.wget(x, 63, z).isSolid(); }

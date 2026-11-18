@@ -1,0 +1,247 @@
+{
+ "npc": "wendel",
+ "start": [
+  {
+   "if": "festival && !wendel_epi",
+   "node": "fest"
+  },
+  {
+   "if": "lantern_lit && !wendel_remembers",
+   "node": "remember"
+  },
+  {
+   "if": "waystones_lit >= 4 && wendel_asked && !side_wendel_done",
+   "node": "lamps_done"
+  },
+  {
+   "if": "!met.wendel",
+   "node": "first"
+  },
+  {
+   "node": "hub"
+  }
+ ],
+ "nodes": {
+  "first": {
+   "text": "Eh? Speak up, the sea's in my ears. (An old man squints at you from under white eyebrows.) A new face. I'd say I'd remember it, but I'd be lying. I'm Wendel. Wendel Pike. I fish, and I forget.",
+   "options": [
+    {
+     "text": "I'm new here. I came in on a boat.",
+     "to": "first2"
+    }
+   ]
+  },
+  "first2": {
+   "text": "A boat! Ha. Maud would have liked you. She liked anything that came in from the sea — driftwood, glass floats, lost things. (His eyes go far away.) She found the strangest things on that shore.",
+   "options": [
+    {
+     "text": "Who's Maud?",
+     "to": "first3"
+    }
+   ]
+  },
+  "first3": {
+   "text": "My wife. Gone eleven years now. I'm buried next to her already, in my head; the rest of me's just slow to follow. Ah, don't look like that. Sit a while, if you like. Old men know things, now and then. Ask me if you're stuck.",
+   "options": [
+    {
+     "text": "I'll remember that.",
+     "to": "hub",
+     "do": [
+      "rel:wendel:1"
+     ]
+    }
+   ]
+  },
+  "hub": {
+   "text": "Well, now. What is it?",
+   "options": [
+    {
+     "text": "I'm stuck. Any advice?",
+     "to": "advice"
+    },
+    {
+     "text": "Tell me about Maud.",
+     "to": "maud"
+    },
+    {
+     "text": "Do you need help with anything?",
+     "to": "lamps",
+     "if": "!wendel_asked"
+    },
+    {
+     "text": "About the waystone lamps...",
+     "to": "lamps_remind",
+     "if": "wendel_asked && !side_wendel_done"
+    },
+    {
+     "text": "Ione's looking for a page of the Chronicle.",
+     "to": "page",
+     "if": "ione_quest && !got.page_1 && !ione_quest_done"
+    },
+    {
+     "text": "What do you remember about the great storm?",
+     "to": "storm"
+    },
+    {
+     "text": "Goodbye, Wendel.",
+     "to": "end"
+    }
+   ]
+  },
+  "advice": {
+   "text": "Hm. Let me think on it... (He chews his pipe stem for an age.) There. I've a notion. Mind you don't tell anyone it came from me; they'll want more.",
+   "options": [
+    {
+     "text": "Thank you.",
+     "to": "end",
+     "do": [
+      "event:hint"
+     ]
+    }
+   ]
+  },
+  "maud": {
+   "text": "Maud kept the waystone lamps on the island paths lit, every night, so folk could find their way home in the fog. Walked every mile of this island in all weathers. Said lost things always find their way home if you leave a light for them.",
+   "options": [
+    {
+     "text": "She sounds wonderful.",
+     "to": "hub",
+     "do": [
+      "rel:wendel:1"
+     ]
+    }
+   ]
+  },
+  "storm": {
+   "text": "The great storm. Thirty-one winters back. (He frowns, groping.) There was a — a wave, at the harbour. People lost. Maud went down to the shingle at dawn, the way she always did after a blow. She came home soaked to the knee and wouldn't say a word about it for a day. And then — then it's gone. Like smoke.",
+   "options": [
+    {
+     "text": "Back to other things.",
+     "to": "hub"
+    }
+   ]
+  },
+  "lamps": {
+   "text": "Since you ask. Maud's waystone lamps. Four of them, on the old paths: one on the harbour headland, one by the falls in the Mosswood, one on the Cairn Hill path, and one at the top of the old road by the Keep. They've been dark since she passed. My knees don't do hills.",
+   "options": [
+    {
+     "text": "I'll light them for you.",
+     "to": "lamps2"
+    },
+    {
+     "text": "Maybe later.",
+     "to": "hub"
+    }
+   ]
+  },
+  "lamps2": {
+   "text": "You would? Here — her tinderbox. Just strike it at each lamp. (He presses a battered little box into your hand and holds on a moment longer than he needs to.) Lost things find their way home. She'd say so.",
+   "options": [
+    {
+     "text": "I'll bring it back when they're lit.",
+     "to": "end",
+     "do": [
+      "set:wendel_asked",
+      "give:tinderbox"
+     ]
+    }
+   ]
+  },
+  "lamps_remind": {
+   "text": "Four lamps: the harbour headland, the falls, the Cairn Hill path, and the top of the old road by the Keep. The top one you'll only reach once that thorn mess is cleared, I'd wager.",
+   "options": [
+    {
+     "text": "I'll keep at it.",
+     "to": "hub"
+    }
+   ]
+  },
+  "lamps_done": {
+   "text": "(Wendel is looking toward the headland, where a small flame burns.) I saw it last night. Her lamp, lit again. I sat out on the bench and cried like a boy. (He clears his throat fiercely.) Right. Enough of that.",
+   "options": [
+    {
+     "text": "She'd be proud of you.",
+     "to": "lamps_done2"
+    }
+   ]
+  },
+  "lamps_done2": {
+   "text": "Here. Two things. Her charm — she carved it from driftwood; it's kept me alive through three winters I'd no business surviving. And her diary. I can't read it any more. My eyes, and... other reasons. Maybe it'll mean something to you.",
+   "options": [
+    {
+     "text": "Thank you, Wendel.",
+     "to": "end",
+     "do": [
+      "take:tinderbox",
+      "give:wendel_charm",
+      "give:maud_diary",
+      "set:side_wendel_done",
+      "rel:wendel:2"
+     ]
+    }
+   ]
+  },
+  "page": {
+   "text": "A page? (He rummages in a tin of fish hooks and comes up with a folded, yellow sheet.) Ione's Chronicle, eh. Maud borrowed it to copy out a recipe and never gave it back. Forty years overdue. Tell Ione I'm sorry, and to take it up with Maud.",
+   "options": [
+    {
+     "text": "I'll pass that on.",
+     "to": "hub",
+     "do": [
+      "give:page_1"
+     ]
+    }
+   ]
+  },
+  "remember": {
+   "text": "(Wendel grips your arm.) I remember the morning. Maud came home soaked with a little girl wrapped in her shawl. Half-drowned, wearing a silver gull. The Warden's girl. Elsie Vael. She took her to the Mosses at the inn because we'd no idea where her people were — and then we forgot. All of us. Thirty years, she's been pouring my beer.",
+   "options": [
+    {
+     "text": "She's going to be all right.",
+     "to": "remember2"
+    }
+   ]
+  },
+  "remember2": {
+   "text": "Aye. She always was the strong one. Like Maud. Go on — there'll be dancing tonight, and I intend to fall over at least twice.",
+   "options": [
+    {
+     "text": "Save me a dance.",
+     "to": "end",
+     "do": [
+      "set:wendel_remembers"
+     ]
+    }
+   ]
+  },
+  "fest": {
+   "text": "Look at them all. Thirty years of grey and now this. Maud, you should see it. (He raises his cup to the sky.) Here's to lost things finding their way home.",
+   "options": [
+    {
+     "text": "To lost things.",
+     "to": "end",
+     "do": [
+      "set:wendel_epi"
+     ]
+    }
+   ]
+  }
+ },
+ "barks": [
+  {
+   "text": "Hm? No, no, just thinking."
+  },
+  {
+   "if": "!lantern_lit",
+   "text": "Fog's thick today. Always is."
+  },
+  {
+   "if": "side_wendel_done",
+   "text": "Her lamp's burning. Heh."
+  },
+  {
+   "if": "lantern_lit",
+   "text": "I can see the mainland! Maud!"
+  }
+ ]
+}
