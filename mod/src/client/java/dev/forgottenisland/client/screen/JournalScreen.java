@@ -38,19 +38,24 @@ public class JournalScreen extends Screen {
         for (int i = 0; i < TABS.length; i++) {
             int t = i;
             addDrawableChild(ButtonWidget.builder(Text.literal(TABS[i]), b -> { tab = t; lastTab = t; scroll = 0; })
-                    .dimensions(x + 6 + i * ((pw() - 12) / 4), y - 20, (pw() - 12) / 4 - 2, 18).build());
+                    .dimensions(x + 6 + i * ((pw() - 12) / 4), y - 22, (pw() - 12) / 4 - 2, 18).build());
         }
         addDrawableChild(ButtonWidget.builder(Text.literal("Reveal a hint"), b -> { ClientNet.action("hint", 0); tab = 3; lastTab = 3; })
                 .dimensions(x + pw() - 96, y + ph() + 2, 94, 18).build());
         addDrawableChild(ButtonWidget.builder(Text.literal("Close"), b -> close()).dimensions(x, y + ph() + 2, 60, 18).build());
     }
 
-    @Override public void render(DrawContext ctx, int mx, int my, float d) {
-        renderBackground(ctx, mx, my, d);
+    @Override public void renderBackground(DrawContext ctx, int mx, int my, float d) {
+        ctx.fill(0, 0, width, height, 0x90000000);
         int x = px(), y = py(), w = pw(), h = ph();
         ctx.fill(x - 3, y - 3, x + w + 3, y + h + 3, 0xFF5A3A22);
         ctx.fill(x, y, x + w, y + h, PAGE);
         ctx.fill(x + w / 2, y + 4, x + w / 2 + 1, y + h - 4, 0x30000000);
+    }
+
+    @Override public void render(DrawContext ctx, int mx, int my, float d) {
+        super.render(ctx, mx, my, d);
+        int x = px(), y = py(), w = pw(), h = ph();
         List<Line> lines = build(w - 24);
         int lh = 10, visible = (h - 34) / lh;
         scroll = Math.max(0, Math.min(scroll, Math.max(0, lines.size() - visible)));
@@ -66,7 +71,6 @@ public class JournalScreen extends Screen {
         ctx.disableScissor();
         if (lines.size() > visible) ctx.drawText(textRenderer, Text.literal("scroll ↕"), x + w - 50, y + h - 12, INK_LIGHT, false);
         if (data.has("dev") && data.get("dev").getAsBoolean()) ctx.drawText(textRenderer, Text.literal("DEV MODE"), x + 6, y + h - 12, RED, false);
-        super.render(ctx, mx, my, d);
     }
 
     @Override public boolean mouseScrolled(double mx, double my, double hx, double vy) { scroll -= (int) Math.signum(vy) * 2; return true; }

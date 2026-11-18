@@ -567,6 +567,7 @@ choose 1
 wait 12
 choosetext pier now
 screen CreditsScreen 100
+wait 140
 shot e2e_19_credits
 wait 200
 close

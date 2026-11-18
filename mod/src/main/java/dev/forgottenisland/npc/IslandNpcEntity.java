@@ -56,7 +56,8 @@ public class IslandNpcEntity extends PathAwareEntity {
         setPersistent();
         setCanPickUpLoot(false);
         if (getNavigation() instanceof MobNavigation nav) { nav.setCanPathThroughDoors(true); nav.setCanEnterOpenDoors(true); nav.setCanSwim(true); }
-        setPathfindingPenalty(PathNodeType.WATER, 16f);
+        setPathfindingPenalty(PathNodeType.WATER, -1f);          // residents never swim (they would get stuck under piers)
+        setPathfindingPenalty(PathNodeType.WATER_BORDER, 6f);
         setPathfindingPenalty(PathNodeType.DANGER_FIRE, 16f);
         setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, -1f);
     }

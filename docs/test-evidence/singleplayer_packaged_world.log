@@ -1,0 +1,28 @@
+[1795004422809] autopilot enabled, script /home/user/probable-broccoli/mod/run-client/autopilot.txt
+[1795004424037] > screen IntroScreen 900
+[1795004430656] PASS screen is IntroScreen (was IntroScreen)
+[1795004430656] > wait 80
+[1795004434370] > shot sp_01_intro
+[1795004434379] > intro
+[1795004434381] PASS intro closed
+[1795004434381] > wait 100
+[1795004434432] screenshot sp_01_intro
+[1795004439376] > expecthud Letter from Nowhere
+[1795004439377] PASS HUD objective contains 'Letter from Nowhere' (got 'A Letter from Nowhere')
+[1795004439377] > expectitem journal
+[1795004439377] PASS inventory has journal
+[1795004439377] > shot sp_02_boat
+[1795004439380] > walk 60
+[1795004439380] > wait 80
+[1795004439446] screenshot sp_02_boat
+[1795004443469] > shot sp_03_rowing
+[1795004443470] > journal
+[1795004443470] > screen JournalScreen 60
+[1795004443527] screenshot sp_03_rowing
+[1795004443568] PASS screen is JournalScreen (was JournalScreen)
+[1795004443568] > wait 10
+[1795004444061] > shot sp_04_journal
+[1795004444062] > close
+[1795004444063] > summary
+[1795004444064] SUMMARY passes=5 fails=0
+[1795004444092] screenshot sp_04_journal

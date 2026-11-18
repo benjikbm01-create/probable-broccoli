@@ -1,0 +1,75 @@
+[1795003429978] autopilot enabled, script /home/user/probable-broccoli/mod/run-client/autopilot.txt
+[1795003431042] > screen IntroScreen 600
+[1795003435740] PASS screen is IntroScreen (was IntroScreen)
+[1795003435740] > wait 60
+[1795003438643] > intro
+[1795003438645] PASS intro closed
+[1795003438645] > wait 60
+[1795003441490] > chat /fi dev on
+[1795003441495] > wait 20
+[1795003442565] > chat /fi warp cp_dock
+[1795003442567] > wait 40
+[1795003444590] > talk tobias
+[1795003444596] > wait 12
+[1795003445210] > talk tobias!
+[1795003445210] PASS found NPC tobias
+[1795003445212] > screen DialogueScreen 80
+[1795003445267] PASS screen is DialogueScreen (was DialogueScreen)
+[1795003445267] > wait 10
+[1795003445835] > expecttext [dev]
+[1795003445836] PASS dialogue text contains '[dev]'
+[1795003445836] > shot dev_01_dialogue_redacted
+[1795003445845] > choose 1
+[1795003445846] > wait 12
+[1795003445900] screenshot dev_01_dialogue_redacted
+[1795003446485] > close
+[1795003446486] > wait 10
+[1795003447059] > journal
+[1795003447060] > screen JournalScreen 60
+[1795003447217] PASS screen is JournalScreen (was JournalScreen)
+[1795003447217] > wait 10
+[1795003447758] > shot dev_02_journal_redacted
+[1795003447759] > close
+[1795003447760] > wait 10
+[1795003447803] screenshot dev_02_journal_redacted
+[1795003448269] > expecthud m1
+[1795003448269] PASS HUD objective contains 'm1' (got 'm1')
+[1795003448269] > chat /fi stage keep
+[1795003448270] > wait 60
+[1795003451288] > expecthud m3
+[1795003451288] PASS HUD objective contains 'm3' (got 'm3')
+[1795003451288] > chat /fi warp sun_court
+[1795003451288] > wait 40
+[1795003453364] > chat /fi puzzle mirrors solve
+[1795003453365] > wait 70
+[1795003456860] > chat /fi puzzle stones reset
+[1795003456860] > wait 10
+[1795003457419] > chat /fi selftest gates
+[1795003457419] > wait 60
+[1795003460488] > expectchat SELFTEST SUMMARY: 1 passed, 0 failed
+[1795003460489] PASS server said 'SELFTEST SUMMARY: 1 passed, 0 failed'
+[1795003460489] > chat /fi reset
+[1795003460489] > wait 40
+[1795003462508] > screen IntroScreen 200
+[1795003462549] PASS screen is IntroScreen (was IntroScreen)
+[1795003462550] > wait 20
+[1795003463615] > intro
+[1795003463617] PASS intro closed
+[1795003463617] > wait 60
+[1795003466648] > expecthud m1
+[1795003466648] PASS HUD objective contains 'm1' (got 'm1')
+[1795003466648] > chat /fi dev off
+[1795003466649] > wait 20
+[1795003467702] > expecthud Letter from Nowhere
+[1795003467703] PASS HUD objective contains 'Letter from Nowhere' (got 'A Letter from Nowhere')
+[1795003467703] > chat /fi flag set ione_dating
+[1795003467703] > chat /fi flag set wren_dating
+[1795003467703] > chat /fi var rel.ione 6
+[1795003467703] > chat /fi stage undercroft
+[1795003467703] > wait 60
+[1795003470796] > expecthud Beneath the Keep
+[1795003470796] PASS HUD objective contains 'Beneath the Keep' (got 'Beneath the Keep')
+[1795003470796] > chat /save-all
+[1795003470797] > wait 60
+[1795003473811] > summary
+[1795003473811] SUMMARY passes=14 fails=0

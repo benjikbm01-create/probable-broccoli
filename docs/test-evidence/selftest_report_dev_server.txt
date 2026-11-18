@@ -1,0 +1,79 @@
+PASS live content loads with no reference errors (9 dialogues)
+PASS world is marked as built
+PASS keepInventory is on (no item loss on death)
+PASS mob griefing is off (structures protected)
+PASS all 53 NPC schedule spots are physically usable
+PASS all 10 gates match their saved state
+PASS thorn wall starts closed
+PASS stones stay silent before the song is learned
+PASS a wrong note resets the sequence
+PASS striking heron, stag, owl, hare solves the Singing Stones
+PASS the thorn wall opens physically (blocks removed)
+PASS gorge is passable at BlockPos{x=-31, y=79, z=-111}
+PASS puzzle reset re-closes the thorn wall
+PASS four stone buttons exist in the world
+PASS mirrors start unsolved
+PASS tower door starts closed
+PASS rotating 5 mirror blocks in the world solves the Sun Court
+PASS puzzle 2 flag set
+PASS the Lantern Tower door opens
+PASS mirror reset re-seals the tower
+PASS three rune stones are placed in the chamber
+PASS solver finds the 11-push solution from the live board
+PASS pushing the real rune stones onto the seals solves the vault puzzle
+PASS the vault door opens
+PASS slide reset restores the stones and re-seals the vault
+PASS the chamber's reset button cannot undo a solved puzzle
+PASS discovering a secret records it
+PASS secret counter counts each secret once
+PASS 12 secrets each have a discovery zone in the world
+PASS quest items are recognised in the inventory
+PASS a lost quest item is returned to the player
+PASS using up a quest item stops it being restored
+PASS named reward items carry vanilla enchantments
+PASS live conversations run for all 7 residents through the real dialogue manager
+PASS the journal tracks the first objective at the start
+PASS main objectives advance m1 -> m7 -> complete as progression flags are set
+PASS journal lists all seven main objectives once completed
+PASS entering the keep courtyard starts its fight
+PASS 5 hostile guards spawned
+PASS defeating every guard completes the encounter
+PASS dying mid-fight resets the encounter cleanly
+PASS the boss appears in the Wellspring
+PASS the arena gate closes behind the player
+PASS if the player dies the fight resets and the gate reopens
+PASS phase two summons Tide-Wraiths (3)
+PASS defeating the boss is recorded
+PASS the arena opens after victory
+PASS the Warden's last words begin (fake player)
+PASS the Ember is received
+PASS the sinkhole shortcut to the forest opens
+PASS using the Ember at the lantern relights it
+PASS the lantern core becomes a beacon (the great beam)
+PASS all 7 residents are custom humanoid entities, invulnerable, not saved to chunks
+PASS no vanilla villagers or traders exist in the world (0)
+PASS every resident visits at least four places a day
+WARN no walking path for tobias: tobias_inn -> tobias_bed (stops at BlockPos{x=90, y=65, z=128}, goal BlockPos{x=90, y=69, z=130}, 1 nodes)
+WARN no walking path for ione: ione_desk -> archive_roof (stops at BlockPos{x=69, y=71, z=109}, goal BlockPos{x=69, y=77, z=109}, 1 nodes)
+WARN no walking path for ione: archive_roof -> ione_bed (stops at BlockPos{x=65, y=77, z=102}, goal BlockPos{x=64, y=71, z=102}, 1 nodes)
+WARN no walking path for sol: sol_bed -> sol_hull (stops at BlockPos{x=125, y=70, z=160}, goal BlockPos{x=125, y=64, z=160}, 1 nodes)
+PASS residents can walk 25 of 29 nearby schedule transitions (the rest teleport when unobserved)
+INFO long transition tobias:tobias_office->tobias_pier (60m, snaps when unobserved)
+INFO long transition tobias:quay_bench->tobias_inn (61m, snaps when unobserved)
+INFO long transition wendel:wendel_bench->maud_grave (129m, snaps when unobserved)
+INFO long transition wendel:maud_grave->wendel_pier (111m, snaps when unobserved)
+INFO long transition wendel:wendel_pier->wendel_home (69m, snaps when unobserved)
+INFO long transition wren:wren_patrol_s->wren_lodge (80m, snaps when unobserved)
+INFO long transition wren:wren_range->smithy_front (187m, snaps when unobserved)
+INFO long transition wren:smithy_front->wren_patrol_n (172m, snaps when unobserved)
+INFO long transition wren:wren_patrol_n->wren_inn (142m, snaps when unobserved)
+INFO long transition wren:wren_inn->wren_bed (169m, snaps when unobserved)
+INFO long transition wren:wren_bed->wren_patrol_s (86m, snaps when unobserved)
+INFO long transition sol:sol_pier->stall_cloth (85m, snaps when unobserved)
+INFO long transition sol:stall_cloth->sol_hull (52m, snaps when unobserved)
+INFO long transition sol:sol_hull->sol_inn (70m, snaps when unobserved)
+INFO long transition sol:sol_inn->sol_bed (66m, snaps when unobserved)
+PASS reset closes every progress gate (arena left open)
+PASS reset clears story progress but keeps the world
+PASS reset darkens the lantern again
+SELFTEST SUMMARY: 59 passed, 0 failed, 4 warnings

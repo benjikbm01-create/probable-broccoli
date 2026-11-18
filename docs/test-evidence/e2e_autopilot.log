@@ -1,706 +1,701 @@
-[1795002754256] autopilot enabled, script /home/user/probable-broccoli/mod/run-client/autopilot.txt
-[1795002755308] > screen IntroScreen 600
-[1795002760312] PASS screen is IntroScreen (was IntroScreen)
-[1795002760312] > wait 80
-[1795002764010] > shot e2e_01_intro
-[1795002764031] > wait 20
-[1795002764072] screenshot e2e_01_intro
-[1795002765008] > intro
-[1795002765009] PASS intro closed
-[1795002765009] > wait 80
-[1795002769116] > expecthud Letter from Nowhere
-[1795002769116] PASS HUD objective contains 'Letter from Nowhere' (got 'A Letter from Nowhere')
-[1795002769116] > expectitem journal
-[1795002769126] PASS inventory has journal
-[1795002769126] > expectitem letter
-[1795002769126] PASS inventory has letter
-[1795002769126] > chat /effect give Dev minecraft:resistance infinite 4 true
-[1795002769136] > chat /effect give Dev minecraft:saturation infinite 1 true
-[1795002769137] > shot e2e_02_arrival
-[1795002769141] > chat /time set 1000
-[1795002769141] > chat /fi warp cp_dock
-[1795002769141] > wait 35
-[1795002769220] screenshot e2e_02_arrival
-[1795002770918] > talk tobias
-[1795002770924] > wait 12
-[1795002771567] > talk tobias!
-[1795002771567] PASS found NPC tobias
-[1795002771571] > screen DialogueScreen 80
-[1795002771645] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002771645] > wait 10
-[1795002772174] > shot e2e_03_dialogue_tobias
-[1795002772175] > wait 12
-[1795002772206] screenshot e2e_03_dialogue_tobias
-[1795002772828] > choosetext Gullhaven
-[1795002772828] PASS option containing 'Gullhaven'
-[1795002772828] > wait 12
-[1795002773483] > choosetext letter
-[1795002773483] PASS option containing 'letter'
-[1795002773483] > wait 12
-[1795002774118] > choose 1
-[1795002774119] > wait 12
-[1795002774783] > choose 1
-[1795002774783] > wait 12
-[1795002775434] > choose 1
-[1795002775434] > wait 15
-[1795002776256] > screen none 60
-[1795002776258] PASS screen is none (was none)
-[1795002776258] > journal
-[1795002776258] > screen JournalScreen 60
-[1795002776324] PASS screen is JournalScreen (was JournalScreen)
-[1795002776324] > shot e2e_04_journal
-[1795002776325] > close
-[1795002776326] > wait 10
-[1795002776376] screenshot e2e_04_journal
-[1795002776872] > hint
-[1795002776873] > wait 20
-[1795002777907] > expectui hint
-[1795002777907] PASS last UI message was hint (got hint)
-[1795002777907] > shot e2e_05_hint
-[1795002777908] > chat /fi npc hester
-[1795002777908] > wait 45
-[1795002777955] screenshot e2e_05_hint
-[1795002780223] > talk hester
-[1795002780224] PASS found NPC hester
-[1795002780224] > screen DialogueScreen 80
-[1795002780293] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002780293] > wait 10
-[1795002780802] > wait 12
-[1795002781457] > choose 1
-[1795002781457] > wait 12
-[1795002782109] > choose 1
-[1795002782109] > wait 12
-[1795002782794] > choose 1
-[1795002782794] > wait 12
-[1795002783415] > choose 1
-[1795002783415] > wait 12
-[1795002784075] > choose 1
-[1795002784075] > wait 12
-[1795002784702] > choosetext be off
-[1795002784702] PASS option containing 'be off'
-[1795002784702] > wait 15
-[1795002785538] > screen none 60
-[1795002785610] PASS screen is none (was none)
-[1795002785610] > expectitem bread
-[1795002785610] PASS inventory has bread
-[1795002785610] > chat /fi npc ione
-[1795002785610] > wait 45
-[1795002787869] > talk ione
-[1795002787869] PASS found NPC ione
-[1795002787869] > screen DialogueScreen 80
-[1795002787949] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002787949] > wait 10
-[1795002788525] > wait 12
-[1795002789108] > choosetext read a seal
-[1795002789108] PASS option containing 'read a seal'
-[1795002789108] > wait 12
-[1795002789778] > choose 1
-[1795002789778] > wait 12
-[1795002790470] > choose 1
-[1795002790470] > wait 12
-[1795002791101] > choose 1
-[1795002791101] > wait 12
-[1795002791730] > choose 1
-[1795002791731] > wait 15
-[1795002792505] > screen none 60
-[1795002792569] PASS screen is none (was none)
-[1795002792569] > wait 30
-[1795002794152] > expecthud Old Road
-[1795002794152] PASS HUD objective contains 'Old Road' (got 'The Old Road')
-[1795002794152] > chat /fi npc hester
-[1795002794152] > wait 45
-[1795002796450] > talk hester
-[1795002796450] PASS found NPC hester
-[1795002796450] > screen DialogueScreen 80
-[1795002796524] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002796524] > wait 10
-[1795002797064] > wait 12
-[1795002797753] > choosetext old song
-[1795002797753] PASS option containing 'old song'
-[1795002797753] > wait 12
-[1795002798351] > choose 1
-[1795002798351] > wait 12
-[1795002799017] > choose 1
-[1795002799017] > wait 12
-[1795002799695] > choose 1
-[1795002799695] > wait 12
-[1795002800351] > choose 1
-[1795002800352] > wait 12
-[1795002800954] > choosetext be off
-[1795002800954] PASS option containing 'be off'
-[1795002800954] > wait 15
-[1795002801807] > screen none 60
-[1795002801809] PASS screen is none (was none)
-[1795002801809] > expectitem lullaby
-[1795002801809] PASS inventory has lullaby
-[1795002801809] > chat /time set 2000
-[1795002801810] > chat /fi npc wren
-[1795002801810] > wait 45
-[1795002804131] > talk wren
-[1795002804131] PASS found NPC wren
-[1795002804131] > screen DialogueScreen 80
-[1795002804187] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002804187] > wait 10
-[1795002804735] > wait 12
-[1795002805359] > choose 1
-[1795002805359] > wait 12
-[1795002806001] > choose 1
-[1795002806002] > wait 12
-[1795002806673] > choosetext Kestrel Keep
-[1795002806673] PASS option containing 'Kestrel Keep'
-[1795002806673] > wait 12
-[1795002807370] > choose 1
-[1795002807370] > wait 15
-[1795002808153] > screen none 60
-[1795002808154] PASS screen is none (was none)
-[1795002808154] > chat /fi npc wren
-[1795002808155] > wait 45
-[1795002810473] > talk wren
-[1795002810474] > wait 12
-[1795002811103] > talk wren!
-[1795002811103] PASS found NPC wren
-[1795002811103] > screen DialogueScreen 80
-[1795002811168] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002811169] > wait 10
-[1795002811747] > wait 12
-[1795002812392] > choosetext Singing Stones
-[1795002812392] PASS option containing 'Singing Stones'
-[1795002812392] > wait 12
-[1795002813019] > choosetext Hester taught
-[1795002813019] PASS option containing 'Hester taught'
-[1795002813019] > wait 12
-[1795002813665] > choose 1
-[1795002813665] > wait 15
-[1795002814473] > screen none 60
-[1795002814544] PASS screen is none (was none)
-[1795002814545] > chat /fi npc wren
-[1795002814545] > wait 45
-[1795002816834] > talk wren
-[1795002816835] > wait 12
-[1795002817449] > talk wren!
-[1795002817449] PASS found NPC wren
-[1795002817449] > screen DialogueScreen 80
-[1795002817542] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002817542] > wait 10
-[1795002818074] > wait 12
-[1795002818730] > choosetext nicer than
-[1795002818730] PASS option containing 'nicer than'
-[1795002818730] > wait 12
-[1795002819374] > choosetext Maybe you should
-[1795002819374] PASS option containing 'Maybe you should'
-[1795002819374] > wait 12
-[1795002819996] > choose 1
-[1795002819996] > wait 15
-[1795002820813] > screen none 60
-[1795002820937] PASS screen is none (was none)
-[1795002820937] > chat /fi npc wren
-[1795002820938] > wait 45
-[1795002823190] > talk wren
-[1795002823191] > wait 12
-[1795002823809] > talk wren!
-[1795002823809] PASS found NPC wren
-[1795002823810] > screen DialogueScreen 80
-[1795002823885] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002823885] > wait 10
-[1795002824470] > wait 12
-[1795002825087] > choosetext far away
-[1795002825087] PASS option containing 'far away'
-[1795002825087] > wait 12
-[1795002825781] > choose 1
-[1795002825781] > wait 12
-[1795002826422] > choosetext get it
-[1795002826422] PASS option containing 'get it'
-[1795002826422] > wait 12
-[1795002827063] > choose 1
-[1795002827064] > wait 15
-[1795002827849] > screen none 60
-[1795002827850] PASS screen is none (was none)
-[1795002827850] > chat /fi warp stones_center
-[1795002827851] > wait 35
-[1795002829660] > shot e2e_06_stones
-[1795002829662] > lookat -30 78 -79
-[1795002829662] > use -30 78 -79
-[1795002829665] > wait 15
-[1795002829724] screenshot e2e_06_stones
-[1795002830453] > lookat -20 78 -79
-[1795002830453] > use -20 78 -79
-[1795002830453] > wait 15
-[1795002831281] > lookat -25 78 -74
-[1795002831281] > use -25 78 -74
-[1795002831282] > wait 15
-[1795002832075] > lookat -25 78 -84
-[1795002832075] > use -25 78 -84
-[1795002832075] > wait 15
-[1795002832858] > wait 60
-[1795002835901] > expectblock -31 79 -111 air
-[1795002835901] PASS block at -31,79,-111 is air (got air)
-[1795002835901] > expecthud Silent Keep
-[1795002835901] PASS HUD objective contains 'Silent Keep' (got 'The Silent Keep')
-[1795002835901] > chat /tp Dev -146 70 105 180 30
-[1795002835902] > wait 30
-[1795002837514] > wait 40
-[1795002839508] > chat /kill @e[tag=fi_enc]
-[1795002839509] > chat /kill @e[tag=fi_boss_add]
-[1795002839509] > wait 10
-[1795002840101] > use -146 70 102
-[1795002840101] > screen GenericContainerScreen 60
-[1795002840204] PASS screen is GenericContainerScreen (was GenericContainerScreen)
-[1795002840204] > loot
-[1795002840205] PASS looted 3 stacks
-[1795002840207] > wait 20
-[1795002841235] > expectitem mother_bow
-[1795002841236] PASS inventory has mother_bow
-[1795002841236] > chat /kill @e[tag=fi_enc]
-[1795002841236] > chat /kill @e[tag=fi_boss_add]
-[1795002841236] > wait 10
-[1795002841763] > chat /time set 2000
-[1795002841764] > chat /fi npc wren
-[1795002841764] > wait 45
-[1795002844086] > talk wren
-[1795002844086] PASS found NPC wren
-[1795002844086] > screen DialogueScreen 80
-[1795002844166] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002844166] > wait 10
-[1795002844676] > wait 12
-[1795002845340] > choosetext Hollow Oak
-[1795002845341] PASS option containing 'Hollow Oak'
-[1795002845341] > wait 12
-[1795002846007] > choose 1
-[1795002846007] > wait 12
-[1795002846656] > choose 1
-[1795002846657] > wait 12
-[1795002847285] > choosetext more than friends
-[1795002847285] PASS option containing 'more than friends'
-[1795002847285] > wait 12
-[1795002847948] > choosetext Wait for nightfall
-[1795002847949] PASS option containing 'Wait for nightfall'
-[1795002847949] > wait 15
-[1795002848773] > screen none 60
-[1795002848774] PASS screen is none (was none)
-[1795002848774] > wait 80
-[1795002852806] > chat /tp Dev -17.5 71.0 60.5 45 10
-[1795002852806] > wait 30
-[1795002854393] > wait 60
-[1795002857467] > chat /fi effect event:snap:wren
-[1795002857468] > wait 20
-[1795002858458] > talk wren
-[1795002858459] > wait 12
-[1795002859108] > talk wren!
-[1795002859108] PASS found NPC wren
-[1795002859108] > screen DialogueScreen 80
-[1795002859192] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002859192] > wait 10
-[1795002859711] > shot e2e_07_glade_date
-[1795002859712] > wait 12
-[1795002859750] screenshot e2e_07_glade_date
-[1795002860403] > choose 1
-[1795002860404] > wait 12
-[1795002861054] > choose 1
-[1795002861054] > wait 12
-[1795002861657] > choose 1
-[1795002861657] > wait 12
-[1795002862335] > choosetext will you be mine
-[1795002862335] PASS option containing 'will you be mine'
-[1795002862335] > wait 12
-[1795002862968] > choose 1
-[1795002862968] > wait 15
-[1795002863817] > screen none 60
-[1795002863819] PASS screen is none (was none)
-[1795002863819] > clearchat
-[1795002863819] > chat /fi status
-[1795002863819] > wait 20
-[1795002864905] > expectchat dating=1
-[1795002864905] PASS server said 'dating=1'
-[1795002864905] > chat /time set 3000
-[1795002864906] > chat /fi warp cp_keep_gate
-[1795002864906] > wait 35
-[1795002866654] > shot e2e_08_keep_gate
-[1795002866655] > chat /fi warp keep_court
-[1795002866656] > wait 35
-[1795002866707] screenshot e2e_08_keep_gate
-[1795002868456] > wait 40
-[1795002870513] > chat /kill @e[tag=fi_enc]
-[1795002870514] > chat /kill @e[tag=fi_boss_add]
-[1795002870514] > wait 10
-[1795002871081] > chat /fi warp sun_court
-[1795002871081] > wait 35
-[1795002872879] > shot e2e_09_sun_court
-[1795002872880] > chat /tp Dev 48.5 92 -170.5 180 30
-[1795002872881] > wait 30
-[1795002872919] screenshot e2e_09_sun_court
-[1795002874408] > lookat 48 92 -172
-[1795002874408] > use 48 92 -172
-[1795002874408] > wait 10
-[1795002874951] > chat /tp Dev 49.5 92 -170.5 180 30
-[1795002874952] > wait 30
-[1795002876527] > lookat 49 92 -172
-[1795002876527] > use 49 92 -172
-[1795002876528] > wait 10
-[1795002877060] > chat /tp Dev 52.5 92 -168.5 180 30
-[1795002877061] > wait 30
-[1795002878601] > lookat 52 92 -170
-[1795002878601] > use 52 92 -170
-[1795002878601] > wait 10
-[1795002879146] > chat /tp Dev 48.5 92 -165.5 180 30
-[1795002879147] > wait 30
-[1795002880731] > lookat 48 92 -167
-[1795002880731] > use 48 92 -167
-[1795002880731] > wait 10
-[1795002881248] > chat /tp Dev 52.5 92 -165.5 180 30
-[1795002881249] > wait 30
-[1795002882826] > lookat 52 92 -167
-[1795002882827] > use 52 92 -167
-[1795002882827] > wait 10
-[1795002883348] > wait 70
-[1795002886898] > expectblock 62 92 -191 air
-[1795002886898] PASS block at 62,92,-191 is air (got air)
-[1795002886898] > chat /fi warp lantern_room
-[1795002886898] > wait 35
-[1795002888705] > wait 40
-[1795002890750] > expecthud Beneath the Keep
-[1795002890750] PASS HUD objective contains 'Beneath the Keep' (got 'Beneath the Keep')
-[1795002890750] > shot e2e_10_empty_lantern
-[1795002890750] > use 65 142 -196
-[1795002890751] > screen GenericContainerScreen 60
-[1795002890796] PASS screen is GenericContainerScreen (was GenericContainerScreen)
-[1795002890796] > loot
-[1795002890796] PASS looted 2 stacks
-[1795002890797] > wait 20
-[1795002890815] screenshot e2e_10_empty_lantern
-[1795002891853] > expectitem warden_key
-[1795002891854] PASS inventory has warden_key
-[1795002891854] > chat /fi warp keep_court
-[1795002891854] > wait 35
-[1795002893648] > chat /kill @e[tag=fi_enc]
-[1795002893649] > chat /kill @e[tag=fi_boss_add]
-[1795002893649] > wait 10
-[1795002894211] > hold warden_key
-[1795002894212] PASS holding warden_key
-[1795002894212] > chat /tp Dev 21 92 -161 90 50
-[1795002894212] > wait 30
-[1795002895747] > lookat 20 91 -160
-[1795002895748] > use 20 91 -160
-[1795002895748] > wait 20
-[1795002896806] > expectblock 20 91 -160 air
-[1795002896806] PASS block at 20,91,-160 is air (got air)
-[1795002896806] > chat /fi warp cp_undercroft
-[1795002896807] > wait 35
-[1795002898605] > wait 40
-[1795002900648] > chat /kill @e[tag=fi_enc]
-[1795002900648] > chat /kill @e[tag=fi_boss_add]
-[1795002900648] > wait 10
-[1795002901202] > shot e2e_11_cistern
-[1795002901203] > chat /fi warp echo_pool_1
-[1795002901203] > wait 35
-[1795002901247] screenshot e2e_11_cistern
-[1795002902997] > wait 20
-[1795002904048] > chat /kill @e[tag=fi_enc]
-[1795002904048] > chat /kill @e[tag=fi_boss_add]
-[1795002904048] > wait 10
-[1795002904601] > screen DialogueScreen 100
-[1795002904652] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002904653] > wait 12
-[1795002905299] > choose 1
-[1795002905299] > wait 12
-[1795002905945] > choose 1
-[1795002905945] > wait 12
-[1795002906597] > choose 1
-[1795002906597] > wait 15
-[1795002907405] > screen none 60
-[1795002907451] PASS screen is none (was none)
-[1795002907451] > chat /fi warp echo_pool_2
-[1795002907451] > wait 35
-[1795002909252] > wait 20
-[1795002910303] > chat /kill @e[tag=fi_enc]
-[1795002910304] > chat /kill @e[tag=fi_boss_add]
-[1795002910304] > wait 10
-[1795002910850] > screen DialogueScreen 100
-[1795002910894] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002910894] > wait 12
-[1795002911547] > choose 1
-[1795002911547] > wait 12
-[1795002912199] > choose 1
-[1795002912199] > wait 12
-[1795002912850] > choose 1
-[1795002912850] > wait 15
-[1795002913656] > screen none 60
-[1795002913705] PASS screen is none (was none)
-[1795002913706] > chat /fi warp echo_pool_3
-[1795002913706] > wait 35
-[1795002915500] > wait 20
-[1795002916550] > chat /kill @e[tag=fi_enc]
-[1795002916551] > chat /kill @e[tag=fi_boss_add]
-[1795002916551] > wait 10
-[1795002917100] > screen DialogueScreen 100
-[1795002917147] PASS screen is DialogueScreen (was DialogueScreen)
-[1795002917147] > shot e2e_12_echo
-[1795002917148] > wait 12
-[1795002917175] screenshot e2e_12_echo
-[1795002917802] > choose 1
-[1795002917803] > wait 12
-[1795002918455] > choose 1
-[1795002918455] > wait 12
-[1795002919104] > choose 1
-[1795002919104] > wait 15
-[1795002919895] > screen none 60
-[1795002919952] PASS screen is none (was none)
-[1795002919952] > expectblock 19 45 -104 air
-[1795002919953] PASS block at 19,45,-104 is air (got air)
-[1795002919953] > shot e2e_13_slide_before
-[1795002919953] > chat /tp Dev 20.5 45 -94.5 0 30
-[1795002919955] > wait 30
-[1795002919991] screenshot e2e_13_slide_before
-[1795002921494] > lookat 19 45 -95
-[1795002921494] > use 19 45 -95
-[1795002921494] > wait 10
-[1795002922050] > chat /tp Dev 18.5 45 -93.5 0 30
-[1795002922051] > wait 30
-[1795002923595] > lookat 18 45 -95
-[1795002923595] > use 18 45 -95
-[1795002923595] > wait 10
-[1795002924147] > chat /tp Dev 17.5 45 -96.5 0 30
-[1795002924148] > wait 30
-[1795002925698] > lookat 18 45 -97
-[1795002925698] > use 18 45 -97
-[1795002925698] > wait 10
-[1795002926249] > chat /tp Dev 20.5 45 -99.5 0 30
-[1795002926250] > wait 30
-[1795002927800] > lookat 20 45 -99
-[1795002927800] > use 20 45 -99
-[1795002927800] > wait 10
-[1795002928347] > chat /tp Dev 17.5 45 -97.5 0 30
-[1795002928347] > wait 30
-[1795002929901] > lookat 18 45 -98
-[1795002929901] > use 18 45 -98
-[1795002929901] > wait 10
-[1795002930448] > chat /tp Dev 19.5 45 -98.5 0 30
-[1795002930449] > wait 30
-[1795002931995] > lookat 19 45 -98
-[1795002931995] > use 19 45 -98
-[1795002931995] > wait 10
-[1795002932544] > chat /tp Dev 18.5 45 -94.5 0 30
-[1795002932544] > wait 30
-[1795002934095] > lookat 19 45 -95
-[1795002934095] > use 19 45 -95
-[1795002934096] > wait 10
-[1795002934644] > chat /tp Dev 20.5 46 -97.5 0 30
-[1795002934645] > wait 30
-[1795002936200] > lookat 20 45 -97
-[1795002936201] > use 20 45 -97
-[1795002936201] > wait 10
-[1795002936748] > chat /tp Dev 20.5 45 -98.5 0 30
-[1795002936749] > wait 30
-[1795002938298] > lookat 20 45 -98
-[1795002938298] > use 20 45 -98
-[1795002938298] > wait 10
-[1795002938844] > chat /tp Dev 22.5 45 -95.5 0 30
-[1795002938845] > wait 30
-[1795002940395] > lookat 22 45 -95
-[1795002940395] > use 22 45 -95
-[1795002940395] > wait 10
-[1795002940944] > chat /tp Dev 19.5 45 -94.5 0 30
-[1795002940945] > wait 30
-[1795002942495] > lookat 20 45 -95
-[1795002942495] > use 20 45 -95
-[1795002942495] > wait 10
-[1795002943050] > wait 70
-[1795002946595] > shot e2e_14_slide_after
-[1795002946596] > expectblock 19 45 -92 air
-[1795002946596] PASS block at 19,45,-92 is air (got air)
-[1795002946596] > expecthud Wellspring
-[1795002946596] PASS HUD objective contains 'Wellspring' (got 'The Wellspring')
-[1795002946596] > chat /fi boss weak
-[1795002946597] > wait 10
-[1795002946622] screenshot e2e_14_slide_after
-[1795002947149] > chat /fi effect give:kestrel_blade
-[1795002947150] > wait 10
-[1795002947696] > hold kestrel_blade
-[1795002947697] PASS holding kestrel_blade
-[1795002947697] > chat /fi warp cp_wellspring
-[1795002947697] > wait 35
-[1795002949502] > wait 30
-[1795002951046] > chat /tp Dev -9.5 28.0 -66.5 0 0
-[1795002951047] > wait 30
-[1795002952594] > wait 60
-[1795002955650] > shot e2e_15_boss
-[1795002955650] > attack
-[1795002955651] > wait 22
-[1795002955715] screenshot e2e_15_boss
-[1795002956793] > attack
-[1795002956793] > wait 22
-[1795002957951] > attack
-[1795002957952] > wait 22
-[1795002959103] > attack
-[1795002959103] > wait 22
-[1795002960254] > attack
-[1795002960254] > wait 22
-[1795002961400] > attack
-[1795002961400] > wait 22
-[1795002962549] > attack
-[1795002962549] > wait 22
-[1795002963702] > attack
-[1795002963702] > wait 22
-[1795002964853] > attack
-[1795002964853] > wait 22
-[1795002965994] > attack
-[1795002965994] > wait 22
-[1795002967146] > attack
-[1795002967147] > wait 22
-[1795002968302] > attack
-[1795002968302] > wait 22
-[1795002969452] > attack
-[1795002969452] > wait 22
-[1795002970603] > attack
-[1795002970603] > wait 22
-[1795002971751] > attack
-[1795002971751] > wait 22
-[1795002972897] > attack
-[1795002972897] > wait 22
-[1795002974046] > attack
-[1795002974046] > wait 22
-[1795002975196] > attack
-[1795002975196] > wait 22
-[1795002976348] > attack
-[1795002976348] > wait 22
-[1795002977502] > attack
-[1795002977502] > wait 22
-[1795002978654] > attack
-[1795002978654] > wait 22
-[1795002979806] > attack
-[1795002979806] > wait 22
-[1795002980944] > attack
-[1795002980944] > wait 22
-[1795002982100] > attack
-[1795002982100] > wait 22
-[1795002983246] > attack
-[1795002983246] > wait 22
-[1795002984395] > attack
-[1795002984395] > wait 22
-[1795002985547] > attack
-[1795002985547] > wait 22
-[1795002986704] > attack
-[1795002986704] > wait 22
-[1795002987852] > attack
-[1795002987852] > wait 22
-[1795002989000] > attack
-[1795002989000] > wait 22
-[1795002990144] > attack
-[1795002990144] > wait 22
-[1795002991303] > attack
-[1795002991303] > wait 22
-[1795002992453] > attack
-[1795002992453] > wait 22
-[1795002993599] > attack
-[1795002993599] > wait 22
-[1795002994752] > attack
-[1795002994752] > wait 22
-[1795002995897] > attack
-[1795002995897] > wait 22
-[1795002997047] > attack
-[1795002997047] > wait 22
-[1795002998195] > attack
-[1795002998196] > wait 22
-[1795002999348] > attack
-[1795002999348] > wait 22
-[1795003000498] > attack
-[1795003000498] > wait 22
-[1795003001647] > attack
-[1795003001647] > wait 22
-[1795003002805] > attack
-[1795003002805] > wait 22
-[1795003003953] > attack
-[1795003003953] > wait 22
-[1795003005095] > attack
-[1795003005095] > wait 22
-[1795003006249] > attack
-[1795003006249] > wait 22
-[1795003007400] > wait 20
-[1795003008446] > screen DialogueScreen 400
-[1795003008504] PASS screen is DialogueScreen (was DialogueScreen)
-[1795003008504] > shot e2e_16_warden
-[1795003008505] > wait 12
-[1795003008568] screenshot e2e_16_warden
-[1795003009152] > choose 1
-[1795003009152] > wait 12
-[1795003009799] > choose 1
-[1795003009800] > wait 12
-[1795003010449] > choosetext daughter
-[1795003010449] PASS option containing 'daughter'
-[1795003010449] > wait 12
-[1795003011105] > choose 1
-[1795003011105] > wait 12
-[1795003011745] > choose 1
-[1795003011746] > wait 12
-[1795003012403] > choose 1
-[1795003012403] > wait 15
-[1795003013196] > screen none 60
-[1795003013243] PASS screen is none (was none)
-[1795003013243] > expectitem ember
-[1795003013243] PASS inventory has ember
-[1795003013243] > chat /kill @e[tag=fi_enc]
-[1795003013244] > chat /kill @e[tag=fi_boss_add]
-[1795003013244] > wait 10
-[1795003013796] > chat /fi warp lantern_room
-[1795003013796] > wait 35
-[1795003015626] > wait 30
-[1795003017172] > hold ember
-[1795003017173] PASS holding ember
-[1795003017173] > lookat 63 142 -198
-[1795003017173] > use 63 142 -198
-[1795003017173] > wait 60
-[1795003020231] > expectblock 63 142 -198 beacon
-[1795003020231] PASS block at 63,142,-198 is beacon (got beacon)
-[1795003020231] > expecthud Homecoming
-[1795003020231] PASS HUD objective contains 'Homecoming' (got 'Homecoming')
-[1795003020231] > shot e2e_17_lantern_lit
-[1795003020232] > wait 400
-[1795003020302] screenshot e2e_17_lantern_lit
-[1795003040311] > shot e2e_18_festival
-[1795003040312] > chat /fi npc wren
-[1795003040313] > wait 45
-[1795003040358] screenshot e2e_18_festival
-[1795003042554] > talk wren
-[1795003042554] PASS found NPC wren
-[1795003042554] > screen DialogueScreen 80
-[1795003042613] PASS screen is DialogueScreen (was DialogueScreen)
-[1795003042613] > wait 10
-[1795003043185] > wait 12
-[1795003043833] > choose 1
-[1795003043833] > wait 12
-[1795003044513] > choose 1
-[1795003044513] > wait 15
-[1795003045265] > screen none 60
-[1795003045357] PASS screen is none (was none)
-[1795003045357] > chat /fi npc hester
-[1795003045357] > wait 45
-[1795003047635] > talk hester
-[1795003047635] PASS found NPC hester
-[1795003047635] > screen DialogueScreen 80
-[1795003047714] PASS screen is DialogueScreen (was DialogueScreen)
-[1795003047714] > wait 10
-[1795003048256] > wait 12
-[1795003048872] > choose 1
-[1795003048872] > wait 12
-[1795003049567] > choosetext I told him
-[1795003049567] PASS option containing 'I told him'
-[1795003049567] > wait 12
-[1795003050215] > choose 1
-[1795003050216] > wait 12
-[1795003050865] > choosetext pier now
-[1795003050865] PASS option containing 'pier now'
-[1795003050865] > screen CreditsScreen 100
-[1795003050954] PASS screen is CreditsScreen (was CreditsScreen)
-[1795003050954] > shot e2e_19_credits
-[1795003050955] > wait 200
-[1795003051023] screenshot e2e_19_credits
-[1795003061015] > close
-[1795003061016] > wait 60
-[1795003064030] > expectui toast
-[1795003064031] PASS last UI message was toast (got toast)
-[1795003064031] > clearchat
-[1795003064031] > chat /fi status
-[1795003064031] > wait 20
-[1795003065087] > expectchat dating=1
-[1795003065088] PASS server said 'dating=1'
-[1795003065088] > summary
-[1795003065088] SUMMARY passes=97 fails=0
+[1795004537370] autopilot enabled, script /home/user/probable-broccoli/mod/run-client/autopilot.txt
+[1795004538498] > screen IntroScreen 600
+[1795004543690] PASS screen is IntroScreen (was IntroScreen)
+[1795004543690] > wait 80
+[1795004547435] > shot e2e_01_intro
+[1795004547444] > wait 20
+[1795004547484] screenshot e2e_01_intro
+[1795004548474] > intro
+[1795004548475] PASS intro closed
+[1795004548475] > wait 80
+[1795004552537] > expecthud Letter from Nowhere
+[1795004552537] PASS HUD objective contains 'Letter from Nowhere' (got 'A Letter from Nowhere')
+[1795004552537] > expectitem journal
+[1795004552542] PASS inventory has journal
+[1795004552542] > expectitem letter
+[1795004552542] PASS inventory has letter
+[1795004552542] > chat /effect give Dev minecraft:resistance infinite 4 true
+[1795004552548] > chat /effect give Dev minecraft:saturation infinite 1 true
+[1795004552549] > shot e2e_02_arrival
+[1795004552549] > chat /time set 1000
+[1795004552550] > chat /fi warp cp_dock
+[1795004552550] > wait 35
+[1795004552614] screenshot e2e_02_arrival
+[1795004554329] > talk tobias
+[1795004554333] > wait 12
+[1795004554951] > talk tobias!
+[1795004554951] PASS found NPC tobias
+[1795004554952] > screen DialogueScreen 80
+[1795004555027] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004555027] > wait 10
+[1795004555576] > shot e2e_03_dialogue_tobias
+[1795004555576] > wait 12
+[1795004555622] screenshot e2e_03_dialogue_tobias
+[1795004556200] > choosetext Gullhaven
+[1795004556200] PASS option containing 'Gullhaven'
+[1795004556200] > wait 12
+[1795004556849] > choosetext letter
+[1795004556849] PASS option containing 'letter'
+[1795004556849] > wait 12
+[1795004557493] > choose 1
+[1795004557494] > wait 12
+[1795004558187] > choose 1
+[1795004558187] > wait 12
+[1795004558806] > choose 1
+[1795004558807] > wait 15
+[1795004559624] > screen none 60
+[1795004559690] PASS screen is none (was none)
+[1795004559692] > journal
+[1795004559692] > screen JournalScreen 60
+[1795004559763] PASS screen is JournalScreen (was JournalScreen)
+[1795004559763] > shot e2e_04_journal
+[1795004559764] > close
+[1795004559765] > wait 10
+[1795004559813] screenshot e2e_04_journal
+[1795004560301] > hint
+[1795004560301] > wait 20
+[1795004561388] > expectui hint
+[1795004561388] PASS last UI message was hint (got hint)
+[1795004561388] > shot e2e_05_hint
+[1795004561389] > chat /fi npc hester
+[1795004561390] > wait 45
+[1795004561440] screenshot e2e_05_hint
+[1795004563685] > talk hester
+[1795004563686] PASS found NPC hester
+[1795004563686] > screen DialogueScreen 80
+[1795004563752] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004563752] > wait 10
+[1795004564284] > wait 12
+[1795004564896] > choose 1
+[1795004564896] > wait 12
+[1795004565607] > choose 1
+[1795004565607] > wait 12
+[1795004566213] > choose 1
+[1795004566213] > wait 12
+[1795004566902] > choose 1
+[1795004566902] > wait 12
+[1795004567534] > choose 1
+[1795004567534] > wait 12
+[1795004568213] > choosetext be off
+[1795004568214] PASS option containing 'be off'
+[1795004568214] > wait 15
+[1795004568942] > screen none 60
+[1795004569019] PASS screen is none (was none)
+[1795004569019] > expectitem bread
+[1795004569019] PASS inventory has bread
+[1795004569019] > chat /fi npc ione
+[1795004569020] > wait 45
+[1795004571342] > talk ione
+[1795004571342] PASS found NPC ione
+[1795004571342] > screen DialogueScreen 80
+[1795004571429] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004571429] > wait 10
+[1795004571943] > wait 12
+[1795004572663] > choosetext read a seal
+[1795004572663] PASS option containing 'read a seal'
+[1795004572664] > wait 12
+[1795004573282] > choose 1
+[1795004573282] > wait 12
+[1795004573942] > choose 1
+[1795004573943] > wait 12
+[1795004574554] > choose 1
+[1795004574554] > wait 12
+[1795004575194] > choose 1
+[1795004575194] > wait 15
+[1795004576054] > screen none 60
+[1795004576056] PASS screen is none (was none)
+[1795004576056] > wait 30
+[1795004577594] > expecthud Old Road
+[1795004577594] PASS HUD objective contains 'Old Road' (got 'The Old Road')
+[1795004577594] > chat /fi npc hester
+[1795004577594] > wait 45
+[1795004579893] > talk hester
+[1795004579893] PASS found NPC hester
+[1795004579894] > screen DialogueScreen 80
+[1795004579969] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004579969] > wait 10
+[1795004580551] > wait 12
+[1795004581164] > choosetext old song
+[1795004581164] PASS option containing 'old song'
+[1795004581164] > wait 12
+[1795004581789] > choose 1
+[1795004581790] > wait 12
+[1795004582483] > choose 1
+[1795004582483] > wait 12
+[1795004583115] > choose 1
+[1795004583115] > wait 12
+[1795004583775] > choose 1
+[1795004583775] > wait 12
+[1795004584426] > choosetext be off
+[1795004584426] PASS option containing 'be off'
+[1795004584426] > wait 15
+[1795004585218] > screen none 60
+[1795004585296] PASS screen is none (was none)
+[1795004585296] > expectitem lullaby
+[1795004585296] PASS inventory has lullaby
+[1795004585296] > chat /time set 2000
+[1795004585296] > chat /fi npc wren
+[1795004585296] > wait 45
+[1795004587540] > talk wren
+[1795004587540] PASS found NPC wren
+[1795004587540] > screen DialogueScreen 80
+[1795004587591] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004587592] > wait 10
+[1795004588167] > wait 12
+[1795004588792] > choose 1
+[1795004588792] > wait 12
+[1795004589477] > choose 1
+[1795004589477] > wait 12
+[1795004590112] > choosetext Kestrel Keep
+[1795004590112] PASS option containing 'Kestrel Keep'
+[1795004590113] > wait 12
+[1795004590786] > choose 1
+[1795004590787] > wait 15
+[1795004591547] > screen none 60
+[1795004591625] PASS screen is none (was none)
+[1795004591625] > chat /fi npc wren
+[1795004591626] > wait 45
+[1795004593944] > talk wren
+[1795004593944] PASS found NPC wren
+[1795004593944] > screen DialogueScreen 80
+[1795004594036] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004594037] > wait 10
+[1795004594639] > wait 12
+[1795004595240] > choosetext Singing Stones
+[1795004595241] PASS option containing 'Singing Stones'
+[1795004595241] > wait 12
+[1795004595872] > choosetext Hester taught
+[1795004595872] PASS option containing 'Hester taught'
+[1795004595872] > wait 12
+[1795004596504] > choose 1
+[1795004596505] > wait 15
+[1795004597313] > screen none 60
+[1795004597394] PASS screen is none (was none)
+[1795004597394] > chat /fi npc wren
+[1795004597395] > wait 45
+[1795004599646] > talk wren
+[1795004599646] PASS found NPC wren
+[1795004599646] > screen DialogueScreen 80
+[1795004599734] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004599734] > wait 10
+[1795004600244] > wait 12
+[1795004600890] > choosetext nicer than
+[1795004600890] PASS option containing 'nicer than'
+[1795004600890] > wait 12
+[1795004601559] > choosetext Maybe you should
+[1795004601559] PASS option containing 'Maybe you should'
+[1795004601559] > wait 12
+[1795004602262] > choose 1
+[1795004602262] > wait 15
+[1795004603042] > screen none 60
+[1795004603044] PASS screen is none (was none)
+[1795004603044] > chat /fi npc wren
+[1795004603044] > wait 45
+[1795004605388] > talk wren
+[1795004605389] PASS found NPC wren
+[1795004605389] > screen DialogueScreen 80
+[1795004605494] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004605494] > wait 10
+[1795004606058] > wait 12
+[1795004606699] > choosetext far away
+[1795004606699] PASS option containing 'far away'
+[1795004606700] > wait 12
+[1795004607288] > choose 1
+[1795004607288] > wait 12
+[1795004608020] > choosetext get it
+[1795004608020] PASS option containing 'get it'
+[1795004608020] > wait 12
+[1795004608601] > choose 1
+[1795004608601] > wait 15
+[1795004609393] > screen none 60
+[1795004609479] PASS screen is none (was none)
+[1795004609479] > chat /fi warp stones_center
+[1795004609479] > wait 35
+[1795004611248] > shot e2e_06_stones
+[1795004611249] > lookat -30 78 -79
+[1795004611249] > use -30 78 -79
+[1795004611253] > wait 15
+[1795004611300] screenshot e2e_06_stones
+[1795004612067] > lookat -20 78 -79
+[1795004612068] > use -20 78 -79
+[1795004612068] > wait 15
+[1795004612888] > lookat -25 78 -74
+[1795004612889] > use -25 78 -74
+[1795004612889] > wait 15
+[1795004613680] > lookat -25 78 -84
+[1795004613680] > use -25 78 -84
+[1795004613680] > wait 15
+[1795004614464] > wait 60
+[1795004617504] > expectblock -31 79 -111 air
+[1795004617504] PASS block at -31,79,-111 is air (got air)
+[1795004617504] > expecthud Silent Keep
+[1795004617504] PASS HUD objective contains 'Silent Keep' (got 'The Silent Keep')
+[1795004617504] > chat /tp Dev -146 70 105 180 30
+[1795004617505] > wait 30
+[1795004619139] > wait 40
+[1795004621136] > chat /kill @e[tag=fi_enc]
+[1795004621137] > chat /kill @e[tag=fi_boss_add]
+[1795004621137] > wait 10
+[1795004621686] > use -146 70 102
+[1795004621686] > screen GenericContainerScreen 60
+[1795004621772] PASS screen is GenericContainerScreen (was GenericContainerScreen)
+[1795004621772] > loot
+[1795004621773] PASS looted 3 stacks
+[1795004621774] > wait 20
+[1795004622846] > expectitem mother_bow
+[1795004622846] PASS inventory has mother_bow
+[1795004622846] > chat /kill @e[tag=fi_enc]
+[1795004622846] > chat /kill @e[tag=fi_boss_add]
+[1795004622846] > wait 10
+[1795004623433] > chat /time set 2000
+[1795004623434] > chat /fi npc wren
+[1795004623434] > wait 45
+[1795004625687] > talk wren
+[1795004625687] PASS found NPC wren
+[1795004625687] > screen DialogueScreen 80
+[1795004625781] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004625781] > wait 10
+[1795004626338] > wait 12
+[1795004626966] > choosetext Hollow Oak
+[1795004626966] PASS option containing 'Hollow Oak'
+[1795004626966] > wait 12
+[1795004627635] > choose 1
+[1795004627635] > wait 12
+[1795004628286] > choose 1
+[1795004628286] > wait 12
+[1795004628959] > choosetext more than friends
+[1795004628959] PASS option containing 'more than friends'
+[1795004628959] > wait 12
+[1795004629550] > choosetext Wait for nightfall
+[1795004629550] PASS option containing 'Wait for nightfall'
+[1795004629550] > wait 15
+[1795004630381] > screen none 60
+[1795004630454] PASS screen is none (was none)
+[1795004630454] > wait 80
+[1795004634474] > chat /tp Dev -17.5 71.0 60.5 45 10
+[1795004634475] > wait 30
+[1795004636016] > wait 60
+[1795004639046] > chat /fi effect event:snap:wren
+[1795004639046] > wait 20
+[1795004640141] > talk wren
+[1795004640141] > wait 12
+[1795004640752] > talk wren!
+[1795004640753] PASS found NPC wren
+[1795004640753] > screen DialogueScreen 80
+[1795004640835] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004640835] > wait 10
+[1795004641411] > shot e2e_07_glade_date
+[1795004641411] > wait 12
+[1795004641466] screenshot e2e_07_glade_date
+[1795004642011] > choose 1
+[1795004642011] > wait 12
+[1795004642694] > choose 1
+[1795004642694] > wait 12
+[1795004643289] > choose 1
+[1795004643289] > wait 12
+[1795004644014] > choosetext will you be mine
+[1795004644014] PASS option containing 'will you be mine'
+[1795004644014] > wait 12
+[1795004644659] > choose 1
+[1795004644659] > wait 15
+[1795004645408] > screen none 60
+[1795004645484] PASS screen is none (was none)
+[1795004645484] > clearchat
+[1795004645484] > chat /fi status
+[1795004645484] > wait 20
+[1795004646555] > expectchat dating=1
+[1795004646556] PASS server said 'dating=1'
+[1795004646556] > chat /time set 3000
+[1795004646556] > chat /fi warp cp_keep_gate
+[1795004646556] > wait 35
+[1795004648299] > shot e2e_08_keep_gate
+[1795004648299] > chat /fi warp keep_court
+[1795004648300] > wait 35
+[1795004648384] screenshot e2e_08_keep_gate
+[1795004650116] > wait 40
+[1795004652165] > chat /kill @e[tag=fi_enc]
+[1795004652166] > chat /kill @e[tag=fi_boss_add]
+[1795004652167] > wait 10
+[1795004652687] > chat /fi warp sun_court
+[1795004652688] > wait 35
+[1795004654499] > shot e2e_09_sun_court
+[1795004654500] > chat /tp Dev 48.5 92 -170.5 180 30
+[1795004654501] > wait 30
+[1795004654541] screenshot e2e_09_sun_court
+[1795004656044] > lookat 48 92 -172
+[1795004656044] > use 48 92 -172
+[1795004656045] > wait 10
+[1795004656606] > chat /tp Dev 49.5 92 -170.5 180 30
+[1795004656607] > wait 30
+[1795004658142] > lookat 49 92 -172
+[1795004658142] > use 49 92 -172
+[1795004658142] > wait 10
+[1795004658690] > chat /tp Dev 52.5 92 -168.5 180 30
+[1795004658691] > wait 30
+[1795004660243] > lookat 52 92 -170
+[1795004660243] > use 52 92 -170
+[1795004660243] > wait 10
+[1795004660812] > chat /tp Dev 48.5 92 -165.5 180 30
+[1795004660813] > wait 30
+[1795004662356] > lookat 48 92 -167
+[1795004662356] > use 48 92 -167
+[1795004662356] > wait 10
+[1795004662894] > chat /tp Dev 52.5 92 -165.5 180 30
+[1795004662895] > wait 30
+[1795004664448] > lookat 52 92 -167
+[1795004664448] > use 52 92 -167
+[1795004664448] > wait 10
+[1795004664989] > wait 70
+[1795004668567] > expectblock 62 92 -191 air
+[1795004668567] PASS block at 62,92,-191 is air (got air)
+[1795004668567] > chat /fi warp lantern_room
+[1795004668567] > wait 35
+[1795004670347] > wait 40
+[1795004672413] > expecthud Beneath the Keep
+[1795004672414] PASS HUD objective contains 'Beneath the Keep' (got 'Beneath the Keep')
+[1795004672414] > shot e2e_10_empty_lantern
+[1795004672414] > use 65 142 -196
+[1795004672415] > screen GenericContainerScreen 60
+[1795004672472] screenshot e2e_10_empty_lantern
+[1795004672485] PASS screen is GenericContainerScreen (was GenericContainerScreen)
+[1795004672485] > loot
+[1795004672486] PASS looted 2 stacks
+[1795004672487] > wait 20
+[1795004673513] > expectitem warden_key
+[1795004673513] PASS inventory has warden_key
+[1795004673513] > chat /fi warp keep_court
+[1795004673514] > wait 35
+[1795004675321] > chat /kill @e[tag=fi_enc]
+[1795004675322] > chat /kill @e[tag=fi_boss_add]
+[1795004675322] > wait 10
+[1795004675841] > hold warden_key
+[1795004675841] PASS holding warden_key
+[1795004675841] > chat /tp Dev 21 92 -161 90 50
+[1795004675842] > wait 30
+[1795004677401] > lookat 20 91 -160
+[1795004677402] > use 20 91 -160
+[1795004677402] > wait 20
+[1795004678438] > expectblock 20 91 -160 air
+[1795004678438] PASS block at 20,91,-160 is air (got air)
+[1795004678438] > chat /fi warp cp_undercroft
+[1795004678438] > wait 35
+[1795004680241] > wait 40
+[1795004682294] > chat /kill @e[tag=fi_enc]
+[1795004682295] > chat /kill @e[tag=fi_boss_add]
+[1795004682295] > wait 10
+[1795004682845] > shot e2e_11_cistern
+[1795004682846] > chat /fi warp echo_pool_1
+[1795004682846] > wait 35
+[1795004682903] screenshot e2e_11_cistern
+[1795004684639] > wait 20
+[1795004685687] > chat /kill @e[tag=fi_enc]
+[1795004685687] > chat /kill @e[tag=fi_boss_add]
+[1795004685687] > wait 10
+[1795004686240] > screen DialogueScreen 100
+[1795004686290] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004686290] > wait 12
+[1795004686939] > choose 1
+[1795004686939] > wait 12
+[1795004687595] > choose 1
+[1795004687595] > wait 12
+[1795004688240] > choose 1
+[1795004688240] > wait 15
+[1795004689041] > screen none 60
+[1795004689092] PASS screen is none (was none)
+[1795004689092] > chat /fi warp echo_pool_2
+[1795004689092] > wait 35
+[1795004690886] > wait 20
+[1795004691940] > chat /kill @e[tag=fi_enc]
+[1795004691941] > chat /kill @e[tag=fi_boss_add]
+[1795004691941] > wait 10
+[1795004692492] > screen DialogueScreen 100
+[1795004692548] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004692548] > wait 12
+[1795004693193] > choose 1
+[1795004693193] > wait 12
+[1795004693838] > choose 1
+[1795004693838] > wait 12
+[1795004694487] > choose 1
+[1795004694487] > wait 15
+[1795004695294] > screen none 60
+[1795004695342] PASS screen is none (was none)
+[1795004695342] > chat /fi warp echo_pool_3
+[1795004695342] > wait 35
+[1795004697149] > wait 20
+[1795004698193] > chat /kill @e[tag=fi_enc]
+[1795004698194] > chat /kill @e[tag=fi_boss_add]
+[1795004698194] > wait 10
+[1795004698737] > screen DialogueScreen 100
+[1795004698791] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004698791] > shot e2e_12_echo
+[1795004698792] > wait 12
+[1795004698820] screenshot e2e_12_echo
+[1795004699446] > choose 1
+[1795004699446] > wait 12
+[1795004700086] > choose 1
+[1795004700086] > wait 12
+[1795004700738] > choose 1
+[1795004700738] > wait 15
+[1795004701542] > screen none 60
+[1795004701594] PASS screen is none (was none)
+[1795004701595] > expectblock 19 45 -104 air
+[1795004701595] PASS block at 19,45,-104 is air (got air)
+[1795004701595] > shot e2e_13_slide_before
+[1795004701596] > chat /tp Dev 20.5 45 -94.5 0 30
+[1795004701596] > wait 30
+[1795004701650] screenshot e2e_13_slide_before
+[1795004703142] > lookat 19 45 -95
+[1795004703143] > use 19 45 -95
+[1795004703143] > wait 10
+[1795004703687] > chat /tp Dev 18.5 45 -93.5 0 30
+[1795004703688] > wait 30
+[1795004705241] > lookat 18 45 -95
+[1795004705241] > use 18 45 -95
+[1795004705241] > wait 10
+[1795004705786] > chat /tp Dev 17.5 45 -96.5 0 30
+[1795004705786] > wait 30
+[1795004707340] > lookat 18 45 -97
+[1795004707340] > use 18 45 -97
+[1795004707340] > wait 10
+[1795004707887] > chat /tp Dev 20.5 45 -99.5 0 30
+[1795004707888] > wait 30
+[1795004709438] > lookat 20 45 -99
+[1795004709438] > use 20 45 -99
+[1795004709438] > wait 10
+[1795004709993] > chat /tp Dev 17.5 45 -97.5 0 30
+[1795004709994] > wait 30
+[1795004711540] > lookat 18 45 -98
+[1795004711540] > use 18 45 -98
+[1795004711540] > wait 10
+[1795004712089] > chat /tp Dev 19.5 45 -98.5 0 30
+[1795004712090] > wait 30
+[1795004713643] > lookat 19 45 -98
+[1795004713643] > use 19 45 -98
+[1795004713643] > wait 10
+[1795004714192] > chat /tp Dev 18.5 45 -94.5 0 30
+[1795004714193] > wait 30
+[1795004715737] > lookat 19 45 -95
+[1795004715737] > use 19 45 -95
+[1795004715737] > wait 10
+[1795004716290] > chat /tp Dev 20.5 46 -97.5 0 30
+[1795004716290] > wait 30
+[1795004717838] > lookat 20 45 -97
+[1795004717838] > use 20 45 -97
+[1795004717838] > wait 10
+[1795004718394] > chat /tp Dev 20.5 45 -98.5 0 30
+[1795004718394] > wait 30
+[1795004719938] > lookat 20 45 -98
+[1795004719939] > use 20 45 -98
+[1795004719939] > wait 10
+[1795004720485] > chat /tp Dev 22.5 45 -95.5 0 30
+[1795004720486] > wait 30
+[1795004722044] > lookat 22 45 -95
+[1795004722044] > use 22 45 -95
+[1795004722044] > wait 10
+[1795004722587] > chat /tp Dev 19.5 45 -94.5 0 30
+[1795004722587] > wait 30
+[1795004724146] > lookat 20 45 -95
+[1795004724146] > use 20 45 -95
+[1795004724147] > wait 10
+[1795004724689] > wait 70
+[1795004728237] > shot e2e_14_slide_after
+[1795004728238] > expectblock 19 45 -92 air
+[1795004728238] PASS block at 19,45,-92 is air (got air)
+[1795004728238] > expecthud Wellspring
+[1795004728238] PASS HUD objective contains 'Wellspring' (got 'The Wellspring')
+[1795004728238] > chat /fi boss weak
+[1795004728239] > wait 10
+[1795004728261] screenshot e2e_14_slide_after
+[1795004728791] > chat /fi effect give:kestrel_blade
+[1795004728791] > wait 10
+[1795004729338] > hold kestrel_blade
+[1795004729339] PASS holding kestrel_blade
+[1795004729339] > chat /fi warp cp_wellspring
+[1795004729339] > wait 35
+[1795004731137] > wait 30
+[1795004732685] > chat /tp Dev -9.5 28.0 -66.5 0 0
+[1795004732686] > wait 30
+[1795004734242] > wait 60
+[1795004737286] > shot e2e_15_boss
+[1795004737287] > attack
+[1795004737288] > wait 22
+[1795004737350] screenshot e2e_15_boss
+[1795004738437] > attack
+[1795004738438] > wait 22
+[1795004739587] > attack
+[1795004739588] > wait 22
+[1795004740748] > attack
+[1795004740749] > wait 22
+[1795004741887] > attack
+[1795004741887] > wait 22
+[1795004743039] > attack
+[1795004743039] > wait 22
+[1795004744187] > attack
+[1795004744187] > wait 22
+[1795004745337] > attack
+[1795004745337] > wait 22
+[1795004746493] > attack
+[1795004746493] > wait 22
+[1795004747642] > attack
+[1795004747642] > wait 22
+[1795004748791] > attack
+[1795004748791] > wait 22
+[1795004749944] > attack
+[1795004749944] > wait 22
+[1795004751092] > attack
+[1795004751092] > wait 22
+[1795004752245] > attack
+[1795004752246] > wait 22
+[1795004753388] > attack
+[1795004753388] > wait 22
+[1795004754544] > attack
+[1795004754544] > wait 22
+[1795004755695] > attack
+[1795004755695] > wait 22
+[1795004756850] > attack
+[1795004756850] > wait 22
+[1795004757996] > attack
+[1795004757996] > wait 22
+[1795004759141] > attack
+[1795004759141] > wait 22
+[1795004760288] > attack
+[1795004760288] > wait 22
+[1795004761440] > attack
+[1795004761440] > wait 22
+[1795004762595] > attack
+[1795004762595] > wait 22
+[1795004763739] > attack
+[1795004763739] > wait 22
+[1795004764890] > attack
+[1795004764890] > wait 22
+[1795004766041] > attack
+[1795004766041] > wait 22
+[1795004767187] > attack
+[1795004767187] > wait 22
+[1795004768340] > attack
+[1795004768340] > wait 22
+[1795004769490] > attack
+[1795004769490] > wait 22
+[1795004770636] > attack
+[1795004770636] > wait 22
+[1795004771794] > attack
+[1795004771794] > wait 22
+[1795004772940] > attack
+[1795004772940] > wait 22
+[1795004774094] > attack
+[1795004774094] > wait 22
+[1795004775243] > attack
+[1795004775244] > wait 22
+[1795004776396] > attack
+[1795004776396] > wait 22
+[1795004777544] > attack
+[1795004777544] > wait 22
+[1795004778694] > attack
+[1795004778694] > wait 22
+[1795004779847] > attack
+[1795004779847] > wait 22
+[1795004780986] > attack
+[1795004780986] > wait 22
+[1795004782145] > attack
+[1795004782145] > wait 22
+[1795004783286] > attack
+[1795004783286] > wait 22
+[1795004784437] > attack
+[1795004784437] > wait 22
+[1795004785590] > attack
+[1795004785590] > wait 22
+[1795004786748] > attack
+[1795004786748] > wait 22
+[1795004787887] > attack
+[1795004787887] > wait 22
+[1795004789041] > wait 20
+[1795004790097] > screen DialogueScreen 400
+[1795004790143] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004790143] > shot e2e_16_warden
+[1795004790144] > wait 12
+[1795004790200] screenshot e2e_16_warden
+[1795004790800] > choose 1
+[1795004790800] > wait 12
+[1795004791444] > choose 1
+[1795004791444] > wait 12
+[1795004792091] > choosetext daughter
+[1795004792091] PASS option containing 'daughter'
+[1795004792091] > wait 12
+[1795004792742] > choose 1
+[1795004792742] > wait 12
+[1795004793388] > choose 1
+[1795004793388] > wait 12
+[1795004794046] > choose 1
+[1795004794046] > wait 15
+[1795004794838] > screen none 60
+[1795004794886] PASS screen is none (was none)
+[1795004794886] > expectitem ember
+[1795004794886] PASS inventory has ember
+[1795004794886] > chat /kill @e[tag=fi_enc]
+[1795004794887] > chat /kill @e[tag=fi_boss_add]
+[1795004794887] > wait 10
+[1795004795447] > chat /fi warp lantern_room
+[1795004795447] > wait 35
+[1795004797239] > wait 30
+[1795004798800] > hold ember
+[1795004798800] PASS holding ember
+[1795004798800] > lookat 63 142 -198
+[1795004798800] > use 63 142 -198
+[1795004798800] > wait 60
+[1795004801842] > expectblock 63 142 -198 beacon
+[1795004801842] PASS block at 63,142,-198 is beacon (got beacon)
+[1795004801842] > expecthud Homecoming
+[1795004801842] PASS HUD objective contains 'Homecoming' (got 'Homecoming')
+[1795004801842] > shot e2e_17_lantern_lit
+[1795004801843] > wait 400
+[1795004801891] screenshot e2e_17_lantern_lit
+[1795004821901] > shot e2e_18_festival
+[1795004821902] > chat /fi npc wren
+[1795004821902] > wait 45
+[1795004821965] screenshot e2e_18_festival
+[1795004824198] > talk wren
+[1795004824198] PASS found NPC wren
+[1795004824198] > screen DialogueScreen 80
+[1795004824264] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004824264] > wait 10
+[1795004824848] > wait 12
+[1795004825440] > choose 1
+[1795004825440] > wait 12
+[1795004826140] > choose 1
+[1795004826140] > wait 15
+[1795004826904] > screen none 60
+[1795004826971] PASS screen is none (was none)
+[1795004826971] > chat /fi npc hester
+[1795004826972] > wait 45
+[1795004829284] > talk hester
+[1795004829284] PASS found NPC hester
+[1795004829284] > screen DialogueScreen 80
+[1795004829359] PASS screen is DialogueScreen (was DialogueScreen)
+[1795004829359] > wait 10
+[1795004829861] > wait 12
+[1795004830533] > choose 1
+[1795004830533] > wait 12
+[1795004831151] > choosetext I told him
+[1795004831151] PASS option containing 'I told him'
+[1795004831151] > wait 12
+[1795004831843] > choose 1
+[1795004831843] > wait 12
+[1795004832502] > choosetext pier now
+[1795004832503] PASS option containing 'pier now'
+[1795004832503] > screen CreditsScreen 100
+[1795004832587] PASS screen is CreditsScreen (was CreditsScreen)
+[1795004832588] > wait 140
+[1795004839589] > shot e2e_19_credits
+[1795004839590] > wait 200
+[1795004839615] screenshot e2e_19_credits
+[1795004849657] > close
+[1795004849658] > wait 60
+[1795004852690] > expectui toast
+[1795004852690] PASS last UI message was toast (got toast)
+[1795004852690] > clearchat
+[1795004852691] > chat /fi status
+[1795004852691] > wait 20
+[1795004853797] > expectchat dating=1
+[1795004853797] PASS server said 'dating=1'
+[1795004853797] > summary
+[1795004853797] SUMMARY passes=97 fails=0

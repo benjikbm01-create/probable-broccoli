@@ -59,7 +59,7 @@ public class CreditsScreen extends Screen {
     @Override public void renderBackground(DrawContext ctx, int mx, int my, float d) { ctx.fill(0, 0, width, height, 0xFF040608); }
 
     @Override public void render(DrawContext ctx, int mx, int my, float d) {
-        renderBackground(ctx, mx, my, d);
+        super.render(ctx, mx, my, d);
         float t = (System.currentTimeMillis() - start) / 1000f;
         int y = (int) (height - t * 22);
         int w = Math.min(width - 40, 360);
@@ -76,7 +76,6 @@ public class CreditsScreen extends Screen {
         }
         if (y < -10) close();
         if (t > 4) ctx.drawText(textRenderer, Text.literal("Esc to skip").formatted(Formatting.GRAY), 6, height - 12, 0xFF808080, false);
-        super.render(ctx, mx, my, d);
     }
 
     @Override public void close() {

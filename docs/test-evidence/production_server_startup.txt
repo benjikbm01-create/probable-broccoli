@@ -1,0 +1,6 @@
+[12:19:03] [main/INFO]: Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
+	- fabric-api 0.116.7+1.21.1
+	- forgotten_island 1.0.0
+[12:19:10] [main/INFO]: Loaded content: 9 dialogues, 16 objectives, 7 schedules, 9 books (0 problems)
+[12:19:37] [Server thread/INFO]: [selftest] SELFTEST SUMMARY: 59 passed, 0 failed, 4 warnings
+[12:19:37] [Server thread/INFO]: SELFTEST SUMMARY: 59 passed, 0 failed, 4 warnings (see selftest_report.txt)

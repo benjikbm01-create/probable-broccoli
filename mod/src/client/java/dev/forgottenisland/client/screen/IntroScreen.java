@@ -38,7 +38,7 @@ public class IntroScreen extends Screen {
     @Override public void renderBackground(DrawContext ctx, int mx, int my, float d) { ctx.fill(0, 0, width, height, 0xFF07090C); }
 
     @Override public void render(DrawContext ctx, int mx, int my, float d) {
-        renderBackground(ctx, mx, my, d);
+        super.render(ctx, mx, my, d);
         float t = Math.min(1f, (System.currentTimeMillis() - opened) / 2500f);
         int a = (int) (t * 255) << 24;
         var m = ctx.getMatrices();
@@ -63,7 +63,6 @@ public class IntroScreen extends Screen {
                 y += 3;
             }
         }
-        super.render(ctx, mx, my, d);
     }
 
     @Override public void close() { ClientNet.action("intro_done", 0); super.close(); }

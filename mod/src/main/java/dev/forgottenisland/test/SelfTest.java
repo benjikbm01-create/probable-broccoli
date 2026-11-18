@@ -510,10 +510,18 @@ public final class SelfTest {
                             if (!w.getBlockState(side).isSolid() && !(w.getBlockState(side).getBlock() instanceof BedBlock) && w.getBlockState(side.down()).isSolid()) { goal = side; break; }
                         }
                     }
+                    // like the director at runtime: re-plan from where each partial path ends (up to 4 hops)
                     var path = n.getNavigation().findPathTo(goal, 1);
+                    for (int hop = 0; hop < 3 && path != null && !path.reachesTarget() && path.getLength() > 1; hop++) {
+                        BlockPos end = path.getEnd().getBlockPos();
+                        n.refreshPositionAndAngles(end.getX() + 0.5, end.getY(), end.getZ() + 0.5, 0, 0);
+                        n.setOnGround(true);
+                        path = n.getNavigation().findPathTo(goal, 1);
+                    }
                     tried++;
                     if (path != null && path.reachesTarget()) reached++;
-                    else note("no walking path for " + id + ": " + entries.get(i).at + " -> " + entries.get((i + 1) % entries.size()).at);
+                    else note("no walking path for " + id + ": " + entries.get(i).at + " -> " + entries.get((i + 1) % entries.size()).at
+                            + (path == null ? " (no path)" : " (stops at " + path.getEnd().getBlockPos() + ", goal " + goal + ", " + path.getLength() + " nodes)"));
                     n.discard();
                 }
             }

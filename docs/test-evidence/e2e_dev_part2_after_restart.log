@@ -1,0 +1,13 @@
+[1795003516965] autopilot enabled, script /home/user/probable-broccoli/mod/run-client/autopilot.txt
+[1795003518117] > wait 200
+[1795003528379] > expecthud Beneath the Keep
+[1795003528380] PASS HUD objective contains 'Beneath the Keep' (got 'Beneath the Keep')
+[1795003528381] > clearchat
+[1795003528381] > chat /fi status
+[1795003528391] > wait 20
+[1795003529454] > expectchat dating=2
+[1795003529455] PASS server said 'dating=2'
+[1795003529455] > expectitem warden_key
+[1795003529460] PASS inventory has warden_key
+[1795003529460] > summary
+[1795003529460] SUMMARY passes=3 fails=0

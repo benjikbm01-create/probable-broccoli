@@ -5,3 +5,5 @@ mod/run/
 *.class
 __pycache__/
 /work/
+mod/logs/
+dist/The Forgotten Island/
