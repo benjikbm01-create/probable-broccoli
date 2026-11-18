@@ -21,8 +21,12 @@ loom {
         }
     }
     runs {
-        server { runDir "run-server" }
-        client { runDir "run-client" }
+        server { runDir "run-server"; vmArg "-Xmx4G" }
+        client {
+            runDir "run-client"
+            vmArg "-Xmx3G"
+            if (System.getProperty("fi.autopilot")) vmArg "-Dfi.autopilot=" + System.getProperty("fi.autopilot")
+        }
     }
 }
 

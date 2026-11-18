@@ -135,7 +135,7 @@ public final class Story {
     public static void onJoin(ServerPlayerEntity p) {
         StateData st = Game.state(p.getServer());
         if (!st.flag("world_built")) return;
-        if (!st.flag("intro_done")) {
+        if (!st.flag("intro_done") && Places.get("intro_boat") != null && !st.flag("skip_intro")) {
             startIntro(p);
         } else {
             Checkpoints.apply(p);

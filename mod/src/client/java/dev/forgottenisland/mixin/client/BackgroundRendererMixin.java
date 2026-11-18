@@ -26,7 +26,7 @@ public abstract class BackgroundRendererMixin {
         double x = camera.getPos().x, z = camera.getPos().z, y = camera.getPos().y;
         if (y < 58) return 0f;                         // underground: caves have their own darkness
         double r = Math.sqrt(x * x + z * z);
-        float d = (float) Math.min(1.0, Math.max(0.35, (r - 120) / 120.0));   // inland 0.35 .. open sea 1.0
+        float d = (float) Math.min(1.0, Math.max(0.25, (r - 140) / 170.0));   // inland 0.25 .. open sea 1.0
         return d * ClientState.fog;
     }
 
@@ -35,9 +35,8 @@ public abstract class BackgroundRendererMixin {
         if (type != BackgroundRenderer.FogType.FOG_TERRAIN) return;
         float d = fi$density(camera);
         if (d <= 0f) return;
-        float end = Math.min(viewDistance, viewDistance + (24f - viewDistance) * d * 0.9f + (1 - d) * 40f);
-        end = Math.max(20f, Math.min(viewDistance, 110f - 86f * d));
-        RenderSystem.setShaderFogStart(end * 0.05f);
+        float end = Math.max(28f, Math.min(viewDistance, 150f - 105f * d));
+        RenderSystem.setShaderFogStart(end * 0.08f);
         RenderSystem.setShaderFogEnd(end);
     }
 
