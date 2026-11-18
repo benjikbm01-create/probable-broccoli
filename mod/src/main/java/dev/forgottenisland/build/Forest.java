@@ -38,7 +38,7 @@ public final class Forest implements Layout.Part {
         W.place("wendel_home", WENDEL[0] + 2, WENDEL_Y, WENDEL[1], 180);
         W.place("wendel_bed", WENDEL[0] + 4, WENDEL_Y, WENDEL[1] - 3, 0);
         W.place("wendel_bench", WENDEL[0] + 1, WENDEL_Y + 0.5, WENDEL[1] + 5, 0);
-        W.place("wendel_shore", WENDEL[0] + 6, 64, WENDEL[1] + 12, 0);
+        W.place("wendel_shore", WENDEL[0] + 6, Terrain.stand(WENDEL[0] + 6, WENDEL[1] + 9), WENDEL[1] + 9, 0);
         // Wren
         W.place("wren_lodge", LODGE[0] + 3, LODGE_Y, LODGE[1] - 1, 180);
         W.place("wren_bed", LODGE[0] - 3, LODGE_Y, LODGE[1] - 3, 0);

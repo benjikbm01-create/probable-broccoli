@@ -20,7 +20,7 @@ public final class Inn implements Layout.Part {
     public void places() {
         t.pad(-3, -14, 23, 19, 0, 6);
         t.place("hester_bar", 12, 0, 6, 90);
-        t.place("hester_kitchen", 17, 0, 4, 180);
+        t.place("hester_kitchen", 16, 0, 6, 180);
         t.place("hester_bed", 19, 0, 13, 0);         // bed head block
         t.place("hester_tea", 9, 0.5, 4, 90);        // chair at T2 facing west
         t.place("ione_tea", 7, 0.5, 4, -90);
@@ -79,7 +79,8 @@ public final class Inn implements Layout.Part {
         for (int x : new int[]{16, 17}) Kit.window(b, x, 1, 16, 2, SOUTH, "glass_pane", null, null);
         for (int z : new int[]{5, 6, 11, 12}) Kit.window(b, 0, 1, z, 2, WEST, "glass_pane", null, null);
         for (int z : new int[]{3, 12}) Kit.window(b, 20, 1, z, 2, EAST, "glass_pane", null, null);
-        for (int x : new int[]{4, 10}) Kit.window(b, x, 1, 0, 2, NORTH, "glass_pane", null, null);
+        Kit.window(b, 4, 1, 0, 2, NORTH, "glass_pane", null, null);
+        Kit.door(b, 10, 0, 0, NORTH, "spruce_door", false);   // back door to the garden
         // ---- upper floor: jettied timber frame y6..10, z0..17
         b.fill(-1, 5, 17, 21, 5, 17, oak);
         for (int x = 0; x <= 20; x += 4) b.set(x, 4, 17, "dark_oak_stairs[facing=north,half=top]");

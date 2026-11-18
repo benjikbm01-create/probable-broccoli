@@ -54,7 +54,11 @@ public class DialogueScreen extends Screen {
 
     @Override public void render(DrawContext ctx, int mx, int my, float delta) {
         int W = width, H = height;
-        int pw = Math.min(W - 20, 460), ph = Math.max(130, Math.min(H / 2, 190));
+        int pw = Math.min(W - 20, 460);
+        int twEst = pw - 106;
+        int need = 34 + textRenderer.wrapLines(Text.literal(text), twEst).size() * 10;
+        for (String o : options) need += textRenderer.wrapLines(Text.literal("9. " + o), twEst - 6).size() * 10 + 4;
+        int ph = Math.max(130, Math.min(H - 16, need));
         int px = (W - pw) / 2, py = H - ph - 8;
         ctx.fillGradient(0, py - 40, W, H, 0x00000000, 0xC0000000);
         ctx.fill(px, py, px + pw, py + ph, 0xE0141820);

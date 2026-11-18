@@ -81,8 +81,9 @@ public class WardenEntity extends ZombieEntity {
     @Override public void onStoppedTrackingBy(ServerPlayerEntity p) { super.onStoppedTrackingBy(p); bar.removePlayer(p); }
 
     @Override public boolean damage(DamageSource source, float amount) {
-        if (invuln > 0) return false;
-        if (source.getAttacker() instanceof PlayerEntity p && Game.devMode(p.getServer()) && Game.state(p.getServer()).flag("dev_boss_weak")) amount *= 10;
+        if (getWorld().isClient) return super.damage(source, amount);
+        if (invuln > 0 && !source.isOf(net.minecraft.entity.damage.DamageTypes.OUT_OF_WORLD) && !source.isOf(net.minecraft.entity.damage.DamageTypes.GENERIC_KILL)) return false;
+        if (source.getAttacker() instanceof PlayerEntity p && Game.state(p.getServer()).flag("dev_boss_weak")) amount *= 10;   // test/dev aid only (/fi boss weak)
         return super.damage(source, amount);
     }
 

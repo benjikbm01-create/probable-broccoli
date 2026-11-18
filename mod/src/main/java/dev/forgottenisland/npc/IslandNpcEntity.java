@@ -47,7 +47,7 @@ public class IslandNpcEntity extends PathAwareEntity {
     Places.P target;
     String activity = "stand";
     int wanderRadius;
-    int stuckTicks, repathTicks, actTicks;
+    int stuckTicks, repathTicks, actTicks, noPath;
     double lastDist = Double.MAX_VALUE;
     Vec3d wanderGoal;
 

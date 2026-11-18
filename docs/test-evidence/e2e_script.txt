@@ -1,0 +1,579 @@
+# ---- The Forgotten Island: end-to-end playthrough ----
+screen IntroScreen 600
+wait 80
+shot e2e_01_intro
+wait 20
+intro
+wait 80
+expecthud Letter from Nowhere
+expectitem journal
+expectitem letter
+chat /effect give Dev minecraft:resistance infinite 4 true
+chat /effect give Dev minecraft:saturation infinite 1 true
+shot e2e_02_arrival
+chat /time set 1000
+chat /fi warp cp_dock
+wait 35
+talk tobias
+screen DialogueScreen 80
+wait 10
+shot e2e_03_dialogue_tobias
+wait 12
+choosetext Gullhaven
+wait 12
+choosetext letter
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+journal
+screen JournalScreen 60
+shot e2e_04_journal
+close
+wait 10
+hint
+wait 20
+expectui hint
+shot e2e_05_hint
+chat /fi npc hester
+wait 45
+talk hester
+screen DialogueScreen 80
+wait 10
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext be off
+wait 15
+screen none 60
+expectitem bread
+chat /fi npc ione
+wait 45
+talk ione
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext read a seal
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+wait 30
+expecthud Old Road
+chat /fi npc hester
+wait 45
+talk hester
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext old song
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext be off
+wait 15
+screen none 60
+expectitem lullaby
+chat /time set 2000
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext Kestrel Keep
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext Singing Stones
+wait 12
+choosetext Hester taught
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext nicer than
+wait 12
+choosetext Maybe you should
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext far away
+wait 12
+choose 1
+wait 12
+choosetext get it
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi warp stones_center
+wait 35
+shot e2e_06_stones
+lookat -30 78 -79
+use -30 78 -79
+wait 15
+lookat -20 78 -79
+use -20 78 -79
+wait 15
+lookat -25 78 -74
+use -25 78 -74
+wait 15
+lookat -25 78 -84
+use -25 78 -84
+wait 15
+wait 60
+expectblock -31 79 -111 air
+expecthud Silent Keep
+chat /tp Dev -146 70 105 180 30
+wait 30
+wait 40
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+use -146 70 102
+screen GenericContainerScreen 60
+loot
+wait 20
+expectitem mother_bow
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+chat /time set 2000
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choosetext Hollow Oak
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext more than friends
+wait 12
+choosetext Wait for nightfall
+wait 15
+screen none 60
+wait 80
+chat /tp Dev -17.5 71.0 60.5 45 10
+wait 30
+wait 60
+chat /fi effect event:snap:wren
+wait 20
+talk wren
+screen DialogueScreen 80
+wait 10
+shot e2e_07_glade_date
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext will you be mine
+wait 12
+choose 1
+wait 15
+screen none 60
+clearchat
+chat /fi status
+wait 20
+expectchat dating=1
+chat /time set 3000
+chat /fi warp cp_keep_gate
+wait 35
+shot e2e_08_keep_gate
+chat /fi warp keep_court
+wait 35
+wait 40
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+chat /fi warp sun_court
+wait 35
+shot e2e_09_sun_court
+chat /tp Dev 48.5 92 -170.5 180 30
+wait 30
+lookat 48 92 -172
+use 48 92 -172
+wait 10
+chat /tp Dev 49.5 92 -170.5 180 30
+wait 30
+lookat 49 92 -172
+use 49 92 -172
+wait 10
+chat /tp Dev 52.5 92 -168.5 180 30
+wait 30
+lookat 52 92 -170
+use 52 92 -170
+wait 10
+chat /tp Dev 48.5 92 -165.5 180 30
+wait 30
+lookat 48 92 -167
+use 48 92 -167
+wait 10
+chat /tp Dev 52.5 92 -165.5 180 30
+wait 30
+lookat 52 92 -167
+use 52 92 -167
+wait 10
+wait 70
+expectblock 62 92 -191 air
+chat /fi warp lantern_room
+wait 35
+wait 40
+expecthud Beneath the Keep
+shot e2e_10_empty_lantern
+use 65 142 -196
+screen GenericContainerScreen 60
+loot
+wait 20
+expectitem warden_key
+chat /fi warp keep_court
+wait 35
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+hold warden_key
+chat /tp Dev 21 92 -161 90 50
+wait 30
+lookat 20 91 -160
+use 20 91 -160
+wait 20
+expectblock 20 91 -160 air
+chat /fi warp cp_undercroft
+wait 35
+wait 40
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+shot e2e_11_cistern
+chat /fi warp echo_pool_1
+wait 35
+wait 20
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+screen DialogueScreen 100
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi warp echo_pool_2
+wait 35
+wait 20
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+screen DialogueScreen 100
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi warp echo_pool_3
+wait 35
+wait 20
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+screen DialogueScreen 100
+shot e2e_12_echo
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+expectblock 19 45 -104 air
+shot e2e_13_slide_before
+chat /tp Dev 20.5 45 -94.5 0 30
+wait 30
+lookat 19 45 -95
+use 19 45 -95
+wait 10
+chat /tp Dev 18.5 45 -93.5 0 30
+wait 30
+lookat 18 45 -95
+use 18 45 -95
+wait 10
+chat /tp Dev 17.5 45 -96.5 0 30
+wait 30
+lookat 18 45 -97
+use 18 45 -97
+wait 10
+chat /tp Dev 20.5 45 -99.5 0 30
+wait 30
+lookat 20 45 -99
+use 20 45 -99
+wait 10
+chat /tp Dev 17.5 45 -97.5 0 30
+wait 30
+lookat 18 45 -98
+use 18 45 -98
+wait 10
+chat /tp Dev 19.5 45 -98.5 0 30
+wait 30
+lookat 19 45 -98
+use 19 45 -98
+wait 10
+chat /tp Dev 18.5 45 -94.5 0 30
+wait 30
+lookat 19 45 -95
+use 19 45 -95
+wait 10
+chat /tp Dev 20.5 46 -97.5 0 30
+wait 30
+lookat 20 45 -97
+use 20 45 -97
+wait 10
+chat /tp Dev 20.5 45 -98.5 0 30
+wait 30
+lookat 20 45 -98
+use 20 45 -98
+wait 10
+chat /tp Dev 22.5 45 -95.5 0 30
+wait 30
+lookat 22 45 -95
+use 22 45 -95
+wait 10
+chat /tp Dev 19.5 45 -94.5 0 30
+wait 30
+lookat 20 45 -95
+use 20 45 -95
+wait 10
+wait 70
+shot e2e_14_slide_after
+expectblock 19 45 -92 air
+expecthud Wellspring
+chat /fi boss weak
+wait 10
+chat /fi effect give:kestrel_blade
+wait 10
+hold kestrel_blade
+chat /fi warp cp_wellspring
+wait 35
+wait 30
+chat /tp Dev -9.5 28.0 -66.5 0 0
+wait 30
+wait 60
+shot e2e_15_boss
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+attack
+wait 22
+wait 20
+screen DialogueScreen 400
+shot e2e_16_warden
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choosetext daughter
+wait 12
+choose 1
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+expectitem ember
+chat /kill @e[tag=fi_enc]
+chat /kill @e[tag=fi_boss_add]
+wait 10
+chat /fi warp lantern_room
+wait 35
+wait 30
+hold ember
+lookat 63 142 -198
+use 63 142 -198
+wait 60
+expectblock 63 142 -198 beacon
+expecthud Homecoming
+shot e2e_17_lantern_lit
+wait 400
+shot e2e_18_festival
+chat /fi npc wren
+wait 45
+talk wren
+screen DialogueScreen 80
+wait 10
+wait 12
+choose 1
+wait 12
+choose 1
+wait 15
+screen none 60
+chat /fi npc hester
+wait 45
+talk hester
+screen DialogueScreen 80
+wait 10
+wait 12
+choose 1
+wait 12
+choosetext I told him
+wait 12
+choose 1
+wait 12
+choosetext pier now
+screen CreditsScreen 100
+shot e2e_19_credits
+wait 200
+close
+wait 60
+expectui toast
+clearchat
+chat /fi status
+wait 20
+expectchat dating=1
+summary

@@ -285,8 +285,7 @@ public final class Story {
         LANTERN_DARK.forEach((pos, bs) -> w.setBlockState(pos, bs, 2 | 16));
         FESTIVAL_OFF.forEach((pos, bs) -> w.setBlockState(pos, bs, 2 | 16));
         Puzzles.resetStones(s); Puzzles.resetMirrors(s); Puzzles.resetSlide(s, true);
-        for (String g : Gates.all().keySet()) if (!g.equals("arena")) Gates.close(s, g);
-        Gates.open(s, "arena");
+        for (var g : Gates.all().values()) { if (g.defaultOpen()) Gates.open(s, g.id()); else Gates.close(s, g.id()); }
         Interactions.resetWaystones(s);
         Encounters.resetAll(s);
         clearTimers();

@@ -56,7 +56,7 @@ public final class Town implements Layout.Part {
         ARCH.place("ione_shelves", 8, 0, 7, 0);
         ARCH.place("ione_bed", 19, 6, 2, 0);
         ARCH.place("ione_upstairs", 10, 6, 7, 0);
-        ARCH.place("archive_roof", 11, 13, 7, 180);
+        ARCH.place("archive_roof", 11, 12, 7, 180);
         ARCH.place("archive_door", 10, 0, 16, 0);
         ARCH.zone("archive_roof", 1, 12, 1, 19, 16, 13, null);
         // smithy
@@ -64,7 +64,7 @@ public final class Town implements Layout.Part {
         SMITH.place("corin_forge", 5, 0, 4, 180);
         SMITH.place("smithy_front", 7, 0, 14, 0);
         CORIN.place("corin_bed", 7, 0, 1, 0);
-        CORIN.place("corin_home", 4, 0, 4, 0);
+        CORIN.place("corin_home", 6, 0, 3, 90);
         CORIN.place("corin_garden", 4, 0, 11, 0);
         // store
         STORE.place("store_front", 5, 0, 13, 0);
@@ -347,7 +347,8 @@ public final class Town implements Layout.Part {
         // little vegetable garden + fence
         for (int x = 1; x <= 8; x++) for (int z = 10; z <= 12; z++) { b.set(x, -1, z, z == 11 ? "farmland[moisture=7]" : "dirt"); if (z == 11) b.set(x, 0, z, x % 2 == 0 ? "beetroots[age=3]" : "carrots[age=7]"); }
         b.set(0, -1, 11, "water");
-        for (int x = 0; x <= 9; x++) b.set(x, 0, 13, "oak_fence");
+        for (int x = 0; x <= 9; x++) if (x != 4) b.set(x, 0, 13, "oak_fence");
+        for (int z = 10; z <= 13; z++) { b.set(4, -1, z, "dirt_path"); b.set(4, 0, z, "air"); }   // garden path to the street
     }
 
     // ------------------------------------------------------------ Pell's Provisions (closed store)

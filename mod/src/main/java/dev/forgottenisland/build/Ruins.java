@@ -70,7 +70,7 @@ public final class Ruins implements Layout.Part {
         for (int x = SX + 3; x <= SX + 5; x++) for (int y = HY; y <= HY + 2; y++) echoDoor.closed().put(new BlockPos(x, y, SZ - 3), B.s("iron_bars"));
         var vault = Gates.add("vault_door", SoundEvents.BLOCK_PISTON_CONTRACT);
         for (int x = SX + 3; x <= SX + 5; x++) for (int y = HY; y <= HY + 2; y++) vault.closed().put(new BlockPos(x, y, SZ + 9), B.s("chiseled_polished_blackstone"));
-        var arena = Gates.add("arena", SoundEvents.BLOCK_IRON_DOOR_CLOSE);
+        var arena = Gates.addOpen("arena", SoundEvents.BLOCK_IRON_DOOR_CLOSE);
         for (int x = AX - 2; x <= AX + 2; x++) for (int y = AY; y <= AY + 3; y++) arena.closed().put(new BlockPos(x, y, AZ - AR - 1), B.s("iron_bars"));
         var sink = Gates.add("sinkhole", SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN);
         for (int x = -40; x <= -38; x++) for (int z = -64; z <= -62; z++) sink.closed().put(new BlockPos(x, Terrain.stand(-39, -63) - 1, z), B.s("iron_bars"));

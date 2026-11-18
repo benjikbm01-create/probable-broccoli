@@ -95,8 +95,8 @@
     {
      "from": 8000,
      "to": 11000,
-     "at": "tobias_tower",
-     "act": "stand"
+     "at": "quay_bench",
+     "act": "sit"
     },
     {
      "from": 11000,

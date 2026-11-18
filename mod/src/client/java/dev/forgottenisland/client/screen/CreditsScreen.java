@@ -65,7 +65,8 @@ public class CreditsScreen extends Screen {
         int w = Math.min(width - 40, 360);
         for (String[] l : lines) {
             if (l[0].equals("T")) {
-                var m = ctx.getMatrices(); m.push(); m.translate(width / 2f, y, 0); m.scale(2.5f, 2.5f, 1);
+                float sc = Math.min(2.5f, (width - 24f) / textRenderer.getWidth(Text.literal(l[1]).formatted(Formatting.BOLD)));
+                var m = ctx.getMatrices(); m.push(); m.translate(width / 2f, y, 0); m.scale(sc, sc, 1);
                 ctx.drawCenteredTextWithShadow(textRenderer, Text.literal(l[1]).formatted(Formatting.BOLD), 0, 0, 0xFFE8C170);
                 m.pop(); y += 30; continue;
             }

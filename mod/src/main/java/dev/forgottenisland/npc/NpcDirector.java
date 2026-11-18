@@ -104,7 +104,7 @@ public final class NpcDirector {
     private static void assign(IslandNpcEntity e, Content.ScheduleEntry entry, Places.P place) {
         e.activeKey = entry.at + "/" + entry.act;
         e.target = place; e.activity = entry.act; e.wanderRadius = Math.max(2, entry.r);
-        e.stuckTicks = 0; e.lastDist = Double.MAX_VALUE; e.wanderGoal = null;
+        e.stuckTicks = 0; e.noPath = 0; e.lastDist = Double.MAX_VALUE; e.wanderGoal = null;
         if (e.squaredDistanceTo(place.x(), place.y(), place.z()) > 2.5) e.standUp();
     }
 
@@ -125,7 +125,13 @@ public final class NpcDirector {
         }
         if (--e.repathTicks <= 0 || e.getNavigation().isIdle()) {
             e.repathTicks = 4;
-            if (!e.getNavigation().startMovingTo(t.x(), t.y(), t.z(), 0.55)) e.stuckTicks += 30;
+            boolean moving = e.getNavigation().startMovingTo(t.x(), t.y(), t.z(), 0.55);
+            var path = e.getNavigation().getCurrentPath();
+            if (!moving || (path != null && !path.reachesTarget() && path.getLength() <= 1)) {
+                e.noPath++;
+                if (e.noPath >= 3 && watcher > 6) { snap(e); return; }     // e.g. ladder-only rooftops
+                if (e.noPath >= 10) { snap(e); return; }
+            } else e.noPath = 0;
         }
     }
 

@@ -17,21 +17,35 @@ import java.util.*;
  */
 public final class Gates {
     private Gates() {}
-    public record Gate(String id, Map<BlockPos, BlockState> closed, SoundEvent sound) {}
+    public record Gate(String id, Map<BlockPos, BlockState> closed, SoundEvent sound, boolean defaultOpen) {}
     private static final Map<String, Gate> ALL = new LinkedHashMap<>();
 
     public static Gate add(String id, SoundEvent sound) {
-        Gate g = new Gate(id, new LinkedHashMap<>(), sound);
+        Gate g = new Gate(id, new LinkedHashMap<>(), sound, false);
+        ALL.put(id, g);
+        return g;
+    }
+    /** A gate that is open unless something (a boss fight) shuts it. */
+    public static Gate addOpen(String id, SoundEvent sound) {
+        Gate g = new Gate(id, new LinkedHashMap<>(), sound, true);
         ALL.put(id, g);
         return g;
     }
     public static Map<String, Gate> all() { Places.init(); return ALL; }
-    public static boolean isOpen(MinecraftServer s, String id) { return Game.state(s).flag("gate." + id); }
+    public static boolean isOpen(MinecraftServer s, String id) {
+        Gate g = all().get(id);
+        if (g != null && g.defaultOpen()) return !Game.state(s).flag("gate_shut." + id);
+        return Game.state(s).flag("gate." + id);
+    }
+    private static void mark(MinecraftServer s, Gate g, boolean open) {
+        if (g.defaultOpen()) { if (open) Game.state(s).clear("gate_shut." + g.id()); else Game.state(s).set("gate_shut." + g.id()); }
+        else { if (open) Game.state(s).set("gate." + g.id()); else Game.state(s).clear("gate." + g.id()); }
+    }
 
     public static void open(MinecraftServer s, String id) {
         Gate g = all().get(id);
         if (g == null) return;
-        Game.state(s).set("gate." + id);
+        mark(s, g, true);
         ServerWorld w = s.getOverworld();
         BlockPos center = null;
         for (BlockPos p : g.closed().keySet()) {
@@ -45,7 +59,7 @@ public final class Gates {
     public static void close(MinecraftServer s, String id) {
         Gate g = all().get(id);
         if (g == null) return;
-        Game.state(s).clear("gate." + id);
+        mark(s, g, false);
         ServerWorld w = s.getOverworld();
         g.closed().forEach((p, st) -> w.setBlockState(p, st, 2 | 16));
     }

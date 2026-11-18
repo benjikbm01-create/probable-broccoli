@@ -106,7 +106,7 @@ public final class Commands {
             .then(literal("boss")
                 .then(literal("start").executes(c -> { Story.startBoss(c.getSource().getPlayerOrThrow()); return ok(c, "boss start requested"); }))
                 .then(literal("abort").executes(c -> { Story.abortBoss(c.getSource().getServer()); return ok(c, "aborted"); }))
-                .then(literal("weak").executes(c -> { if (st(c).flag("dev_boss_weak")) st(c).clear("dev_boss_weak"); else st(c).set("dev_boss_weak"); return ok(c, "boss weak damage x10 (dev mode only): " + st(c).flag("dev_boss_weak")); })))
+                .then(literal("weak").executes(c -> { if (st(c).flag("dev_boss_weak")) st(c).clear("dev_boss_weak"); else st(c).set("dev_boss_weak"); return ok(c, "boss takes x10 damage (testing aid): " + st(c).flag("dev_boss_weak")); })))
             .then(literal("time").then(argument("when", StringArgumentType.string()).suggests((c, b) -> CommandSource.suggestMatching(List.of("morning", "noon", "evening", "night", "midnight"), b)).executes(c -> {
                 long t = switch (StringArgumentType.getString(c, "when")) { case "noon" -> 6000; case "evening" -> 11800; case "night" -> 14000; case "midnight" -> 18000; default -> 0; };
                 Story.setTime(c.getSource().getServer(), t); return ok(c, "time set");
@@ -134,6 +134,7 @@ public final class Commands {
             .then(literal("build").executes(c -> { Layout.buildAll(c.getSource()); return 1; })
                 .then(argument("part", StringArgumentType.string()).executes(c -> { Layout.build(c.getSource(), StringArgumentType.getString(c, "part")); return 1; })))
             .then(literal("map").executes(c -> { Layout.renderMap(c.getSource()); return 1; }))
+            .then(literal("dump").executes(c -> { dump(); return ok(c, "layout_dump.json written"); }))
             .then(literal("gamemode").executes(c -> {
                 ServerPlayerEntity p = c.getSource().getPlayerOrThrow();
                 p.changeGameMode(p.interactionManager.getGameMode() == GameMode.CREATIVE ? GameMode.ADVENTURE : GameMode.CREATIVE);
@@ -141,6 +142,27 @@ public final class Commands {
             }))
         );
     }
+
+    /** Exports places and puzzle anchors (used by the automated client playthrough). */
+    static void dump() {
+        com.google.gson.JsonObject j = new com.google.gson.JsonObject();
+        com.google.gson.JsonObject pl = new com.google.gson.JsonObject();
+        Places.all().forEach((k, p) -> { var a = new com.google.gson.JsonArray(); a.add(p.x()); a.add(p.y()); a.add(p.z()); a.add(p.yaw()); pl.add(k, a); });
+        j.add("places", pl);
+        var stones = new com.google.gson.JsonObject();
+        Puzzles.STONE_BUTTONS.forEach((pos, animal) -> stones.add(animal, arr(pos)));
+        j.add("stone_buttons", stones);
+        var mirrors = new com.google.gson.JsonArray();
+        for (int[] c : PuzzleLayouts.mirrorCells()) mirrors.add(arr(Puzzles.mirrorOrigin.add(c[0], 0, c[1])));
+        j.add("mirrors", mirrors);
+        j.add("slide_origin", arr(Puzzles.slideOrigin));
+        j.add("lantern", arr(Story.lanternBrazier));
+        var gates = new com.google.gson.JsonObject();
+        Gates.all().forEach((k, g) -> gates.add(k, arr(g.closed().keySet().iterator().next())));
+        j.add("gates", gates);
+        try (var w = new java.io.FileWriter("layout_dump.json")) { w.write(j.toString()); } catch (Exception e) { throw new RuntimeException(e); }
+    }
+    static com.google.gson.JsonArray arr(net.minecraft.util.math.BlockPos p) { var a = new com.google.gson.JsonArray(); a.add(p.getX()); a.add(p.getY()); a.add(p.getZ()); return a; }
 
     private static void refresh(CommandContext<ServerCommandSource> c) {
         for (ServerPlayerEntity p : c.getSource().getServer().getPlayerManager().getPlayerList()) Game.syncHud(p, true);

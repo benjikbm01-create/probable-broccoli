@@ -31,18 +31,18 @@ public final class Harbor implements Layout.Part {
         W.place("quay_bench", 84, 64, 149, 0);
         W.zone("arrival", 96, 60, 180, 114, 72, 202, p -> Game.state(p.getServer()).set("arrived"));
         W.zone("harbor", 56, 60, 126, 160, 80, 152, null);
-        HM.place("tobias_office", 4, 0, 4, 180);
+        HM.place("tobias_office", 4, 0, 5, 180);
         HM.place("tobias_desk", 6, 0, 2, 180);
         HM.place("tobias_bed", 2, 5, 2, 0);
-        HM.place("tobias_tower", 10, 14, 1, 0);
-        BH.place("sol_hull", 9, 0, 8, -90);
+        HM.place("tobias_tower", 10, 15, 2, 0);
+        BH.place("sol_hull", 13, 0, 9, 90);
         BH.place("sol_bench", 15, 0, 4, 90);
         BH.place("sol_bed", 16, 6, 3, 0);
         BH.place("sol_loft", 13, 6, 6, 0);
         W.place("fishmarket", 70, 64, 139, 0);
         W.place("warehouse_yard", 146, 64, 146, 0);
-        W.place("date_gullrock_player", 184, 85, 215, 200);
-        W.place("date_gullrock_sol", 186, 85, 216, 160);
+        W.place("date_gullrock_player", 184, Terrain.stand(184, 215), 215, 200);
+        W.place("date_gullrock_sol", 186, Terrain.stand(186, 216), 216, 160);
         W.zone("secret_smugglers_cache", 81, 54, 156, 85, 60, 161, p -> Secrets.discover(p, "smugglers_cache"));
         W.zone("wreck", 80, 45, 172, 96, 62, 194, null);
         W.zone("secret_gull_rock", 181, 84, 213, 191, 92, 223, p -> Secrets.discover(p, "gull_rock"));
@@ -416,10 +416,10 @@ public final class Harbor implements Layout.Part {
             b.wset(x, y, z, Pal.of("stone:3", "andesite:2", "mossy_cobblestone:1").pick(x, y, z));
             b.wset(x, y + 1, z, B.s("air")); b.wset(x, y + 2, z, B.s("air"));
         }
-        b.wset(186, 85, 218, B.s("hay_block")); b.wset(187, 85, 218, B.s("hay_block"));
-        b.wset(185, 85, 219, B.s("lily_of_the_valley"));
-        b.wset(185, 84, 219, B.s("grass_block"));
-        new B(b.w, 0, 0, 0, 0).container(187, 85, 217, "barrel[facing=up]", "fi:sea_lily", "minecraft:feather*6");
+        int g1 = Kit.topSolid(b, 186, 218) + 1, g2 = Kit.topSolid(b, 185, 219), g3 = Kit.topSolid(b, 187, 217) + 1;
+        b.wset(186, g1, 218, B.s("hay_block"));
+        b.wset(185, g2, 219, B.s("grass_block")); b.wset(185, g2 + 1, 219, B.s("lily_of_the_valley"));
+        new B(b.w, 0, 0, 0, 0).container(187, g3, 217, "barrel[facing=up]", "fi:sea_lily", "minecraft:feather*6");
     }
 
     static void smugglersCache(B b) {

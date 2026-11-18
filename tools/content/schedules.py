@@ -11,7 +11,7 @@ SCHEDULES = {
                          E(23500, 24000, "hester_kitchen", "work")],
              "overrides": [FEST("festival_hester"), {"if": "lantern_lit && !festival", "entries": [E(0, 24000, "inn_door", "stand")]}]},
   "tobias": {"entries": [E(0, 2000, "tobias_office", "work"), E(2000, 6000, "tobias_pier", "stand"), E(6000, 8000, "harbor_front", "wander", 5),
-                         E(8000, 11000, "tobias_tower", "stand"), E(11000, 14000, "tobias_inn", "sit"), E(14000, 24000, "tobias_bed", "sleep")],
+                         E(8000, 11000, "quay_bench", "sit"), E(11000, 14000, "tobias_inn", "sit"), E(14000, 24000, "tobias_bed", "sleep")],
              "overrides": [{"if": "intro_done && !met.tobias", "entries": [E(0, 24000, "tobias_greet", "stand")]}, FEST("festival_tobias"),
                            {"if": "lantern_lit && !festival", "entries": [E(0, 24000, "pier_end", "stand")]}]},
   "wendel": {"entries": [E(0, 4000, "wendel_shore", "wander", 4), E(4000, 7000, "wendel_bench", "sit"), E(7000, 9000, "maud_grave", "stand"),

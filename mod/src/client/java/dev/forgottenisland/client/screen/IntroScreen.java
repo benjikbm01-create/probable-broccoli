@@ -44,7 +44,8 @@ public class IntroScreen extends Screen {
         var m = ctx.getMatrices();
         m.push();
         m.translate(width / 2f, 26, 0);
-        m.scale(3f, 3f, 1f);
+        float sc = Math.min(3f, (width - 24f) / textRenderer.getWidth(Text.literal("The Forgotten Island").formatted(Formatting.BOLD)));
+        m.scale(sc, sc, 1f);
         ctx.drawCenteredTextWithShadow(textRenderer, Text.literal("The Forgotten Island").formatted(Formatting.BOLD), 0, 0, a | 0xE8C170);
         m.pop();
         ctx.drawCenteredTextWithShadow(textRenderer, Text.literal("a short adventure on the Isle of Ysmere").formatted(Formatting.ITALIC), width / 2, 60, a | 0xA8A090);
