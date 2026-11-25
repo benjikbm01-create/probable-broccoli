@@ -1,3 +1,5 @@
+> **New: Void Outlaws** (multiplayer space-outlaw mod for 1.21.1) lives in [`void-outlaws/`](void-outlaws/README.md).
+
 # The Forgotten Island
 
 *A complete, handcrafted single-player adventure for **Minecraft Java Edition 1.21.1** (Fabric).*

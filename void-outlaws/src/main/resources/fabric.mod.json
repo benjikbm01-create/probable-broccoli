@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "voidoutlaws",
+  "version": "${version}",
+  "name": "Void Outlaws",
+  "description": "A multiplayer space-outlaw adventure: one crew, one ship, too much Heat.",
+  "authors": ["Void Outlaws crew"],
+  "license": "MIT",
+  "icon": "assets/voidoutlaws/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.voidoutlaws.VoidOutlaws"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
